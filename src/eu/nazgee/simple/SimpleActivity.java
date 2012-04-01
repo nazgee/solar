@@ -5,17 +5,33 @@ import org.andengine.engine.options.EngineOptions;
 import org.andengine.engine.options.EngineOptions.ScreenOrientation;
 import org.andengine.engine.options.resolutionpolicy.RatioResolutionPolicy;
 import org.andengine.entity.scene.Scene;
-import org.andengine.entity.scene.background.Background;
+import org.andengine.entity.scene.menu.MenuScene;
+import org.andengine.entity.scene.menu.MenuScene.IOnMenuItemClickListener;
+import org.andengine.entity.scene.menu.item.IMenuItem;
 import org.andengine.entity.sprite.Sprite;
 import org.andengine.entity.util.FPSLogger;
+import org.andengine.opengl.font.Font;
+import org.andengine.opengl.font.FontFactory;
+import org.andengine.opengl.font.FontManager;
+import org.andengine.opengl.texture.ITexture;
+import org.andengine.opengl.texture.TextureManager;
 import org.andengine.opengl.texture.TextureOptions;
 import org.andengine.opengl.texture.atlas.bitmap.BitmapTextureAtlas;
 import org.andengine.opengl.texture.atlas.bitmap.BitmapTextureAtlasTextureRegionFactory;
+import org.andengine.opengl.texture.atlas.bitmap.BuildableBitmapTextureAtlas;
 import org.andengine.opengl.texture.region.ITextureRegion;
 import org.andengine.ui.activity.SimpleAsyncGameActivity;
+import org.andengine.ui.activity.SimpleBaseGameActivity;
+import org.andengine.util.color.Color;
 import org.andengine.util.progress.IProgressListener;
 
-public class SimpleActivity extends SimpleAsyncGameActivity {
+import eu.nazgee.game.utils.helpers.AtlasLoader;
+import eu.nazgee.game.utils.scene.SceneLoadable;
+import eu.nazgee.game.utils.scene.SceneLoader;
+import eu.nazgee.game.utils.scene.SceneLoading;
+import eu.nazgee.game.utils.scene.SceneSplash;
+
+public class SimpleActivity extends SimpleBaseGameActivity implements IOnMenuItemClickListener, SceneMain.GameHandler{
 	// ===========================================================
 	// Constants
 	// ===========================================================
@@ -27,8 +43,12 @@ public class SimpleActivity extends SimpleAsyncGameActivity {
 	// Fields
 	// ===========================================================
 
-	private BitmapTextureAtlas mBitmapTextureAtlas;
-	private ITextureRegion mFaceTextureRegion;
+	private ITextureRegion mAETextureRegion;
+	private ITextureRegion mNazgeeTextureRegion;
+	private Font mFont;
+	private MenuMain mMainMenu;
+	private SceneMain mSceneMain;
+	private SceneLoader mLoader;
 
 	// ===========================================================
 	// Constructors
@@ -41,7 +61,6 @@ public class SimpleActivity extends SimpleAsyncGameActivity {
 	// ===========================================================
 	// Methods for/from SuperClass/Interfaces
 	// ===========================================================
-
 	@Override
 	public EngineOptions onCreateEngineOptions() {
 		final Camera camera = new Camera(0, 0, SimpleActivity.CAMERA_WIDTH, SimpleActivity.CAMERA_HEIGHT);
@@ -50,46 +69,75 @@ public class SimpleActivity extends SimpleAsyncGameActivity {
 	}
 
 	@Override
-	public void onCreateResourcesAsync(final IProgressListener pProgressListener) throws Exception {
-		/* Comfortably load the resources asynchronously, adding artificial pauses between each step. */
-		pProgressListener.onProgressChanged(0);
-		Thread.sleep(1000);
-		pProgressListener.onProgressChanged(20);
+	protected void onCreateResources() {
 		BitmapTextureAtlasTextureRegionFactory.setAssetBasePath("gfx/");
-		Thread.sleep(1000);
-		this.mBitmapTextureAtlas = new BitmapTextureAtlas(this.getTextureManager(), 32, 32, TextureOptions.BILINEAR);
-		pProgressListener.onProgressChanged(40);
-		Thread.sleep(1000);
-		this.mFaceTextureRegion = BitmapTextureAtlasTextureRegionFactory.createFromAsset(SimpleActivity.this.mBitmapTextureAtlas, SimpleActivity.this, "face_box.png", 0, 0);
-		pProgressListener.onProgressChanged(60);
-		Thread.sleep(1000);
-		this.mBitmapTextureAtlas.load();
-		pProgressListener.onProgressChanged(80);
-		Thread.sleep(1000);
-		pProgressListener.onProgressChanged(100);
+		FontFactory.setAssetBasePath("font/");
+		final TextureManager textureManager = getTextureManager();
+		final FontManager fontManager = getFontManager();
+
+		BuildableBitmapTextureAtlas atlas = new BuildableBitmapTextureAtlas(textureManager, 512, 512);
+		this.mAETextureRegion = BitmapTextureAtlasTextureRegionFactory.createFromAsset(atlas, SimpleActivity.this, "ae.png");
+		this.mNazgeeTextureRegion = BitmapTextureAtlasTextureRegionFactory.createFromAsset(atlas, SimpleActivity.this, "nazgee.png");
+		AtlasLoader.buildAndLoad(atlas);
+
+		final ITexture textureFontHud = new BitmapTextureAtlas(textureManager, 256, 256, TextureOptions.BILINEAR);
+		this.mFont = FontFactory.createFromAsset(fontManager, textureFontHud, getAssets(), "F-Rotten.ttf", CAMERA_HEIGHT*0.15f, true, Color.WHITE.getARGBPackedInt());
+		this.mFont.load();
 	}
 
 	@Override
-	public Scene onCreateSceneAsync(final IProgressListener pProgressListener) throws Exception {
+	protected Scene onCreateScene() {
 		this.mEngine.registerUpdateHandler(new FPSLogger());
 
-		final Scene scene = new Scene();
-		scene.setBackground(new Background(0.09804f, 0.6274f, 0.8784f));
+		// Create "Loading..." scene that will be used for all loading-related activities
+		SceneLoading loadingScene = new SceneLoading(CAMERA_WIDTH, CAMERA_HEIGHT, mFont, getVertexBufferObjectManager());
 
-		return scene;
+		// Prepare loader, that will be used for all loading-related activities (besides splash-screen)
+		mLoader = new SceneLoader(loadingScene, getEngine(), this);
+		mLoader.setLoadingSceneShow(true).setLoadingSceneUnload(false);
+
+		// Prepare a splash screen- first scene even shown
+		final SceneSplash splash = new SceneSplash(CAMERA_WIDTH, CAMERA_HEIGHT, Color.BLACK, 2, mFont, getVertexBufferObjectManager());
+		splash.addSplashScreen(new Sprite(0, 0, mAETextureRegion, getVertexBufferObjectManager()));
+		splash.addSplashScreen(new Sprite(0, 0, mNazgeeTextureRegion, getVertexBufferObjectManager()));
+
+		// Prepare loader, that will load the first scene, while showing splash-screen
+		SceneLoader loader = new SceneLoader(splash, getEngine(), this);
+		loader.setLoadingSceneShow(false).setLoadingSceneUnload(true);
+
+		// Start loading the first scene
+		mMainMenu = new MenuMain(CAMERA_WIDTH, CAMERA_HEIGHT, getEngine().getCamera(), mFont, getVertexBufferObjectManager());
+		mMainMenu.setOnMenuItemClickListener(this);
+		loader.loadScene(mMainMenu, getEngine(), this, null);
+
+		// Show splash screen
+		return splash;
 	}
 
 	@Override
-	public void onPopulateSceneAsync(final Scene pScene, final IProgressListener pProgressListener) throws Exception {
-		/* Calculate the coordinates for the face, so its centered on the camera. */
-		final float centerX = (SimpleActivity.CAMERA_WIDTH - this.mFaceTextureRegion.getWidth()) / 2;
-		final float centerY = (SimpleActivity.CAMERA_HEIGHT - this.mFaceTextureRegion.getHeight()) / 2;
-
-		/* Create the face and add it to the scene. */
-		final Sprite face = new Sprite(centerX, centerY, this.mFaceTextureRegion, this.getVertexBufferObjectManager());
-		pScene.attachChild(face);
+	public boolean onMenuItemClicked(MenuScene pMenuScene, IMenuItem pMenuItem,
+			float pMenuItemLocalX, float pMenuItemLocalY) {
+		if (pMenuScene == mMainMenu) {
+			switch (pMenuItem.getID()) {
+			case MenuMain.MENU_QUIT:
+				this.finish();
+				break;
+			case MenuMain.MENU_GO:
+				mSceneMain = new SceneMain(CAMERA_WIDTH, CAMERA_HEIGHT, getVertexBufferObjectManager(), this);
+				mLoader.loadScene(mSceneMain, getEngine(), SimpleActivity.this, null);
+				break;
+			default:
+				break;
+			}
+		}
+		return false;
 	}
 
+	@Override
+	public void onFinished() {
+		// Go back to main menu, when game is finished
+		mLoader.loadScene(mMainMenu, getEngine(), SimpleActivity.this, null);
+	}
 	// ===========================================================
 	// Methods
 	// ===========================================================
