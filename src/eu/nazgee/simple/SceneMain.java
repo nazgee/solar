@@ -55,6 +55,12 @@ public class SceneMain extends SceneLoadable {
 			}
 		});
 		registerUpdateHandler(timer);
+
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e1) {
+			e1.printStackTrace();
+		}
 	}
 
 	@Override

@@ -33,6 +33,11 @@ public class MenuMain extends SceneTextmenu {
 
 	@Override
 	public void onLoad(Engine e, Context c) {
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e1) {
+			e1.printStackTrace();
+		}
 		reset();
 	}
 

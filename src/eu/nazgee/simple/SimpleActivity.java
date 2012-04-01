@@ -1,6 +1,8 @@
 package eu.nazgee.simple;
 
 import org.andengine.engine.camera.Camera;
+import org.andengine.engine.handler.timer.ITimerCallback;
+import org.andengine.engine.handler.timer.TimerHandler;
 import org.andengine.engine.options.EngineOptions;
 import org.andengine.engine.options.EngineOptions.ScreenOrientation;
 import org.andengine.engine.options.resolutionpolicy.RatioResolutionPolicy;
@@ -28,6 +30,7 @@ import org.andengine.util.progress.IProgressListener;
 import eu.nazgee.game.utils.helpers.AtlasLoader;
 import eu.nazgee.game.utils.scene.SceneLoadable;
 import eu.nazgee.game.utils.scene.SceneLoader;
+import eu.nazgee.game.utils.scene.SceneLoader.ISceneLoaderListener;
 import eu.nazgee.game.utils.scene.SceneLoading;
 import eu.nazgee.game.utils.scene.SceneSplash;
 
@@ -136,7 +139,19 @@ public class SimpleActivity extends SimpleBaseGameActivity implements IOnMenuIte
 	@Override
 	public void onFinished() {
 		// Go back to main menu, when game is finished
-		mLoader.loadScene(mMainMenu, getEngine(), SimpleActivity.this, null);
+		mLoader.loadScene(mMainMenu, getEngine(), SimpleActivity.this, new ISceneLoaderListener() {
+			@Override
+			public void onSceneLoaded(Scene pScene) {
+				TimerHandler timer = new TimerHandler(3, new ITimerCallback() {
+					@Override
+					public void onTimePassed(TimerHandler pTimerHandler) {
+						mSceneMain = new SceneMain(CAMERA_WIDTH, CAMERA_HEIGHT, getVertexBufferObjectManager(), SimpleActivity.this);
+						mLoader.loadScene(mSceneMain, getEngine(), SimpleActivity.this, null);
+					}
+				});
+				pScene.registerUpdateHandler(timer);
+			}
+		});
 	}
 	// ===========================================================
 	// Methods
