@@ -11,9 +11,9 @@ import org.andengine.opengl.vbo.VertexBufferObjectManager;
 import org.andengine.util.color.Color;
 
 import android.content.Context;
-import eu.nazgee.game.utils.scene.SceneTextmenu;
+import eu.nazgee.game.utils.scene.menu.SceneMenu;
 
-public class MenuMain extends SceneTextmenu {
+public class MenuMain extends SceneMenu {
 	private final MyResources mResources = new MyResources();
 	public static final int MENU_GO = 0;
 	public static final int MENU_QUIT = 1;

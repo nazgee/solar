@@ -4,7 +4,7 @@ import org.andengine.engine.camera.Camera;
 import org.andengine.engine.handler.timer.ITimerCallback;
 import org.andengine.engine.handler.timer.TimerHandler;
 import org.andengine.engine.options.EngineOptions;
-import org.andengine.engine.options.EngineOptions.ScreenOrientation;
+import org.andengine.engine.options.ScreenOrientation;
 import org.andengine.engine.options.resolutionpolicy.RatioResolutionPolicy;
 import org.andengine.entity.scene.Scene;
 import org.andengine.entity.scene.menu.MenuScene;
@@ -22,15 +22,13 @@ import org.andengine.opengl.texture.atlas.bitmap.BitmapTextureAtlas;
 import org.andengine.opengl.texture.atlas.bitmap.BitmapTextureAtlasTextureRegionFactory;
 import org.andengine.opengl.texture.atlas.bitmap.BuildableBitmapTextureAtlas;
 import org.andengine.opengl.texture.region.ITextureRegion;
-import org.andengine.ui.activity.SimpleAsyncGameActivity;
 import org.andengine.ui.activity.SimpleBaseGameActivity;
 import org.andengine.util.color.Color;
-import org.andengine.util.progress.IProgressListener;
 
 import eu.nazgee.game.utils.helpers.AtlasLoader;
-import eu.nazgee.game.utils.scene.SceneLoadable;
 import eu.nazgee.game.utils.scene.SceneLoader;
 import eu.nazgee.game.utils.scene.SceneLoader.ISceneLoaderListener;
+import eu.nazgee.game.utils.scene.SceneLoader.eLoadingSceneHandling;
 import eu.nazgee.game.utils.scene.SceneLoading;
 import eu.nazgee.game.utils.scene.SceneSplash;
 
@@ -93,11 +91,11 @@ public class SimpleActivity extends SimpleBaseGameActivity implements IOnMenuIte
 		this.mEngine.registerUpdateHandler(new FPSLogger());
 
 		// Create "Loading..." scene that will be used for all loading-related activities
-		SceneLoading loadingScene = new SceneLoading(CAMERA_WIDTH, CAMERA_HEIGHT, mFont, getVertexBufferObjectManager());
+		SceneLoading loadingScene = new SceneLoading(CAMERA_WIDTH, CAMERA_HEIGHT, mFont, "Loading...", getVertexBufferObjectManager());
 
 		// Prepare loader, that will be used for all loading-related activities (besides splash-screen)
 		mLoader = new SceneLoader(loadingScene, getEngine(), this);
-		mLoader.setLoadingSceneShow(true).setLoadingSceneUnload(false);
+		mLoader.setLoadingSceneHandling(eLoadingSceneHandling.SCENE_SET_ACTIVE).setLoadingSceneUnload(false);
 
 		// Prepare a splash screen- first scene even shown
 		final SceneSplash splash = new SceneSplash(CAMERA_WIDTH, CAMERA_HEIGHT, Color.BLACK, 2, mFont, getVertexBufferObjectManager());
@@ -106,7 +104,7 @@ public class SimpleActivity extends SimpleBaseGameActivity implements IOnMenuIte
 
 		// Prepare loader, that will load the first scene, while showing splash-screen
 		SceneLoader loader = new SceneLoader(splash, getEngine(), this);
-		loader.setLoadingSceneShow(false).setLoadingSceneUnload(true);
+		loader.setLoadingSceneHandling(eLoadingSceneHandling.SCENE_DONT_TOUCH).setLoadingSceneUnload(true);
 
 		// Start loading the first scene
 		mMainMenu = new MenuMain(CAMERA_WIDTH, CAMERA_HEIGHT, getEngine().getCamera(), mFont, getVertexBufferObjectManager());
