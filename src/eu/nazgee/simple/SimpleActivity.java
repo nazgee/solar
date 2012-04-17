@@ -12,6 +12,10 @@ import org.andengine.entity.scene.menu.MenuScene.IOnMenuItemClickListener;
 import org.andengine.entity.scene.menu.item.IMenuItem;
 import org.andengine.entity.sprite.Sprite;
 import org.andengine.entity.util.FPSLogger;
+import org.andengine.input.sensor.SensorDelay;
+import org.andengine.input.sensor.acceleration.AccelerationData;
+import org.andengine.input.sensor.acceleration.AccelerationSensorOptions;
+import org.andengine.input.sensor.acceleration.IAccelerationListener;
 import org.andengine.opengl.font.Font;
 import org.andengine.opengl.font.FontFactory;
 import org.andengine.opengl.font.FontManager;
@@ -25,6 +29,16 @@ import org.andengine.opengl.texture.region.ITextureRegion;
 import org.andengine.ui.activity.SimpleBaseGameActivity;
 import org.andengine.util.color.Color;
 
+import android.content.Context;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
+import android.location.LocationManager;
+import android.util.Log;
+import android.view.Display;
+import android.view.WindowManager;
+
 import eu.nazgee.game.utils.helpers.AtlasLoader;
 import eu.nazgee.game.utils.scene.SceneLoader;
 import eu.nazgee.game.utils.scene.SceneLoader.ISceneLoaderListener;
@@ -32,7 +46,7 @@ import eu.nazgee.game.utils.scene.SceneLoader.eLoadingSceneHandling;
 import eu.nazgee.game.utils.scene.SceneLoading;
 import eu.nazgee.game.utils.scene.SceneSplash;
 
-public class SimpleActivity extends SimpleBaseGameActivity implements IOnMenuItemClickListener, SceneMain.GameHandler{
+public class SimpleActivity extends SimpleBaseGameActivity implements IOnMenuItemClickListener, SceneMain.GameHandler, SensorEventListener{
 	// ===========================================================
 	// Constants
 	// ===========================================================
@@ -136,6 +150,7 @@ public class SimpleActivity extends SimpleBaseGameActivity implements IOnMenuIte
 
 	@Override
 	public void onFinished() {
+		disableLightSensor();
 		// Go back to main menu, when game is finished
 		mLoader.loadScene(mMainMenu, getEngine(), SimpleActivity.this, new ISceneLoaderListener() {
 			@Override
@@ -144,18 +159,73 @@ public class SimpleActivity extends SimpleBaseGameActivity implements IOnMenuIte
 					@Override
 					public void onTimePassed(TimerHandler pTimerHandler) {
 						mSceneMain = new SceneMain(CAMERA_WIDTH, CAMERA_HEIGHT, getVertexBufferObjectManager(), SimpleActivity.this);
-						mLoader.loadScene(mSceneMain, getEngine(), SimpleActivity.this, null);
+						mLoader.loadScene(mSceneMain, getEngine(), SimpleActivity.this, new ISceneLoaderListener() {
+							@Override
+							public void onSceneLoaded(Scene pScene) {
+								if (!enableLightSensor()) {
+									Log.e(getPackageName(), "light sensor is NOT supported!");
+								} else {
+									Log.i(getPackageName(), "light sensor is supported");
+								}
+							}
+						});
 					}
 				});
 				pScene.registerUpdateHandler(timer);
 			}
 		});
 	}
+
 	// ===========================================================
 	// Methods
 	// ===========================================================
+	public boolean enableLightSensor() {
+		final SensorManager sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+		if(this.isSensorSupported(sensorManager, Sensor.TYPE_LIGHT)) {
+			this.registerSelfAsSensorListener(sensorManager, Sensor.TYPE_LIGHT, SensorManager.SENSOR_DELAY_GAME);
+			return true;
+		} else {
+			return false;
+		}
+	}
 
+	public boolean disableLightSensor() {
+		final SensorManager sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+		if(this.isSensorSupported(sensorManager, Sensor.TYPE_LIGHT)) {
+			this.unregisterSelfAsSensorListener(sensorManager, Sensor.TYPE_LIGHT);
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	private boolean isSensorSupported(final SensorManager pSensorManager, final int pType) {
+		return pSensorManager.getSensorList(pType).size() > 0;
+	}
+
+	private void registerSelfAsSensorListener(final SensorManager pSensorManager, final int pType, final int pSensorDelay) {
+		final Sensor sensor = pSensorManager.getSensorList(pType).get(0);
+		pSensorManager.registerListener(this, sensor, pSensorDelay);
+	}
+
+	private void unregisterSelfAsSensorListener(final SensorManager pSensorManager, final int pType) {
+		final Sensor sensor = pSensorManager.getSensorList(pType).get(0);
+		pSensorManager.unregisterListener(this, sensor);
+	}
 	// ===========================================================
 	// Inner and Anonymous Classes
 	// ===========================================================
+
+	@Override
+	public void onAccuracyChanged(Sensor sensor, int accuracy) {
+	}
+
+	@Override
+	public void onSensorChanged(SensorEvent pEvent) {
+		switch(pEvent.sensor.getType()) {
+			case Sensor.TYPE_LIGHT:
+				Log.e("changed!", "val0=" + pEvent.values[0] + "val1=" + pEvent.values[1] + "val2=" + pEvent.values[2]);
+				break;
+		}
+	}
 }

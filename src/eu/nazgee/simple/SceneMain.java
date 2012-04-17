@@ -10,10 +10,12 @@ import org.andengine.entity.sprite.Sprite;
 import org.andengine.opengl.texture.atlas.bitmap.BitmapTextureAtlasTextureRegionFactory;
 import org.andengine.opengl.texture.atlas.bitmap.BuildableBitmapTextureAtlas;
 import org.andengine.opengl.texture.region.ITextureRegion;
+import org.andengine.opengl.texture.region.TiledTextureRegion;
 import org.andengine.opengl.vbo.VertexBufferObjectManager;
 
 import android.content.Context;
 import eu.nazgee.game.utils.helpers.AtlasLoader;
+import eu.nazgee.game.utils.helpers.TiledTextureRegionFactory;
 import eu.nazgee.game.utils.scene.SceneLoadable;
 
 public class SceneMain extends SceneLoadable {
@@ -40,15 +42,32 @@ public class SceneMain extends SceneLoadable {
 
 	@Override
 	public void onLoad(Engine e, Context c) {
+		// create panels
+		Sprite mPanels[] = new Sprite[mResources.TEXS_PANELS.getTileCount()];
+		for (int i = 0; i < mPanels.length; i++) {
+			mPanels[i] = new Sprite(0, 0, getW()/2, getH()/2, mResources.TEXS_PANELS.getTextureRegion(i), getVertexBufferObjectManager());
+		}
+		
+		// position panels
+		mPanels[0].setPosition(0, 0);
+		mPanels[1].setPosition(getW()/2, 0);
+		mPanels[2].setPosition(0, getH()/2);
+		mPanels[3].setPosition(getW()/2, getH()/2);
+		
+		// attach panels
+		for (Sprite panel : mPanels) {
+			attachChild(panel);
+		}
+
 		Random r = new Random();
-		for (int i = 0; i < 100; i++) {
+		for (int i = 0; i < 10; i++) {
 			Sprite s = new Sprite(getW() * r.nextFloat(),
 					getH() * r.nextFloat(), mResources.TEX_SHOCKWAVE, getVertexBufferObjectManager());
 			s.registerEntityModifier(new ScaleModifier(1 + 10 * r.nextFloat(), 2 * r.nextFloat() + 0.5f, 2 * r.nextFloat()));
 			attachChild(s);
 		}
 
-		TimerHandler timer = new TimerHandler(3, new ITimerCallback() {
+		TimerHandler timer = new TimerHandler(10, new ITimerCallback() {
 			@Override
 			public void onTimePassed(TimerHandler pTimerHandler) {
 				mGameHandler.onFinished();
@@ -72,22 +91,30 @@ public class SceneMain extends SceneLoadable {
 
 	private static class MyResources extends Resources {
 		public ITextureRegion TEX_SHOCKWAVE;
-		private BuildableBitmapTextureAtlas mAtlas;
+		public TiledTextureRegion TEXS_PANELS;
+		private BuildableBitmapTextureAtlas mAtlases[] = new BuildableBitmapTextureAtlas[2];
 
 		@Override
 		public void onLoadResources(Engine e, Context c) {
-			mAtlas = new BuildableBitmapTextureAtlas(e.getTextureManager(), 512, 512);
-			TEX_SHOCKWAVE = BitmapTextureAtlasTextureRegionFactory.createFromAsset(mAtlas, c, "shockwave.png");
+			mAtlases[0] = new BuildableBitmapTextureAtlas(e.getTextureManager(), 512, 512);
+			mAtlases[1] = new BuildableBitmapTextureAtlas(e.getTextureManager(), 1024, 1024);
+			BuildableBitmapTextureAtlas atlasRest = mAtlases[0];
+			BuildableBitmapTextureAtlas atlasPanels = mAtlases[1];
+
+			TEX_SHOCKWAVE = BitmapTextureAtlasTextureRegionFactory.createFromAsset(atlasRest, c, "shockwave.png");
+			TEXS_PANELS = TiledTextureRegionFactory.loadTiles(c, "gfx/", "panels", atlasPanels);
 		}
 
 		@Override
 		public void onLoad(Engine e, Context c) {
-			AtlasLoader.buildAndLoad(mAtlas);
+			AtlasLoader.buildAndLoad(mAtlases);
 		}
 
 		@Override
 		public void onUnload() {
-			mAtlas.unload();
+			for (BuildableBitmapTextureAtlas atlas : mAtlases) {
+				atlas.unload();
+			}
 		}
 	}
 
