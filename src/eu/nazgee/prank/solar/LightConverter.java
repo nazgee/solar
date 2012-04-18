@@ -1,12 +1,10 @@
 package eu.nazgee.prank.solar;
 
 import org.andengine.util.adt.queue.CircularQueue;
-import org.andengine.util.math.MathUtils;
 
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
-import android.util.FloatMath;
 import android.util.Log;
 
 public class LightConverter implements SensorEventListener{
@@ -87,7 +85,7 @@ public class LightConverter implements SensorEventListener{
 			mMax = Math.max(pValue, mMax);
 			mMin = Math.min(pValue, mMin);
 			mSamples.enter(new StatEntry(pValue));
-			Log.e(getClass().getSimpleName(), "min=" + mMin + "; max=" + mMax + "; val=" + pValue);
+			Log.d(getClass().getSimpleName(), "min=" + mMin + "; max=" + mMax + "; val=" + pValue);
 		}
 		
 		synchronized public float getMax() {
@@ -114,7 +112,7 @@ public class LightConverter implements SensorEventListener{
 				valSoFar += stat.getValue() * time;
 				prevStat = stat;
 
-				Log.e(getClass().getSimpleName(), "i=" + i + "; timeSoFar=" + timeSoFar + "; valSoFar=" + valSoFar);
+				Log.d(getClass().getSimpleName(), "i=" + i + "; timeSoFar=" + timeSoFar + "; valSoFar=" + valSoFar);
 				if (bailEarly) {
 					break;
 				}

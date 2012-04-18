@@ -1,9 +1,9 @@
 package eu.nazgee.prank.solar;
 
-import java.util.Random;
-
 import org.andengine.engine.Engine;
-import org.andengine.entity.modifier.ScaleModifier;
+import org.andengine.engine.handler.timer.ITimerCallback;
+import org.andengine.engine.handler.timer.TimerHandler;
+import org.andengine.entity.modifier.AlphaModifier;
 import org.andengine.entity.sprite.Sprite;
 import org.andengine.entity.text.AutoWrap;
 import org.andengine.entity.text.Text;
@@ -20,6 +20,7 @@ import org.andengine.opengl.texture.region.TiledTextureRegion;
 import org.andengine.opengl.vbo.VertexBufferObjectManager;
 import org.andengine.util.HorizontalAlign;
 import org.andengine.util.color.Color;
+import org.andengine.util.modifier.ease.EaseBounceOut;
 
 import android.content.Context;
 import android.util.Log;
@@ -33,7 +34,9 @@ public class SceneMain extends SceneLoadable implements LightFeedback {
 
 	MyResources mResources = new MyResources();
 	private Sprite mPanels[];
-	private Text mText;
+	private Text mTextStatus;
+	private Text mTextPercent;
+	private Text mTextBar;
 
 	private SceneMain(VertexBufferObjectManager pVertexBufferObjectManager) {
 		super(pVertexBufferObjectManager);
@@ -68,9 +71,19 @@ public class SceneMain extends SceneLoadable implements LightFeedback {
 			attachChild(panel);
 		}
 
-		mText = new Text(0, 0, mResources.FONT, "", 50, new TextOptions(AutoWrap.WORDS, getW(), Text.LEADING_DEFAULT, HorizontalAlign.CENTER), getVertexBufferObjectManager());
-		mText.setAlpha(0.5f);
-		attachChild(mText);
+		final float alpha = 0.8f;
+
+		mTextStatus = new Text(0, 0, mResources.FONT, "CALIBRATING...", 50, new TextOptions(AutoWrap.NONE, getW(), Text.LEADING_DEFAULT, HorizontalAlign.CENTER), getVertexBufferObjectManager());
+		mTextStatus.setAlpha(alpha);
+		attachChild(mTextStatus);
+
+		mTextPercent = new Text(0, mTextStatus.getHeight(), mResources.FONT, "100%", 50, new TextOptions(AutoWrap.NONE, getW(), Text.LEADING_DEFAULT, HorizontalAlign.CENTER), getVertexBufferObjectManager());
+		mTextPercent.setAlpha(alpha);
+		attachChild(mTextPercent);
+
+		mTextBar = new Text(mTextPercent.getWidth(), mTextStatus.getHeight(), mResources.FONT, "", 50, new TextOptions(AutoWrap.NONE, getW() - mTextPercent.getWidth(), Text.LEADING_DEFAULT, HorizontalAlign.LEFT), getVertexBufferObjectManager());
+		mTextBar.setAlpha(alpha);
+		attachChild(mTextBar);
 
 //		Random r = new Random();
 //		for (int i = 0; i < 10; i++) {
@@ -79,6 +92,13 @@ public class SceneMain extends SceneLoadable implements LightFeedback {
 //			s.registerEntityModifier(new ScaleModifier(1 + 10 * r.nextFloat(), 2 * r.nextFloat() + 0.5f, 2 * r.nextFloat()));
 //			attachChild(s);
 //		}
+		
+		this.registerUpdateHandler(new TimerHandler(5, new ITimerCallback() {
+			@Override
+			public void onTimePassed(TimerHandler pTimerHandler) {
+				setStatus("CHARGING...");
+			}
+		}));
 	}
 
 	@Override
@@ -122,13 +142,40 @@ public class SceneMain extends SceneLoadable implements LightFeedback {
 		}
 	}
 
+	private void setProgressBar(final float pValue) {
+		final float w = mResources.FONT.getLetter('-').mWidth / (mTextBar.getAutoWrapWidth());
+		final int count = (int) (pValue / w);
+		String s = "";
+		for(int i = 0; i < (count-1); i++) {
+			s += "-";
+		}
+		s += "+";
+		mTextBar.setText(s);
+	}
+
+	private void setStatus(String pStatus) {
+		mTextStatus.setText(pStatus);
+	}
+
+	private void setLightPanels(final float pValue, final float pTime) {
+		for (int i = 0; i < mPanels.length; i++) {
+			Sprite panel = mPanels[i];
+			panel.clearEntityModifiers();
+
+			if (((float)i)/(float)mPanels.length < pValue) {
+				panel.registerEntityModifier(new AlphaModifier(pTime/2, panel.getAlpha(), 1, EaseBounceOut.getInstance()));
+			} else {
+				panel.registerEntityModifier(new AlphaModifier(pTime, panel.getAlpha(), 0.5f));
+			}
+		}
+	}
+	
 	@Override
 	public void setLightLevel(float pValue) {
-		Log.e(getClass().getSimpleName(), "pLevel=" + pValue);
-		for (Sprite panel : mPanels) {
-			panel.setAlpha(pValue);
-		}
-		mText.setText((int)(pValue * 100) + "%");
+		Log.d(getClass().getSimpleName(), "pLevel=" + pValue);
+		mTextPercent.setText((int)(pValue * 100) + "%");
+		setLightPanels(pValue, 0.6f);
+		setProgressBar(pValue);
 	}
 
 	public interface GameHandler {

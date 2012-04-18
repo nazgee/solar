@@ -22,6 +22,7 @@ import org.andengine.util.color.Color;
 import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
+import android.os.Bundle;
 import android.util.Log;
 import eu.nazgee.game.utils.scene.SceneLoader;
 import eu.nazgee.game.utils.scene.SceneLoader.ISceneLoaderListener;
@@ -76,7 +77,7 @@ public class SimpleActivity extends SimpleBaseGameActivity{
 //		AtlasLoader.buildAndLoad(atlas);
 
 		final ITexture textureFontHud = new BitmapTextureAtlas(textureManager, 256, 256, TextureOptions.BILINEAR);
-		this.mFont = FontFactory.createFromAsset(fontManager, textureFontHud, getAssets(), "F-Rotten.ttf", CAMERA_HEIGHT*0.15f, true, Color.WHITE.getARGBPackedInt());
+		this.mFont = FontFactory.createFromAsset(fontManager, textureFontHud, getAssets(), "LCD.ttf", CAMERA_HEIGHT*0.15f, true, Color.WHITE.getARGBPackedInt());
 		this.mFont.load();
 	}
 
@@ -98,6 +99,23 @@ public class SimpleActivity extends SimpleBaseGameActivity{
 
 		// Show splash screen
 		return loadingScene;
+	}
+
+	@Override
+	protected void onCreate(Bundle pSavedInstanceState) {
+		super.onCreate(pSavedInstanceState);
+
+		if (!enableLightSensor()) {
+			Log.e(getClass().getSimpleName(), "light sensor is NOT supported!");
+		} else {
+			Log.i(getClass().getSimpleName(), "light sensor is supported");
+		}
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+		disableLightSensor();
 	}
 
 	// ===========================================================
@@ -132,7 +150,7 @@ public class SimpleActivity extends SimpleBaseGameActivity{
 		mLightConverter = new LightConverter(mSceneMain, sensor.getMaximumRange());
 		pSensorManager.registerListener(mLightConverter, sensor, pSensorDelay);
 
-		getEngine().registerUpdateHandler(new TimerHandler(0.10f, new ITimerCallback() {
+		getEngine().registerUpdateHandler(new TimerHandler(1f, new ITimerCallback() {
 			@Override
 			public void onTimePassed(TimerHandler pTimerHandler) {
 				mSceneMain.setLightLevel(mLightConverter.getLightValue());
@@ -152,11 +170,7 @@ public class SimpleActivity extends SimpleBaseGameActivity{
 	class MainSceneLoadedListener implements ISceneLoaderListener {
 		@Override
 		public void onSceneLoaded(Scene pScene) {
-			if (!enableLightSensor()) {
-				Log.e(getClass().getSimpleName(), "light sensor is NOT supported!");
-			} else {
-				Log.i(getClass().getSimpleName(), "light sensor is supported");
-			}
+
 		}
 	}
 }
