@@ -12,11 +12,14 @@ public class LightConverter implements SensorEventListener{
 	private static final float MACHEPS = 0.001f;
 	final private LightFeedback mLightFeedback;
 	private float mAdvertisedSensorMax = 1;
-	private Statistics mStats = new Statistics();
+	private Statistics mStats;
 
 	public LightConverter(LightFeedback mLightFeedback,
+			final float mKnownMin,
+			final float mKnownMax,
 			float mAdvertisedSensorMax) {
 		super();
+		mStats = new Statistics(mKnownMin, mKnownMax);
 		this.mLightFeedback = mLightFeedback;
 		this.mAdvertisedSensorMax = mAdvertisedSensorMax;
 	}
@@ -33,12 +36,20 @@ public class LightConverter implements SensorEventListener{
 //		mLightFeedback.setLightLevel(val);
 	}
 
-	public float getLightValue() {
-		final float avg = mStats.getAverage(5);
+	public float getLightValue(final float pTimeToAvg) {
+		final float avg = mStats.getAverage(pTimeToAvg);
 		if (avg < 0) {
 			return 0.5f;
 		}
 		return (avg - mStats.getMin() + MACHEPS) / (mStats.getMax() - mStats.getMin() + MACHEPS);
+	}
+	
+	public float getLightValueMax() {
+		return mStats.getMax();
+	}
+
+	public float getLightValueMin() {
+		return mStats.getMin();
 	}
 
 	public interface LightFeedback {
@@ -77,10 +88,15 @@ public class LightConverter implements SensorEventListener{
 		}
 	}
 	private class Statistics {
-		private float mMax = Float.MIN_VALUE;
-		private float mMin = Float.MAX_VALUE;
+		private float mMax;
+		private float mMin;
 		CircularQueue<StatEntry> mSamples = new CircularQueue<StatEntry>(20);
 		
+		public Statistics(float mKnownMin, float mKnownMax) {
+			mMin = mKnownMin;
+			mMax = mKnownMax;
+		}
+
 		synchronized public void registerValue(final float pValue) {
 			mMax = Math.max(pValue, mMax);
 			mMin = Math.min(pValue, mMin);

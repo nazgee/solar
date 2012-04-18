@@ -20,22 +20,25 @@ import org.andengine.ui.activity.SimpleBaseGameActivity;
 import org.andengine.util.color.Color;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
+import android.graphics.drawable.Drawable;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.util.Log;
+import eu.nazgee.game.utils.misc.AppRater;
 import eu.nazgee.game.utils.scene.SceneLoader;
-import eu.nazgee.game.utils.scene.SceneLoader.ISceneLoaderListener;
 import eu.nazgee.game.utils.scene.SceneLoader.eLoadingSceneHandling;
 import eu.nazgee.game.utils.scene.SceneLoading;
 
-public class SimpleActivity extends SimpleBaseGameActivity{
+public class ActivityMain extends SimpleBaseGameActivity{
 	// ===========================================================
 	// Constants
 	// ===========================================================
 
-	private static final int CAMERA_WIDTH = 720;
-	private static final int CAMERA_HEIGHT = 480;
+	private static final int CAMERA_WIDTH = 480;
+	private static final int CAMERA_HEIGHT = 720;
 
 	// ===========================================================
 	// Fields
@@ -59,9 +62,9 @@ public class SimpleActivity extends SimpleBaseGameActivity{
 	// ===========================================================
 	@Override
 	public EngineOptions onCreateEngineOptions() {
-		final Camera camera = new Camera(0, 0, SimpleActivity.CAMERA_WIDTH, SimpleActivity.CAMERA_HEIGHT);
+		final Camera camera = new Camera(0, 0, ActivityMain.CAMERA_WIDTH, ActivityMain.CAMERA_HEIGHT);
 
-		return new EngineOptions(true, ScreenOrientation.LANDSCAPE_SENSOR, new RatioResolutionPolicy(SimpleActivity.CAMERA_WIDTH, SimpleActivity.CAMERA_HEIGHT), camera);
+		return new EngineOptions(true, ScreenOrientation.PORTRAIT_FIXED, new RatioResolutionPolicy(ActivityMain.CAMERA_WIDTH, ActivityMain.CAMERA_HEIGHT), camera);
 	}
 
 	@Override
@@ -71,13 +74,8 @@ public class SimpleActivity extends SimpleBaseGameActivity{
 		final TextureManager textureManager = getTextureManager();
 		final FontManager fontManager = getFontManager();
 
-//		BuildableBitmapTextureAtlas atlas = new BuildableBitmapTextureAtlas(textureManager, 512, 512);
-//		this.mAETextureRegion = BitmapTextureAtlasTextureRegionFactory.createFromAsset(atlas, SimpleActivity.this, "ae.png");
-//		this.mNazgeeTextureRegion = BitmapTextureAtlasTextureRegionFactory.createFromAsset(atlas, SimpleActivity.this, "nazgee.png");
-//		AtlasLoader.buildAndLoad(atlas);
-
 		final ITexture textureFontHud = new BitmapTextureAtlas(textureManager, 256, 256, TextureOptions.BILINEAR);
-		this.mFont = FontFactory.createFromAsset(fontManager, textureFontHud, getAssets(), "LCD.ttf", CAMERA_HEIGHT*0.15f, true, Color.WHITE.getARGBPackedInt());
+		this.mFont = FontFactory.createFromAsset(fontManager, textureFontHud, getAssets(), "LCD.ttf", CAMERA_WIDTH*0.1f, true, Color.WHITE.getARGBPackedInt());
 		this.mFont.load();
 	}
 
@@ -86,7 +84,7 @@ public class SimpleActivity extends SimpleBaseGameActivity{
 		this.mEngine.registerUpdateHandler(new FPSLogger());
 
 		// Create "Loading..." scene that will be used for all loading-related activities
-		SceneLoading loadingScene = new SceneLoading(CAMERA_WIDTH, CAMERA_HEIGHT, mFont, "Loading...", getVertexBufferObjectManager());
+		SceneLoading loadingScene = new SceneLoading(CAMERA_WIDTH, CAMERA_HEIGHT, mFont, "BOOTING...", getVertexBufferObjectManager());
 
 		// Prepare loader, that will be used for all loading-related activities (besides splash-screen)
 		mLoader = new SceneLoader(loadingScene, getEngine(), this);
@@ -97,6 +95,9 @@ public class SimpleActivity extends SimpleBaseGameActivity{
 		// Start loading the first scene
 		mLoader.loadScene(mSceneMain, getEngine(), this, new MainSceneLoadedListener());
 
+		mHud = new HUD(mSceneMain.getW(), mSceneMain.getH(), getVertexBufferObjectManager());
+		mSceneMain.getLoader().install(mHud);
+		
 		// Show splash screen
 		return loadingScene;
 	}
@@ -151,14 +152,6 @@ public class SimpleActivity extends SimpleBaseGameActivity{
 				return false;
 			}
 		}
-		
-//		final SensorManager sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-//		if(this.isSensorSupported(sensorManager, Sensor.TYPE_LIGHT)) {
-//			this.registerSelfAsSensorListener(sensorManager, Sensor.TYPE_LIGHT, SensorManager.SENSOR_DELAY_FASTEST);
-//			return true;
-//		} else {
-//			return false;
-//		}
 	}
 
 	public boolean disableLightSensor() {
@@ -171,14 +164,6 @@ public class SimpleActivity extends SimpleBaseGameActivity{
 				return false;
 			}
 		}
-
-//		final SensorManager sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-//		if(this.isSensorSupported(sensorManager, Sensor.TYPE_LIGHT)) {
-//			this.unregisterSelfAsSensorListener(sensorManager, Sensor.TYPE_LIGHT);
-//			return true;
-//		} else {
-//			return false;
-//		}
 	}
 
 	private boolean isSensorSupported(final SensorManager pSensorManager, final int pType) {
@@ -187,13 +172,27 @@ public class SimpleActivity extends SimpleBaseGameActivity{
 
 	private void registerSelfAsSensorListener(final SensorManager pSensorManager, final int pType, final int pSensorDelay) {
 		final Sensor sensor = pSensorManager.getSensorList(pType).get(0);
-		mLightConverter = new LightConverter(mSceneMain, sensor.getMaximumRange());
+		
+		SharedPreferences prefs = getSharedPreferences(Consts.PREFS_NAME, 0);
+		float min = prefs.getFloat(Consts.PREFS_KEY_LIGHTMIN, Float.MAX_VALUE);
+		float max = prefs.getFloat(Consts.PREFS_KEY_LIGHTMAX, Float.MIN_VALUE);
+		mLightConverter = new LightConverter(mSceneMain, min, max, sensor.getMaximumRange());
+		
 		pSensorManager.registerListener(mLightConverter, sensor, pSensorDelay);
 
-		getEngine().registerUpdateHandler(new TimerHandler(1f, new ITimerCallback() {
+		getEngine().registerUpdateHandler(new TimerHandler(0.1f, new ITimerCallback() {
+			private int skipper = 0;
 			@Override
 			public void onTimePassed(TimerHandler pTimerHandler) {
-				mSceneMain.setLightLevel(mLightConverter.getLightValue());
+				skipper = skipper++ % 10;
+				
+				if (mSceneMain.isLoaded()) {
+					final float avg = mLightConverter.getLightValue(5);
+					if (skipper == 0) {
+						mSceneMain.setLightLevel(avg);
+					}
+					mHud.setProgressBar(avg);
+				}
 				pTimerHandler.reset();
 			}
 		}));
@@ -202,15 +201,36 @@ public class SimpleActivity extends SimpleBaseGameActivity{
 	private void unregisterSelfAsSensorListener(final SensorManager pSensorManager, final int pType) {
 		final Sensor sensor = pSensorManager.getSensorList(pType).get(0);
 		pSensorManager.unregisterListener(mLightConverter, sensor);
+		
+		SharedPreferences prefs = getSharedPreferences(Consts.PREFS_NAME, 0);
+		Editor e = prefs.edit();
+		e.putFloat(Consts.PREFS_KEY_LIGHTMIN, mLightConverter.getLightValueMin());
+		e.putFloat(Consts.PREFS_KEY_LIGHTMAX, mLightConverter.getLightValueMax());
+		e.commit();
 	}
 	// ===========================================================
 	// Inner and Anonymous Classes
 	// ===========================================================
 	
-	class MainSceneLoadedListener implements ISceneLoaderListener {
+	class MainSceneLoadedListener implements SceneLoader.ISceneLoaderListener {
 		@Override
 		public void onSceneLoaded(Scene pScene) {
-
+			// HUD should be also loaded by now
+			getEngine().getCamera().setHUD(mHud);
+			runOnUiThread(new Runnable() {
+				@Override
+				public void run() {
+					Drawable icon = getResources().getDrawable(
+							R.drawable.ic_launcher);
+					AppRater.app_launched(
+							ActivityMain.this,
+							"I hope you love \"charging\" your phone by this app. Can you rate it, please?",
+							getPackageName(), icon, 3, 5);
+				}
+			});
 		}
 	}
+
+	public static final String PREFS_KEY_TOTAL_BUBBLES_POPPED = "lightmin";
+	private HUD mHud;
 }

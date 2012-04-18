@@ -1,25 +1,13 @@
 package eu.nazgee.prank.solar;
 
 import org.andengine.engine.Engine;
-import org.andengine.engine.handler.timer.ITimerCallback;
-import org.andengine.engine.handler.timer.TimerHandler;
 import org.andengine.entity.modifier.AlphaModifier;
 import org.andengine.entity.sprite.Sprite;
-import org.andengine.entity.text.AutoWrap;
-import org.andengine.entity.text.Text;
-import org.andengine.entity.text.TextOptions;
-import org.andengine.opengl.font.Font;
-import org.andengine.opengl.font.FontFactory;
-import org.andengine.opengl.texture.ITexture;
-import org.andengine.opengl.texture.TextureOptions;
-import org.andengine.opengl.texture.atlas.bitmap.BitmapTextureAtlas;
 import org.andengine.opengl.texture.atlas.bitmap.BitmapTextureAtlasTextureRegionFactory;
 import org.andengine.opengl.texture.atlas.bitmap.BuildableBitmapTextureAtlas;
 import org.andengine.opengl.texture.region.ITextureRegion;
 import org.andengine.opengl.texture.region.TiledTextureRegion;
 import org.andengine.opengl.vbo.VertexBufferObjectManager;
-import org.andengine.util.HorizontalAlign;
-import org.andengine.util.color.Color;
 import org.andengine.util.modifier.ease.EaseBounceOut;
 
 import android.content.Context;
@@ -34,9 +22,6 @@ public class SceneMain extends SceneLoadable implements LightFeedback {
 
 	MyResources mResources = new MyResources();
 	private Sprite mPanels[];
-	private Text mTextStatus;
-	private Text mTextPercent;
-	private Text mTextBar;
 
 	private SceneMain(VertexBufferObjectManager pVertexBufferObjectManager) {
 		super(pVertexBufferObjectManager);
@@ -46,6 +31,7 @@ public class SceneMain extends SceneLoadable implements LightFeedback {
 	public SceneMain(float W, float H,
 			VertexBufferObjectManager pVertexBufferObjectManager) {
 		super(W, H, pVertexBufferObjectManager);
+		
 		getLoader().install(mResources);
 	}
 
@@ -70,35 +56,6 @@ public class SceneMain extends SceneLoadable implements LightFeedback {
 		for (Sprite panel : mPanels) {
 			attachChild(panel);
 		}
-
-		final float alpha = 0.8f;
-
-		mTextStatus = new Text(0, 0, mResources.FONT, "CALIBRATING...", 50, new TextOptions(AutoWrap.NONE, getW(), Text.LEADING_DEFAULT, HorizontalAlign.CENTER), getVertexBufferObjectManager());
-		mTextStatus.setAlpha(alpha);
-		attachChild(mTextStatus);
-
-		mTextPercent = new Text(0, mTextStatus.getHeight(), mResources.FONT, "100%", 50, new TextOptions(AutoWrap.NONE, getW(), Text.LEADING_DEFAULT, HorizontalAlign.CENTER), getVertexBufferObjectManager());
-		mTextPercent.setAlpha(alpha);
-		attachChild(mTextPercent);
-
-		mTextBar = new Text(mTextPercent.getWidth(), mTextStatus.getHeight(), mResources.FONT, "", 50, new TextOptions(AutoWrap.NONE, getW() - mTextPercent.getWidth(), Text.LEADING_DEFAULT, HorizontalAlign.LEFT), getVertexBufferObjectManager());
-		mTextBar.setAlpha(alpha);
-		attachChild(mTextBar);
-
-//		Random r = new Random();
-//		for (int i = 0; i < 10; i++) {
-//			Sprite s = new Sprite(getW() * r.nextFloat(),
-//					getH() * r.nextFloat(), mResources.TEX_SHOCKWAVE, getVertexBufferObjectManager());
-//			s.registerEntityModifier(new ScaleModifier(1 + 10 * r.nextFloat(), 2 * r.nextFloat() + 0.5f, 2 * r.nextFloat()));
-//			attachChild(s);
-//		}
-		
-		this.registerUpdateHandler(new TimerHandler(5, new ITimerCallback() {
-			@Override
-			public void onTimePassed(TimerHandler pTimerHandler) {
-				setStatus("CHARGING...");
-			}
-		}));
 	}
 
 	@Override
@@ -111,7 +68,6 @@ public class SceneMain extends SceneLoadable implements LightFeedback {
 	private static class MyResources extends SimpleLoadableResource {
 		public ITextureRegion TEX_SHOCKWAVE;
 		public TiledTextureRegion TEXS_PANELS;
-		public Font FONT;
 		private BuildableBitmapTextureAtlas mAtlases[] = new BuildableBitmapTextureAtlas[2];
 
 		@Override
@@ -123,10 +79,6 @@ public class SceneMain extends SceneLoadable implements LightFeedback {
 
 			TEX_SHOCKWAVE = BitmapTextureAtlasTextureRegionFactory.createFromAsset(atlasRest, c, "shockwave.png");
 			TEXS_PANELS = TiledTextureRegionFactory.loadTiles(c, "gfx/", "panels", atlasPanels);
-			
-			final ITexture textureFontHud = new BitmapTextureAtlas(e.getTextureManager(), 256, 256, TextureOptions.BILINEAR);
-			FONT = FontFactory.createFromAsset(e.getFontManager(), textureFontHud, c.getAssets(), "LCD.ttf", 50, true, Color.WHITE.getARGBPackedInt());
-			FONT.load();
 		}
 
 		@Override
@@ -140,21 +92,6 @@ public class SceneMain extends SceneLoadable implements LightFeedback {
 				atlas.unload();
 			}
 		}
-	}
-
-	private void setProgressBar(final float pValue) {
-		final float w = mResources.FONT.getLetter('-').mWidth / (mTextBar.getAutoWrapWidth());
-		final int count = (int) (pValue / w);
-		String s = "";
-		for(int i = 0; i < (count-1); i++) {
-			s += "-";
-		}
-		s += "+";
-		mTextBar.setText(s);
-	}
-
-	private void setStatus(String pStatus) {
-		mTextStatus.setText(pStatus);
 	}
 
 	private void setLightPanels(final float pValue, final float pTime) {
@@ -173,13 +110,6 @@ public class SceneMain extends SceneLoadable implements LightFeedback {
 	@Override
 	public void setLightLevel(float pValue) {
 		Log.d(getClass().getSimpleName(), "pLevel=" + pValue);
-		mTextPercent.setText((int)(pValue * 100) + "%");
 		setLightPanels(pValue, 0.6f);
-		setProgressBar(pValue);
 	}
-
-	public interface GameHandler {
-		void onFinished();
-	}
-
 }
