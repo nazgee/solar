@@ -1,38 +1,48 @@
-package eu.nazgee.simple;
+package eu.nazgee.prank.solar;
 
 import java.util.Random;
 
 import org.andengine.engine.Engine;
-import org.andengine.engine.handler.timer.ITimerCallback;
-import org.andengine.engine.handler.timer.TimerHandler;
 import org.andengine.entity.modifier.ScaleModifier;
 import org.andengine.entity.sprite.Sprite;
+import org.andengine.entity.text.AutoWrap;
+import org.andengine.entity.text.Text;
+import org.andengine.entity.text.TextOptions;
+import org.andengine.opengl.font.Font;
+import org.andengine.opengl.font.FontFactory;
+import org.andengine.opengl.texture.ITexture;
+import org.andengine.opengl.texture.TextureOptions;
+import org.andengine.opengl.texture.atlas.bitmap.BitmapTextureAtlas;
 import org.andengine.opengl.texture.atlas.bitmap.BitmapTextureAtlasTextureRegionFactory;
 import org.andengine.opengl.texture.atlas.bitmap.BuildableBitmapTextureAtlas;
 import org.andengine.opengl.texture.region.ITextureRegion;
 import org.andengine.opengl.texture.region.TiledTextureRegion;
 import org.andengine.opengl.vbo.VertexBufferObjectManager;
+import org.andengine.util.HorizontalAlign;
+import org.andengine.util.color.Color;
 
 import android.content.Context;
+import android.util.Log;
 import eu.nazgee.game.utils.helpers.AtlasLoader;
 import eu.nazgee.game.utils.helpers.TiledTextureRegionFactory;
+import eu.nazgee.game.utils.loadable.SimpleLoadableResource;
 import eu.nazgee.game.utils.scene.SceneLoadable;
+import eu.nazgee.prank.solar.LightConverter.LightFeedback;
 
-public class SceneMain extends SceneLoadable {
+public class SceneMain extends SceneLoadable implements LightFeedback {
 
 	MyResources mResources = new MyResources();
-	private final GameHandler mGameHandler;
+	private Sprite mPanels[];
+	private Text mText;
 
-	private SceneMain(VertexBufferObjectManager pVertexBufferObjectManager, GameHandler pGameHandler) {
+	private SceneMain(VertexBufferObjectManager pVertexBufferObjectManager) {
 		super(pVertexBufferObjectManager);
-		mGameHandler = pGameHandler;
 		getLoader().install(mResources);
 	}
 
 	public SceneMain(float W, float H,
-			VertexBufferObjectManager pVertexBufferObjectManager, GameHandler pGameHandler) {
+			VertexBufferObjectManager pVertexBufferObjectManager) {
 		super(W, H, pVertexBufferObjectManager);
-		this.mGameHandler = pGameHandler;
 		getLoader().install(mResources);
 	}
 
@@ -42,8 +52,7 @@ public class SceneMain extends SceneLoadable {
 
 	@Override
 	public void onLoad(Engine e, Context c) {
-		// create panels
-		Sprite mPanels[] = new Sprite[mResources.TEXS_PANELS.getTileCount()];
+		mPanels = new Sprite[mResources.TEXS_PANELS.getTileCount()];
 		for (int i = 0; i < mPanels.length; i++) {
 			mPanels[i] = new Sprite(0, 0, getW()/2, getH()/2, mResources.TEXS_PANELS.getTextureRegion(i), getVertexBufferObjectManager());
 		}
@@ -59,27 +68,17 @@ public class SceneMain extends SceneLoadable {
 			attachChild(panel);
 		}
 
-		Random r = new Random();
-		for (int i = 0; i < 10; i++) {
-			Sprite s = new Sprite(getW() * r.nextFloat(),
-					getH() * r.nextFloat(), mResources.TEX_SHOCKWAVE, getVertexBufferObjectManager());
-			s.registerEntityModifier(new ScaleModifier(1 + 10 * r.nextFloat(), 2 * r.nextFloat() + 0.5f, 2 * r.nextFloat()));
-			attachChild(s);
-		}
+		mText = new Text(0, 0, mResources.FONT, "", 50, new TextOptions(AutoWrap.WORDS, getW(), Text.LEADING_DEFAULT, HorizontalAlign.CENTER), getVertexBufferObjectManager());
+		mText.setAlpha(0.5f);
+		attachChild(mText);
 
-		TimerHandler timer = new TimerHandler(10, new ITimerCallback() {
-			@Override
-			public void onTimePassed(TimerHandler pTimerHandler) {
-				mGameHandler.onFinished();
-			}
-		});
-		registerUpdateHandler(timer);
-
-		try {
-			Thread.sleep(500);
-		} catch (InterruptedException e1) {
-			e1.printStackTrace();
-		}
+//		Random r = new Random();
+//		for (int i = 0; i < 10; i++) {
+//			Sprite s = new Sprite(getW() * r.nextFloat(),
+//					getH() * r.nextFloat(), mResources.TEX_SHOCKWAVE, getVertexBufferObjectManager());
+//			s.registerEntityModifier(new ScaleModifier(1 + 10 * r.nextFloat(), 2 * r.nextFloat() + 0.5f, 2 * r.nextFloat()));
+//			attachChild(s);
+//		}
 	}
 
 	@Override
@@ -89,9 +88,10 @@ public class SceneMain extends SceneLoadable {
 		clearUpdateHandlers();
 	}
 
-	private static class MyResources extends Resources {
+	private static class MyResources extends SimpleLoadableResource {
 		public ITextureRegion TEX_SHOCKWAVE;
 		public TiledTextureRegion TEXS_PANELS;
+		public Font FONT;
 		private BuildableBitmapTextureAtlas mAtlases[] = new BuildableBitmapTextureAtlas[2];
 
 		@Override
@@ -103,6 +103,10 @@ public class SceneMain extends SceneLoadable {
 
 			TEX_SHOCKWAVE = BitmapTextureAtlasTextureRegionFactory.createFromAsset(atlasRest, c, "shockwave.png");
 			TEXS_PANELS = TiledTextureRegionFactory.loadTiles(c, "gfx/", "panels", atlasPanels);
+			
+			final ITexture textureFontHud = new BitmapTextureAtlas(e.getTextureManager(), 256, 256, TextureOptions.BILINEAR);
+			FONT = FontFactory.createFromAsset(e.getFontManager(), textureFontHud, c.getAssets(), "LCD.ttf", 50, true, Color.WHITE.getARGBPackedInt());
+			FONT.load();
 		}
 
 		@Override
@@ -118,7 +122,17 @@ public class SceneMain extends SceneLoadable {
 		}
 	}
 
+	@Override
+	public void setLightLevel(float pValue) {
+		Log.e(getClass().getSimpleName(), "pLevel=" + pValue);
+		for (Sprite panel : mPanels) {
+			panel.setAlpha(pValue);
+		}
+		mText.setText((int)(pValue * 100) + "%");
+	}
+
 	public interface GameHandler {
 		void onFinished();
 	}
+
 }
