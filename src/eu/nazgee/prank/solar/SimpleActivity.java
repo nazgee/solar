@@ -121,24 +121,64 @@ public class SimpleActivity extends SimpleBaseGameActivity{
 	// ===========================================================
 	// Methods
 	// ===========================================================
-	public boolean enableLightSensor() {
+	public boolean enableSensor(int pSensor) {
 		final SensorManager sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-		if(this.isSensorSupported(sensorManager, Sensor.TYPE_LIGHT)) {
-			this.registerSelfAsSensorListener(sensorManager, Sensor.TYPE_LIGHT, SensorManager.SENSOR_DELAY_FASTEST);
+		if(this.isSensorSupported(sensorManager, pSensor)) {
+			this.registerSelfAsSensorListener(sensorManager, pSensor, SensorManager.SENSOR_DELAY_FASTEST);
 			return true;
 		} else {
 			return false;
 		}
 	}
 
-	public boolean disableLightSensor() {
+	public boolean disableSensor(int pSensor) {
 		final SensorManager sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-		if(this.isSensorSupported(sensorManager, Sensor.TYPE_LIGHT)) {
-			this.unregisterSelfAsSensorListener(sensorManager, Sensor.TYPE_LIGHT);
+		if(this.isSensorSupported(sensorManager, pSensor)) {
+			this.unregisterSelfAsSensorListener(sensorManager, pSensor);
 			return true;
 		} else {
 			return false;
 		}
+	}
+	
+	public boolean enableLightSensor() {
+		if (enableSensor(Sensor.TYPE_LIGHT)) {
+			return true;
+		} else {
+			if (enableSensor(Sensor.TYPE_PROXIMITY)) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+		
+//		final SensorManager sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+//		if(this.isSensorSupported(sensorManager, Sensor.TYPE_LIGHT)) {
+//			this.registerSelfAsSensorListener(sensorManager, Sensor.TYPE_LIGHT, SensorManager.SENSOR_DELAY_FASTEST);
+//			return true;
+//		} else {
+//			return false;
+//		}
+	}
+
+	public boolean disableLightSensor() {
+		if (disableSensor(Sensor.TYPE_LIGHT)) {
+			return true;
+		} else {
+			if (disableSensor(Sensor.TYPE_PROXIMITY)) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+
+//		final SensorManager sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+//		if(this.isSensorSupported(sensorManager, Sensor.TYPE_LIGHT)) {
+//			this.unregisterSelfAsSensorListener(sensorManager, Sensor.TYPE_LIGHT);
+//			return true;
+//		} else {
+//			return false;
+//		}
 	}
 
 	private boolean isSensorSupported(final SensorManager pSensorManager, final int pType) {
