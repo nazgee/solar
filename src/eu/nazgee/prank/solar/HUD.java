@@ -25,6 +25,7 @@ public class HUD extends HUDLoadable {
 	private Text mTextStatus;
 	private Text mTextPercent;
 	private Text mTextBar;
+	private volatile boolean mCalibrationFinished = false;
 
 	public HUD(float W, float H,
 			VertexBufferObjectManager pVertexBufferObjectManager) {
@@ -52,10 +53,19 @@ public class HUD extends HUDLoadable {
 
 	@Override
 	public void onLoad(Engine e, Context c) {
-		this.registerUpdateHandler(new TimerHandler(5, new ITimerCallback() {
+		this.registerUpdateHandler(new TimerHandler(1, new ITimerCallback() {
+			private int i = 0;
+			String txt[] = {"CHARGING","CHARGING.","CHARGING..","CHARGING..."};
+			String txt_cal[] = {"CALIBRATING","CALIBRATING.","CALIBRATING..","CALIBRATING..."};
 			@Override
 			public void onTimePassed(TimerHandler pTimerHandler) {
-				setStatus("CHARGING...");
+				if (mCalibrationFinished) {
+					setStatus(txt[i++ % txt.length]);
+				}else{
+					setStatus(txt_cal[i++ % txt.length]);
+				}
+				pTimerHandler.setTimerSeconds(1);
+				pTimerHandler.reset();
 			}
 		}));
 	}
@@ -78,6 +88,14 @@ public class HUD extends HUDLoadable {
 		}
 		s += "+";
 		mTextBar.setText(s);
+	}
+
+	public void finishCalibration() {
+		mCalibrationFinished  = true;
+	}
+	
+	public boolean isFinishCalibration() {
+		return mCalibrationFinished;
 	}
 
 	public void setStatus(String pStatus) {

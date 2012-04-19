@@ -8,6 +8,7 @@ import org.andengine.engine.options.ScreenOrientation;
 import org.andengine.engine.options.resolutionpolicy.RatioResolutionPolicy;
 import org.andengine.entity.scene.Scene;
 import org.andengine.entity.util.FPSLogger;
+import org.andengine.extension.svg.opengl.texture.atlas.bitmap.SVGBitmapTextureAtlasTextureRegionFactory;
 import org.andengine.opengl.font.Font;
 import org.andengine.opengl.font.FontFactory;
 import org.andengine.opengl.font.FontManager;
@@ -37,8 +38,7 @@ public class ActivityMain extends SimpleBaseGameActivity{
 	// Constants
 	// ===========================================================
 
-	private static final int CAMERA_WIDTH = 480;
-	private static final int CAMERA_HEIGHT = 720;
+
 
 	// ===========================================================
 	// Fields
@@ -62,20 +62,21 @@ public class ActivityMain extends SimpleBaseGameActivity{
 	// ===========================================================
 	@Override
 	public EngineOptions onCreateEngineOptions() {
-		final Camera camera = new Camera(0, 0, ActivityMain.CAMERA_WIDTH, ActivityMain.CAMERA_HEIGHT);
+		final Camera camera = new Camera(0, 0, Consts.CAMERA_WIDTH, Consts.CAMERA_HEIGHT);
 
-		return new EngineOptions(true, ScreenOrientation.PORTRAIT_FIXED, new RatioResolutionPolicy(ActivityMain.CAMERA_WIDTH, ActivityMain.CAMERA_HEIGHT), camera);
+		return new EngineOptions(true, ScreenOrientation.PORTRAIT_FIXED, new RatioResolutionPolicy(Consts.CAMERA_WIDTH, Consts.CAMERA_HEIGHT), camera);
 	}
 
 	@Override
 	protected void onCreateResources() {
 		BitmapTextureAtlasTextureRegionFactory.setAssetBasePath("gfx/");
+		SVGBitmapTextureAtlasTextureRegionFactory.setAssetBasePath("gfx/");
 		FontFactory.setAssetBasePath("font/");
 		final TextureManager textureManager = getTextureManager();
 		final FontManager fontManager = getFontManager();
 
 		final ITexture textureFontHud = new BitmapTextureAtlas(textureManager, 256, 256, TextureOptions.BILINEAR);
-		this.mFont = FontFactory.createFromAsset(fontManager, textureFontHud, getAssets(), "LCD.ttf", CAMERA_WIDTH*0.1f, true, Color.WHITE.getARGBPackedInt());
+		this.mFont = FontFactory.createFromAsset(fontManager, textureFontHud, getAssets(), "LCD.ttf", Consts.CAMERA_WIDTH*0.1f, true, Color.WHITE.getARGBPackedInt());
 		this.mFont.load();
 	}
 
@@ -84,13 +85,13 @@ public class ActivityMain extends SimpleBaseGameActivity{
 		this.mEngine.registerUpdateHandler(new FPSLogger());
 
 		// Create "Loading..." scene that will be used for all loading-related activities
-		SceneLoading loadingScene = new SceneLoading(CAMERA_WIDTH, CAMERA_HEIGHT, mFont, "BOOTING...", getVertexBufferObjectManager());
+		SceneLoading loadingScene = new SceneLoading(Consts.CAMERA_WIDTH, Consts.CAMERA_HEIGHT, mFont, "BOOTING...", getVertexBufferObjectManager());
 
 		// Prepare loader, that will be used for all loading-related activities (besides splash-screen)
 		mLoader = new SceneLoader(loadingScene, getEngine(), this);
 		mLoader.setLoadingSceneHandling(eLoadingSceneHandling.SCENE_SET_ACTIVE).setLoadingSceneUnload(false);
 		
-		mSceneMain = new SceneMain(CAMERA_WIDTH, CAMERA_HEIGHT, getVertexBufferObjectManager());
+		mSceneMain = new SceneMain(Consts.CAMERA_WIDTH, Consts.CAMERA_HEIGHT, getVertexBufferObjectManager());
 
 		// Start loading the first scene
 		mLoader.loadScene(mSceneMain, getEngine(), this, new MainSceneLoadedListener());
@@ -191,7 +192,16 @@ public class ActivityMain extends SimpleBaseGameActivity{
 					if (skipper == 0) {
 						mSceneMain.setLightLevel(avg);
 					}
-					mHud.setProgressBar(avg);
+					
+					if (avg < 0) {
+						mHud.setProgressBar(0.01f);
+					} else {
+						if (!mHud.isFinishCalibration()) {
+							mHud.finishCalibration();
+						}
+						mHud.setProgressBar(avg);
+					}
+					
 				}
 				pTimerHandler.reset();
 			}

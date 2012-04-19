@@ -3,17 +3,17 @@ package eu.nazgee.prank.solar;
 import org.andengine.engine.Engine;
 import org.andengine.entity.modifier.AlphaModifier;
 import org.andengine.entity.sprite.Sprite;
+import org.andengine.extension.svg.opengl.texture.atlas.bitmap.SVGBitmapTextureAtlasTextureRegionFactory;
 import org.andengine.opengl.texture.atlas.bitmap.BitmapTextureAtlasTextureRegionFactory;
 import org.andengine.opengl.texture.atlas.bitmap.BuildableBitmapTextureAtlas;
 import org.andengine.opengl.texture.region.ITextureRegion;
-import org.andengine.opengl.texture.region.TiledTextureRegion;
+import org.andengine.opengl.texture.region.ITiledTextureRegion;
 import org.andengine.opengl.vbo.VertexBufferObjectManager;
 import org.andengine.util.modifier.ease.EaseBounceOut;
 
 import android.content.Context;
 import android.util.Log;
 import eu.nazgee.game.utils.helpers.AtlasLoader;
-import eu.nazgee.game.utils.helpers.TiledTextureRegionFactory;
 import eu.nazgee.game.utils.loadable.SimpleLoadableResource;
 import eu.nazgee.game.utils.scene.SceneLoadable;
 import eu.nazgee.prank.solar.LightConverter.LightFeedback;
@@ -41,16 +41,19 @@ public class SceneMain extends SceneLoadable implements LightFeedback {
 
 	@Override
 	public void onLoad(Engine e, Context c) {
-		mPanels = new Sprite[mResources.TEXS_PANELS.getTileCount()];
+		int cols = Consts.PANEL_COLS;
+		int rows = Consts.PANEL_ROWS;
+		mPanels = new Sprite[cols * rows];
 		for (int i = 0; i < mPanels.length; i++) {
-			mPanels[i] = new Sprite(0, 0, getW()/2, getH()/2, mResources.TEXS_PANELS.getTextureRegion(i), getVertexBufferObjectManager());
+			mPanels[i] = new Sprite(0, 0, Consts.PANEL_SIZE_W, Consts.PANEL_SIZE_H, mResources.TEXS_PANELS.getTextureRegion(i % mResources.TEXS_PANELS.getTileCount()), getVertexBufferObjectManager());
 		}
-		
-		// position panels
-		mPanels[0].setPosition(0, 0);
-		mPanels[1].setPosition(getW()/2, 0);
-		mPanels[2].setPosition(0, getH()/2);
-		mPanels[3].setPosition(getW()/2, getH()/2);
+
+		final float offsetH = Consts.CAMERA_HEIGHT - Consts.PANELS_HEIGHT;
+		for (int row = 0; row < rows; row++) {
+			for (int col = 0; col < cols; col++) {
+				mPanels[col + row*cols].setPosition(Consts.PANEL_SIZE_W * col, offsetH + Consts.PANEL_SIZE_H * row);
+			}
+		}
 		
 		// attach panels
 		for (Sprite panel : mPanels) {
@@ -66,8 +69,8 @@ public class SceneMain extends SceneLoadable implements LightFeedback {
 	}
 
 	private static class MyResources extends SimpleLoadableResource {
-		public ITextureRegion TEX_SHOCKWAVE;
-		public TiledTextureRegion TEXS_PANELS;
+//		public ITextureRegion TEX_SHOCKWAVE;
+		public ITiledTextureRegion TEXS_PANELS;
 		private BuildableBitmapTextureAtlas mAtlases[] = new BuildableBitmapTextureAtlas[2];
 
 		@Override
@@ -77,8 +80,10 @@ public class SceneMain extends SceneLoadable implements LightFeedback {
 			BuildableBitmapTextureAtlas atlasRest = mAtlases[0];
 			BuildableBitmapTextureAtlas atlasPanels = mAtlases[1];
 
-			TEX_SHOCKWAVE = BitmapTextureAtlasTextureRegionFactory.createFromAsset(atlasRest, c, "shockwave.png");
-			TEXS_PANELS = TiledTextureRegionFactory.loadTiles(c, "gfx/", "panels", atlasPanels);
+//			TEX_SHOCKWAVE = BitmapTextureAtlasTextureRegionFactory.createFromAsset(atlasRest, c, "shockwave.png");
+//			TEXS_PANELS = TiledTextureRegionFactory.loadTiles(c, "gfx/", "panels", atlasPanels);
+			TEXS_PANELS = SVGBitmapTextureAtlasTextureRegionFactory.createTiledFromAsset(atlasPanels, c, "solar-tiles.svg", Consts.PANEL_SIZE_W * 2, Consts.PANEL_SIZE_H * 4, 2, 4);
+
 		}
 
 		@Override
@@ -100,7 +105,8 @@ public class SceneMain extends SceneLoadable implements LightFeedback {
 			panel.clearEntityModifiers();
 
 			if (((float)i)/(float)mPanels.length < pValue) {
-				panel.registerEntityModifier(new AlphaModifier(pTime/2, panel.getAlpha(), 1, EaseBounceOut.getInstance()));
+//				panel.registerEntityModifier(new AlphaModifier(pTime/2, panel.getAlpha(), 1, EaseBounceOut.getInstance()));
+				panel.registerEntityModifier(new AlphaModifier(pTime, panel.getAlpha(), 0.9f));
 			} else {
 				panel.registerEntityModifier(new AlphaModifier(pTime, panel.getAlpha(), 0.5f));
 			}

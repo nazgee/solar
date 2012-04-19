@@ -1,0 +1,2443 @@
+eu.nazgee.game.utils.helpers.AtlasLoader -> eu.nazgee.a.a.a.a:
+    void buildAndLoad(org.andengine.opengl.texture.atlas.bitmap.BuildableBitmapTextureAtlas[]) -> a
+    void buildAndLoad(org.andengine.opengl.texture.atlas.buildable.builder.BlackPawnTextureAtlasBuilder,org.andengine.opengl.texture.atlas.bitmap.BuildableBitmapTextureAtlas[]) -> a
+eu.nazgee.game.utils.loadable.ILoadable -> eu.nazgee.a.a.b.a:
+    void load(org.andengine.engine.Engine,android.content.Context) -> a
+    void unload() -> a_
+    boolean isLoaded() -> b
+eu.nazgee.game.utils.loadable.ILoadableResource -> eu.nazgee.a.a.b.b:
+    void loadResources(org.andengine.engine.Engine,android.content.Context) -> b
+eu.nazgee.game.utils.loadable.ILoadableResourceScene -> eu.nazgee.a.a.b.c:
+    org.andengine.entity.scene.Scene getScene() -> c
+eu.nazgee.game.utils.loadable.ILoadingHandler -> eu.nazgee.a.a.b.d:
+    void onLoad(org.andengine.engine.Engine,android.content.Context) -> c
+    void onUnload() -> d
+eu.nazgee.game.utils.loadable.ILoadingHandlerResource -> eu.nazgee.a.a.b.e:
+    void onLoadResources(org.andengine.engine.Engine,android.content.Context) -> d
+eu.nazgee.game.utils.loadable.ILoadingHandlerResourceScene -> eu.nazgee.a.a.b.f:
+    org.andengine.entity.scene.Scene onGetScene() -> e
+eu.nazgee.game.utils.loadable.Loadable -> eu.nazgee.a.a.b.g:
+    eu.nazgee.game.utils.loadable.Loader getLoader() -> c
+    void load(org.andengine.engine.Engine,android.content.Context) -> a
+    void unload() -> a_
+    boolean isLoaded() -> b
+eu.nazgee.game.utils.loadable.LoadableResource -> eu.nazgee.a.a.b.h:
+    eu.nazgee.game.utils.loadable.LoaderResource getLoader() -> e
+    void loadResources(org.andengine.engine.Engine,android.content.Context) -> b
+    eu.nazgee.game.utils.loadable.Loader getLoader() -> c
+eu.nazgee.game.utils.loadable.Loader -> eu.nazgee.a.a.b.i:
+    eu.nazgee.game.utils.loadable.ILoadingHandlerResource mLoadingHandler -> c
+    java.util.LinkedList mResources -> a
+    java.lang.Boolean mLoaded -> b
+    void install(eu.nazgee.game.utils.loadable.ILoadable) -> a
+    eu.nazgee.game.utils.loadable.ILoadingHandlerResource getLoadingHandler() -> d
+    void setLoadingHandler(eu.nazgee.game.utils.loadable.ILoadingHandlerResource) -> a
+    void load(org.andengine.engine.Engine,android.content.Context) -> a
+    void unload() -> a_
+    boolean isLoaded() -> b
+    void setLoaded(boolean) -> a
+    void assertLoaded(boolean) -> b
+eu.nazgee.game.utils.loadable.LoaderResource -> eu.nazgee.a.a.b.j:
+    eu.nazgee.game.utils.loadable.ILoadingHandlerResource mLoadingHandler -> d
+    boolean mResourcesLoaded -> c
+    void install(eu.nazgee.game.utils.loadable.ILoadableResource) -> a
+    eu.nazgee.game.utils.loadable.ILoadingHandlerResource getLoadingHandler() -> d
+    void setLoadingHandler(eu.nazgee.game.utils.loadable.ILoadingHandlerResource) -> a
+    void loadResources(org.andengine.engine.Engine,android.content.Context) -> b
+    boolean isResourceLoaded() -> e
+    void setResourceLoaded(boolean) -> c
+eu.nazgee.game.utils.loadable.LoaderResourceScene -> eu.nazgee.a.a.b.k:
+    eu.nazgee.game.utils.loadable.ILoadingHandlerResourceScene mLoadingHandler -> d
+    org.andengine.entity.scene.Scene getScene() -> c
+eu.nazgee.game.utils.loadable.SimpleLoadableResource -> eu.nazgee.a.a.b.l:
+    eu.nazgee.game.utils.loadable.LoaderResource mLoader -> a
+    eu.nazgee.game.utils.loadable.LoaderResource getLoader() -> e
+eu.nazgee.game.utils.misc.AppRater -> eu.nazgee.a.a.c.a:
+    void app_launched(android.content.Context,java.lang.String,java.lang.String,android.graphics.drawable.Drawable,int,int) -> a
+    void showRateDialog(android.content.Context,android.content.SharedPreferences$Editor,java.lang.String,java.lang.String,android.graphics.drawable.Drawable) -> a
+eu.nazgee.game.utils.misc.AppRater$1 -> eu.nazgee.a.a.c.b:
+    android.content.Context val$ctx -> a
+    java.lang.String val$pPckgName -> b
+    android.content.SharedPreferences$Editor val$editor -> c
+    void onClick(android.content.DialogInterface,int) -> onClick
+eu.nazgee.game.utils.misc.AppRater$2 -> eu.nazgee.a.a.c.c:
+    void onClick(android.content.DialogInterface,int) -> onClick
+eu.nazgee.game.utils.misc.AppRater$3 -> eu.nazgee.a.a.c.d:
+    android.content.SharedPreferences$Editor val$editor -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+eu.nazgee.game.utils.misc.Reversed -> eu.nazgee.a.a.c.e:
+    java.util.List original -> a
+    java.util.Iterator iterator() -> iterator
+eu.nazgee.game.utils.misc.Reversed$1 -> eu.nazgee.a.a.c.f:
+    eu.nazgee.game.utils.misc.Reversed this$0 -> a
+    java.util.ListIterator val$i -> b
+    boolean hasNext() -> hasNext
+    java.lang.Object next() -> next
+    void remove() -> remove
+eu.nazgee.game.utils.scene.HUDLoadable -> eu.nazgee.a.a.d.a:
+    float mW -> a
+    float mH -> b
+    eu.nazgee.game.utils.loadable.LoaderResourceScene mLoader -> c
+    org.andengine.opengl.vbo.VertexBufferObjectManager mVertexBufferObjectManager -> F
+    eu.nazgee.game.utils.loadable.LoaderResourceScene getLoader() -> f
+    org.andengine.entity.scene.Scene getScene() -> c
+    void load(org.andengine.engine.Engine,android.content.Context) -> a
+    void unload() -> a_
+    void loadResources(org.andengine.engine.Engine,android.content.Context) -> b
+    boolean isLoaded() -> b
+    org.andengine.entity.scene.Scene onGetScene() -> e
+    org.andengine.opengl.vbo.VertexBufferObjectManager getVertexBufferObjectManager() -> g
+    void setVertexBufferObjectManager(org.andengine.opengl.vbo.VertexBufferObjectManager) -> a
+    float getW() -> h
+eu.nazgee.game.utils.scene.SceneLoadable -> eu.nazgee.a.a.d.b:
+    float mW -> a
+    float mH -> b
+    eu.nazgee.game.utils.loadable.LoaderResourceScene mLoader -> c
+    org.andengine.opengl.vbo.VertexBufferObjectManager mVertexBufferObjectManager -> B
+    eu.nazgee.game.utils.loadable.LoaderResourceScene getLoader() -> f
+    org.andengine.entity.scene.Scene getScene() -> c
+    void load(org.andengine.engine.Engine,android.content.Context) -> a
+    void unload() -> a_
+    void loadResources(org.andengine.engine.Engine,android.content.Context) -> b
+    boolean isLoaded() -> b
+    org.andengine.entity.scene.Scene onGetScene() -> e
+    org.andengine.opengl.vbo.VertexBufferObjectManager getVertexBufferObjectManager() -> g
+    void setVertexBufferObjectManager(org.andengine.opengl.vbo.VertexBufferObjectManager) -> a
+    float getH() -> h
+    float getW() -> i
+eu.nazgee.game.utils.scene.SceneLoader -> eu.nazgee.a.a.d.c:
+    eu.nazgee.game.utils.loadable.ILoadableResourceScene mLoadingScene -> a
+    eu.nazgee.game.utils.scene.SceneLoader$eLoadingSceneHandling mLoadingSceneHandling -> b
+    eu.nazgee.game.utils.scene.SceneLoader$eOldSceneHandling mOldSceneHandling -> c
+    boolean mUnloadLoadingScene -> d
+    boolean mChildSceneModalUpdate -> e
+    boolean mChildSceneModalDraw -> f
+    boolean mChildSceneModalTouch -> g
+    int[] $SWITCH_TABLE$eu$nazgee$game$utils$scene$SceneLoader$eNewSceneHandling -> h
+    int[] $SWITCH_TABLE$eu$nazgee$game$utils$scene$SceneLoader$eLoadingSceneHandling -> i
+    eu.nazgee.game.utils.scene.SceneLoader setLoadingSceneHandling(eu.nazgee.game.utils.scene.SceneLoader$eLoadingSceneHandling) -> a
+    eu.nazgee.game.utils.scene.SceneLoader setLoadingSceneUnload(boolean) -> a
+    void loadScene(eu.nazgee.game.utils.loadable.ILoadableResourceScene,org.andengine.engine.Engine,android.app.Activity,eu.nazgee.game.utils.scene.SceneLoader$ISceneLoaderListener) -> a
+    void loadScene(eu.nazgee.game.utils.loadable.ILoadableResourceScene,eu.nazgee.game.utils.scene.SceneLoader$eNewSceneHandling,org.andengine.engine.Engine,android.app.Activity,eu.nazgee.game.utils.scene.SceneLoader$ISceneLoaderListener,eu.nazgee.game.utils.scene.SceneLoader$eLoadingSceneHandling,boolean) -> a
+    void prepareForLoading(org.andengine.engine.Engine,android.app.Activity,eu.nazgee.game.utils.scene.SceneLoader$eLoadingSceneHandling) -> a
+    boolean unloadIfNotSplashscreen(org.andengine.entity.scene.Scene) -> b
+    boolean tryUnloadSafe(org.andengine.entity.scene.Scene) -> c
+    eu.nazgee.game.utils.scene.SceneLoader$SceneFamily findYoungestChild(org.andengine.entity.scene.Scene) -> a
+    int[] $SWITCH_TABLE$eu$nazgee$game$utils$scene$SceneLoader$eNewSceneHandling() -> a
+    boolean access$1(eu.nazgee.game.utils.scene.SceneLoader) -> a
+    boolean access$2(eu.nazgee.game.utils.scene.SceneLoader) -> b
+    boolean access$3(eu.nazgee.game.utils.scene.SceneLoader) -> c
+    eu.nazgee.game.utils.scene.SceneLoader$eOldSceneHandling access$4(eu.nazgee.game.utils.scene.SceneLoader) -> d
+    boolean access$5(eu.nazgee.game.utils.scene.SceneLoader,org.andengine.entity.scene.Scene) -> a
+    int[] $SWITCH_TABLE$eu$nazgee$game$utils$scene$SceneLoader$eLoadingSceneHandling() -> b
+eu.nazgee.game.utils.scene.SceneLoader$1 -> eu.nazgee.a.a.d.d:
+    eu.nazgee.game.utils.scene.SceneLoader$SceneLoaderTasklet this$1 -> a
+    eu.nazgee.game.utils.scene.SceneSplash val$splash -> b
+    void reset() -> a
+    void onUpdate(float) -> a
+eu.nazgee.game.utils.scene.SceneLoader$2 -> eu.nazgee.a.a.d.e:
+    eu.nazgee.game.utils.scene.SceneLoader this$0 -> a
+    eu.nazgee.game.utils.scene.SceneLoader$eNewSceneHandling val$sceneHandling -> b
+    int[] $SWITCH_TABLE$eu$nazgee$game$utils$scene$SceneLoader$eNewSceneHandling -> c
+    void setupScene(org.andengine.engine.Engine,org.andengine.entity.scene.Scene,org.andengine.entity.scene.Scene) -> a
+    void unloadOldScene(org.andengine.entity.scene.Scene) -> a
+    int[] $SWITCH_TABLE$eu$nazgee$game$utils$scene$SceneLoader$eNewSceneHandling() -> a
+eu.nazgee.game.utils.scene.SceneLoader$3 -> eu.nazgee.a.a.d.f:
+    eu.nazgee.game.utils.scene.SceneLoader this$0 -> a
+    eu.nazgee.game.utils.scene.SceneLoader$SceneLoaderTasklet val$loader -> b
+    void run() -> run
+eu.nazgee.game.utils.scene.SceneLoader$ISceneLoaderListener -> eu.nazgee.a.a.d.g:
+    void onSceneLoaded(org.andengine.entity.scene.Scene) -> a
+eu.nazgee.game.utils.scene.SceneLoader$SceneFamily -> eu.nazgee.a.a.d.h:
+    org.andengine.entity.scene.Scene parent -> a
+    org.andengine.entity.scene.Scene child -> b
+    eu.nazgee.game.utils.scene.SceneLoader this$0 -> c
+eu.nazgee.game.utils.scene.SceneLoader$SceneLoaderTasklet -> eu.nazgee.a.a.d.i:
+    java.lang.ref.WeakReference mEngine -> a
+    java.lang.ref.WeakReference mContext -> b
+    eu.nazgee.game.utils.scene.SceneLoader$ISceneLoaderListener mListener -> d
+    eu.nazgee.game.utils.scene.SceneLoadable mPleaseWaitScene -> e
+    eu.nazgee.game.utils.loadable.ILoadableResourceScene mLoaderToBeLoaded -> f
+    org.andengine.entity.scene.Scene mLoadedScene -> g
+    boolean mUnloadPleaseWaitScene -> h
+    org.andengine.entity.scene.Scene mOldScene -> i
+    eu.nazgee.game.utils.scene.SceneLoader$SetupHandler mSetupHandler -> j
+    eu.nazgee.game.utils.scene.SceneLoader this$0 -> c
+    void onAboutToStart() -> a
+    void workToDo() -> b
+    void onComplete() -> c
+    void setupScene() -> d
+    void access$0(eu.nazgee.game.utils.scene.SceneLoader$SceneLoaderTasklet) -> a
+eu.nazgee.game.utils.scene.SceneLoader$SetupHandler -> eu.nazgee.a.a.d.j:
+    void setupScene(org.andengine.engine.Engine,org.andengine.entity.scene.Scene,org.andengine.entity.scene.Scene) -> a
+    void unloadOldScene(org.andengine.entity.scene.Scene) -> a
+eu.nazgee.game.utils.scene.SceneLoader$eLoadingSceneHandling -> eu.nazgee.a.a.d.k:
+    eu.nazgee.game.utils.scene.SceneLoader$eLoadingSceneHandling SCENE_SET_CHILD -> a
+    eu.nazgee.game.utils.scene.SceneLoader$eLoadingSceneHandling SCENE_SET_ACTIVE -> b
+    eu.nazgee.game.utils.scene.SceneLoader$eLoadingSceneHandling SCENE_DONT_TOUCH -> c
+    eu.nazgee.game.utils.scene.SceneLoader$eLoadingSceneHandling[] ENUM$VALUES -> d
+    eu.nazgee.game.utils.scene.SceneLoader$eLoadingSceneHandling[] values() -> values
+    eu.nazgee.game.utils.scene.SceneLoader$eLoadingSceneHandling valueOf(java.lang.String) -> valueOf
+eu.nazgee.game.utils.scene.SceneLoader$eNewSceneHandling -> eu.nazgee.a.a.d.l:
+    eu.nazgee.game.utils.scene.SceneLoader$eNewSceneHandling SCENE_SET_CHILD -> a
+    eu.nazgee.game.utils.scene.SceneLoader$eNewSceneHandling SCENE_SET_CHILD_NESTED -> b
+    eu.nazgee.game.utils.scene.SceneLoader$eNewSceneHandling SCENE_SET_ACTIVE -> c
+    eu.nazgee.game.utils.scene.SceneLoader$eNewSceneHandling[] ENUM$VALUES -> d
+    eu.nazgee.game.utils.scene.SceneLoader$eNewSceneHandling[] values() -> values
+    eu.nazgee.game.utils.scene.SceneLoader$eNewSceneHandling valueOf(java.lang.String) -> valueOf
+eu.nazgee.game.utils.scene.SceneLoader$eOldSceneHandling -> eu.nazgee.a.a.d.m:
+    eu.nazgee.game.utils.scene.SceneLoader$eOldSceneHandling UNLOAD_OLD_AFTER_LOADING_NEW -> a
+    eu.nazgee.game.utils.scene.SceneLoader$eOldSceneHandling UNLOAD_OLD_BEFORE_LOADING_NEW -> b
+    eu.nazgee.game.utils.scene.SceneLoader$eOldSceneHandling[] ENUM$VALUES -> c
+    eu.nazgee.game.utils.scene.SceneLoader$eOldSceneHandling[] values() -> values
+    eu.nazgee.game.utils.scene.SceneLoader$eOldSceneHandling valueOf(java.lang.String) -> valueOf
+eu.nazgee.game.utils.scene.SceneLoading -> eu.nazgee.a.a.d.n:
+    org.andengine.entity.text.Text mTextLoading -> a
+    org.andengine.opengl.font.Font mFont -> b
+    java.lang.String mLoading -> c
+    void onLoadResources(org.andengine.engine.Engine,android.content.Context) -> d
+    void onLoad(org.andengine.engine.Engine,android.content.Context) -> c
+    void onUnload() -> d
+    void prepareText() -> j
+    void prepareAnimation(org.andengine.entity.text.Text) -> a
+    void reset() -> a
+eu.nazgee.game.utils.scene.SceneSplash -> eu.nazgee.a.a.d.o:
+    java.util.LinkedList mSprites -> a
+    org.andengine.entity.text.Text mTextLoading -> b
+    float mTotalTime -> c
+    boolean mComplete -> B
+    org.andengine.opengl.font.Font mFont -> F
+    void onLoadResources(org.andengine.engine.Engine,android.content.Context) -> d
+    void onLoad(org.andengine.engine.Engine,android.content.Context) -> c
+    void onUnload() -> d
+    boolean isComplete() -> j
+    void waitForCompleted() -> k
+    void setComplete(boolean) -> a
+    boolean onSceneTouchEvent(org.andengine.entity.scene.Scene,org.andengine.input.touch.TouchEvent) -> a
+    boolean onAreaTouched(org.andengine.input.touch.TouchEvent,org.andengine.entity.scene.ITouchArea,float,float) -> a
+eu.nazgee.game.utils.scene.SceneSplash$1 -> eu.nazgee.a.a.d.p:
+    eu.nazgee.game.utils.scene.SceneSplash this$0 -> a
+    void onModifierStarted(org.andengine.util.modifier.IModifier,org.andengine.entity.IEntity) -> a
+    void onModifierFinished(org.andengine.util.modifier.IModifier,org.andengine.entity.IEntity) -> b
+    void onModifierFinished(org.andengine.util.modifier.IModifier,java.lang.Object) -> a
+    void onModifierStarted(org.andengine.util.modifier.IModifier,java.lang.Object) -> b
+eu.nazgee.game.utils.scene.SceneSplash$LogoAttacher -> eu.nazgee.a.a.d.q:
+    org.andengine.entity.IEntity mEntity -> b
+    org.andengine.entity.scene.Scene mScene -> c
+    eu.nazgee.game.utils.scene.SceneSplash this$0 -> a
+    void onModifierStarted(org.andengine.util.modifier.IModifier,org.andengine.entity.IEntity) -> a
+    void onModifierFinished(org.andengine.util.modifier.IModifier,org.andengine.entity.IEntity) -> b
+    void onModifierFinished(org.andengine.util.modifier.IModifier,java.lang.Object) -> a
+    void onModifierStarted(org.andengine.util.modifier.IModifier,java.lang.Object) -> b
+eu.nazgee.game.utils.tasklet.IAsyncTasklet -> eu.nazgee.a.a.e.a:
+    void onAboutToStart() -> a
+    void workToDo() -> b
+    void onComplete() -> c
+eu.nazgee.game.utils.tasklet.TaskletsRunner -> eu.nazgee.a.a.e.b:
+    eu.nazgee.game.utils.tasklet.IAsyncTasklet[] mParams -> a
+    void onPreExecute() -> onPreExecute
+    java.lang.Boolean doInBackground(eu.nazgee.game.utils.tasklet.IAsyncTasklet[]) -> a
+    void onPostExecute(java.lang.Boolean) -> a
+    void onPostExecute(java.lang.Object) -> onPostExecute
+    java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
+eu.nazgee.prank.solar.ActivityMain -> eu.nazgee.prank.solar.ActivityMain:
+    org.andengine.opengl.font.Font mFont -> c
+    eu.nazgee.prank.solar.SceneMain mSceneMain -> d
+    eu.nazgee.game.utils.scene.SceneLoader mLoader -> e
+    eu.nazgee.prank.solar.LightConverter mLightConverter -> f
+    eu.nazgee.prank.solar.HUD mHud -> g
+    org.andengine.engine.options.EngineOptions onCreateEngineOptions() -> a
+    void onCreateResources() -> b
+    org.andengine.entity.scene.Scene onCreateScene() -> c
+    void onCreate(android.os.Bundle) -> onCreate
+    void onPause() -> onPause
+    boolean enableSensor(int) -> a
+    boolean disableSensor(int) -> b
+    boolean enableLightSensor() -> d
+    boolean disableLightSensor() -> e
+    boolean isSensorSupported(android.hardware.SensorManager,int) -> a
+    void registerSelfAsSensorListener(android.hardware.SensorManager,int,int) -> a
+    void unregisterSelfAsSensorListener(android.hardware.SensorManager,int) -> b
+    eu.nazgee.prank.solar.HUD access$0(eu.nazgee.prank.solar.ActivityMain) -> a
+    eu.nazgee.prank.solar.SceneMain access$1(eu.nazgee.prank.solar.ActivityMain) -> b
+    eu.nazgee.prank.solar.LightConverter access$2(eu.nazgee.prank.solar.ActivityMain) -> c
+eu.nazgee.prank.solar.ActivityMain$1 -> eu.nazgee.prank.solar.a:
+    eu.nazgee.prank.solar.ActivityMain$MainSceneLoadedListener this$1 -> a
+    void run() -> run
+eu.nazgee.prank.solar.ActivityMain$2 -> eu.nazgee.prank.solar.b:
+    int skipper -> b
+    eu.nazgee.prank.solar.ActivityMain this$0 -> a
+    void onTimePassed(org.andengine.engine.handler.timer.TimerHandler) -> a
+eu.nazgee.prank.solar.ActivityMain$MainSceneLoadedListener -> eu.nazgee.prank.solar.c:
+    eu.nazgee.prank.solar.ActivityMain this$0 -> a
+    void onSceneLoaded(org.andengine.entity.scene.Scene) -> a
+    eu.nazgee.prank.solar.ActivityMain access$0(eu.nazgee.prank.solar.ActivityMain$MainSceneLoadedListener) -> a
+eu.nazgee.prank.solar.HUD -> eu.nazgee.prank.solar.d:
+    eu.nazgee.prank.solar.HUD$MyResources mResources -> c
+    org.andengine.entity.text.Text mTextStatus -> F
+    org.andengine.entity.text.Text mTextPercent -> G
+    org.andengine.entity.text.Text mTextBar -> H
+    boolean mCalibrationFinished -> I
+    void onLoadResources(org.andengine.engine.Engine,android.content.Context) -> d
+    void onLoad(org.andengine.engine.Engine,android.content.Context) -> c
+    void onUnload() -> d
+    void setProgressBar(float) -> b
+    void finishCalibration() -> i
+    boolean isFinishCalibration() -> j
+    void setStatus(java.lang.String) -> a
+    boolean access$0(eu.nazgee.prank.solar.HUD) -> a
+eu.nazgee.prank.solar.HUD$1 -> eu.nazgee.prank.solar.e:
+    int i -> d
+    java.lang.String[] txt -> a
+    java.lang.String[] txt_cal -> b
+    eu.nazgee.prank.solar.HUD this$0 -> c
+    void onTimePassed(org.andengine.engine.handler.timer.TimerHandler) -> a
+eu.nazgee.prank.solar.HUD$MyResources -> eu.nazgee.prank.solar.f:
+    org.andengine.opengl.font.Font FONT -> a
+    void onLoadResources(org.andengine.engine.Engine,android.content.Context) -> d
+    void onLoad(org.andengine.engine.Engine,android.content.Context) -> c
+    void onUnload() -> d
+eu.nazgee.prank.solar.LightConverter -> eu.nazgee.prank.solar.g:
+    eu.nazgee.prank.solar.LightConverter$LightFeedback mLightFeedback -> a
+    float mAdvertisedSensorMax -> b
+    eu.nazgee.prank.solar.LightConverter$Statistics mStats -> c
+    void onAccuracyChanged(android.hardware.Sensor,int) -> onAccuracyChanged
+    void onSensorChanged(android.hardware.SensorEvent) -> onSensorChanged
+    float getLightValue(float) -> a
+    float getLightValueMax() -> a
+    float getLightValueMin() -> b
+eu.nazgee.prank.solar.LightConverter$LightFeedback -> eu.nazgee.prank.solar.h:
+eu.nazgee.prank.solar.LightConverter$StatEntry -> eu.nazgee.prank.solar.i:
+    float mValue -> b
+    java.lang.Long mTimestamp -> c
+    eu.nazgee.prank.solar.LightConverter this$0 -> a
+    float getAge(java.lang.Long) -> a
+    float getAge(eu.nazgee.prank.solar.LightConverter$StatEntry) -> a
+    float getValue() -> a
+eu.nazgee.prank.solar.LightConverter$Statistics -> eu.nazgee.prank.solar.j:
+    float mMax -> c
+    float mMin -> d
+    org.andengine.util.adt.queue.CircularQueue mSamples -> a
+    eu.nazgee.prank.solar.LightConverter this$0 -> b
+    void registerValue(float) -> a
+    float getMax() -> a
+    float getMin() -> b
+    float getAverage(float) -> b
+eu.nazgee.prank.solar.SceneMain -> eu.nazgee.prank.solar.k:
+    eu.nazgee.prank.solar.SceneMain$MyResources mResources -> a
+    org.andengine.entity.sprite.Sprite[] mPanels -> b
+    void onLoadResources(org.andengine.engine.Engine,android.content.Context) -> d
+    void onLoad(org.andengine.engine.Engine,android.content.Context) -> c
+    void onUnload() -> d
+    void setLightPanels(float,float) -> d
+    void setLightLevel(float) -> b
+eu.nazgee.prank.solar.SceneMain$MyResources -> eu.nazgee.prank.solar.l:
+    org.andengine.opengl.texture.region.ITiledTextureRegion TEXS_PANELS -> a
+    org.andengine.opengl.texture.atlas.bitmap.BuildableBitmapTextureAtlas[] mAtlases -> b
+    void onLoadResources(org.andengine.engine.Engine,android.content.Context) -> d
+    void onLoad(org.andengine.engine.Engine,android.content.Context) -> c
+    void onUnload() -> d
+org.andengine.audio.BaseAudioEntity -> org.andengine.a.a:
+    org.andengine.audio.IAudioManager mAudioManager -> a
+    boolean mReleased -> b
+    org.andengine.audio.IAudioManager getAudioManager() -> a
+    void throwOnReleased() -> b
+    void stop() -> c
+    void release() -> d
+    void assertNotReleased() -> e
+org.andengine.audio.BaseAudioManager -> org.andengine.a.b:
+    java.util.ArrayList mAudioEntities -> a
+    float mMasterVolume -> b
+    boolean remove(org.andengine.audio.IAudioEntity) -> a
+    void releaseAll() -> a
+org.andengine.audio.IAudioEntity -> org.andengine.a.c:
+    void stop() -> c
+    void release() -> d
+org.andengine.audio.IAudioManager -> org.andengine.a.d:
+org.andengine.audio.exception.AudioException -> org.andengine.a.a.a:
+org.andengine.audio.music.MusicFactory -> org.andengine.a.b.a:
+    java.lang.String sAssetBasePath -> a
+    void setAssetBasePath(java.lang.String) -> a
+    void onCreate() -> a
+org.andengine.audio.music.MusicManager -> org.andengine.a.b.b:
+org.andengine.audio.sound.Sound -> org.andengine.a.c.a:
+    int mSoundID -> a
+    int mStreamID -> b
+    boolean mLoaded -> c
+    int getSoundID() -> f
+    void setLoaded(boolean) -> a
+    android.media.SoundPool getSoundPool() -> h
+    org.andengine.audio.sound.SoundManager getAudioManager() -> g
+    void throwOnReleased() -> b
+    void stop() -> c
+    void release() -> d
+    org.andengine.audio.IAudioManager getAudioManager() -> a
+org.andengine.audio.sound.SoundFactory -> org.andengine.a.c.b:
+    java.lang.String sAssetBasePath -> a
+    void setAssetBasePath(java.lang.String) -> a
+    void onCreate() -> a
+org.andengine.audio.sound.SoundManager -> org.andengine.a.c.c:
+    android.media.SoundPool mSoundPool -> c
+    android.util.SparseArray mSoundMap -> d
+    android.media.SoundPool getSoundPool() -> b
+    boolean remove(org.andengine.audio.sound.Sound) -> a
+    void releaseAll() -> a
+    void onLoadComplete(android.media.SoundPool,int,int) -> onLoadComplete
+    boolean remove(org.andengine.audio.IAudioEntity) -> a
+org.andengine.audio.sound.exception.SoundException -> org.andengine.a.c.a.a:
+org.andengine.audio.sound.exception.SoundReleasedException -> org.andengine.a.c.a.b:
+org.andengine.engine.Engine -> org.andengine.b.a:
+    org.andengine.input.sensor.SensorDelay SENSORDELAY_DEFAULT -> e
+    boolean mRunning -> f
+    boolean mDestroyed -> g
+    long mLastTick -> h
+    float mSecondsElapsedTotal -> i
+    org.andengine.engine.Engine$EngineLock mEngineLock -> j
+    org.andengine.engine.Engine$UpdateThread mUpdateThread -> k
+    org.andengine.engine.handler.runnable.RunnableHandler mUpdateThreadRunnableHandler -> l
+    org.andengine.engine.options.EngineOptions mEngineOptions -> m
+    org.andengine.engine.camera.Camera mCamera -> a
+    org.andengine.input.touch.controller.ITouchController mTouchController -> n
+    org.andengine.opengl.vbo.VertexBufferObjectManager mVertexBufferObjectManager -> o
+    org.andengine.opengl.texture.TextureManager mTextureManager -> p
+    org.andengine.opengl.font.FontManager mFontManager -> q
+    org.andengine.opengl.shader.ShaderProgramManager mShaderProgramManager -> r
+    org.andengine.audio.sound.SoundManager mSoundManager -> s
+    org.andengine.audio.music.MusicManager mMusicManager -> t
+    org.andengine.entity.scene.Scene mScene -> b
+    org.andengine.input.sensor.location.ILocationListener mLocationListener -> u
+    android.location.Location mLocation -> v
+    org.andengine.input.sensor.acceleration.IAccelerationListener mAccelerationListener -> w
+    org.andengine.input.sensor.acceleration.AccelerationData mAccelerationData -> x
+    org.andengine.input.sensor.orientation.IOrientationListener mOrientationListener -> y
+    org.andengine.input.sensor.orientation.OrientationData mOrientationData -> z
+    org.andengine.engine.handler.UpdateHandlerList mUpdateHandlers -> A
+    org.andengine.engine.handler.DrawHandlerList mDrawHandlers -> B
+    int mSurfaceWidth -> c
+    int mSurfaceHeight -> d
+    void start() -> a
+    void stop() -> b
+    org.andengine.entity.scene.Scene getScene() -> c
+    void setScene(org.andengine.entity.scene.Scene) -> a
+    org.andengine.engine.options.EngineOptions getEngineOptions() -> d
+    org.andengine.engine.camera.Camera getCamera() -> e
+    void setSurfaceSize(int,int) -> a
+    void onUpdateCameraSurface() -> f
+    void setTouchController(org.andengine.input.touch.controller.ITouchController) -> a
+    org.andengine.opengl.vbo.VertexBufferObjectManager getVertexBufferObjectManager() -> g
+    org.andengine.opengl.texture.TextureManager getTextureManager() -> h
+    org.andengine.opengl.font.FontManager getFontManager() -> i
+    org.andengine.audio.sound.SoundManager getSoundManager() -> j
+    org.andengine.audio.music.MusicManager getMusicManager() -> k
+    void registerUpdateHandler(org.andengine.engine.handler.IUpdateHandler) -> a
+    void onAccuracyChanged(android.hardware.Sensor,int) -> onAccuracyChanged
+    void onSensorChanged(android.hardware.SensorEvent) -> onSensorChanged
+    void onLocationChanged(android.location.Location) -> onLocationChanged
+    void onProviderDisabled(java.lang.String) -> onProviderDisabled
+    void onProviderEnabled(java.lang.String) -> onProviderEnabled
+    void onStatusChanged(java.lang.String,int,android.os.Bundle) -> onStatusChanged
+    boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+    boolean onTouchEvent(org.andengine.input.touch.TouchEvent) -> a
+    boolean onTouchHUD(org.andengine.engine.camera.Camera,org.andengine.input.touch.TouchEvent) -> a
+    boolean onTouchScene(org.andengine.entity.scene.Scene,org.andengine.input.touch.TouchEvent) -> a
+    void onDestroy() -> l
+    void onReloadResources() -> m
+    org.andengine.engine.camera.Camera getCameraFromSurfaceTouchEvent(org.andengine.input.touch.TouchEvent) -> b
+    org.andengine.entity.scene.Scene getSceneFromSurfaceTouchEvent(org.andengine.input.touch.TouchEvent) -> c
+    void convertSurfaceToSceneTouchEvent(org.andengine.engine.camera.Camera,org.andengine.input.touch.TouchEvent) -> b
+    void onTickUpdate() -> n
+    void throwOnDestroyed() -> o
+    void onUpdate(long) -> a
+    void onUpdateScene(float) -> a
+    void onUpdateUpdateHandlers(float) -> b
+    void onUpdateDrawHandlers(org.andengine.opengl.util.GLState,org.andengine.engine.camera.Camera) -> a
+    void onDrawFrame(org.andengine.opengl.util.GLState) -> a
+    void onDrawScene(org.andengine.opengl.util.GLState,org.andengine.engine.camera.Camera) -> b
+    long getNanosecondsElapsed() -> p
+org.andengine.engine.Engine$EngineDestroyedException -> org.andengine.b.b:
+    org.andengine.engine.Engine this$0 -> a
+org.andengine.engine.Engine$EngineLock -> org.andengine.b.c:
+    java.util.concurrent.locks.Condition mDrawingCondition -> a
+    java.util.concurrent.atomic.AtomicBoolean mDrawing -> b
+    void notifyCanDraw() -> a
+    void notifyCanUpdate() -> b
+    void waitUntilCanDraw() -> c
+    void waitUntilCanUpdate() -> d
+org.andengine.engine.Engine$UpdateThread -> org.andengine.b.d:
+    org.andengine.engine.Engine mEngine -> a
+    org.andengine.engine.handler.runnable.RunnableHandler mRunnableHandler -> b
+    void setEngine(org.andengine.engine.Engine) -> a
+    void run() -> run
+org.andengine.engine.camera.Camera -> org.andengine.b.a.a:
+    float[] VERTICES_TMP -> a
+    float mXMin -> j
+    float mXMax -> k
+    float mYMin -> l
+    float mYMax -> m
+    float mZNear -> n
+    float mZFar -> o
+    org.andengine.engine.camera.hud.HUD mHUD -> p
+    org.andengine.entity.IEntity mChaseEntity -> q
+    float mRotation -> b
+    float mCameraSceneRotation -> c
+    int mSurfaceX -> d
+    int mSurfaceY -> e
+    int mSurfaceWidth -> f
+    int mSurfaceHeight -> g
+    boolean mResizeOnSurfaceSizeChanged -> h
+    org.andengine.engine.handler.UpdateHandlerList mUpdateHandlers -> i
+    float getXMin() -> b
+    float getXMax() -> c
+    float getYMin() -> d
+    float getYMax() -> e
+    void set(float,float,float,float) -> a
+    float getWidthRaw() -> f
+    float getHeightRaw() -> g
+    float getCenterX() -> h
+    float getCenterY() -> i
+    void setCenter(float,float) -> a
+    org.andengine.engine.camera.hud.HUD getHUD() -> j
+    void setHUD(org.andengine.engine.camera.hud.HUD) -> a
+    boolean hasHUD() -> k
+    float getRotation() -> l
+    void setSurfaceSize(int,int,int,int) -> a
+    void onUpdate(float) -> a
+    void reset() -> a
+    void onDrawHUD(org.andengine.opengl.util.GLState) -> a
+    void updateChaseEntity() -> m
+    void onApplySceneMatrix(org.andengine.opengl.util.GLState) -> b
+    void onApplySceneBackgroundMatrix(org.andengine.opengl.util.GLState) -> c
+    void onApplyCameraSceneMatrix(org.andengine.opengl.util.GLState) -> d
+    void applyRotation(org.andengine.opengl.util.GLState,float,float,float) -> a
+    void convertSceneToCameraSceneTouchEvent(org.andengine.input.touch.TouchEvent) -> a
+    void convertCameraSceneToSceneTouchEvent(org.andengine.input.touch.TouchEvent) -> b
+    void applySceneToCameraSceneOffset(org.andengine.input.touch.TouchEvent) -> c
+    void unapplySceneToCameraSceneOffset(org.andengine.input.touch.TouchEvent) -> d
+    void applySceneRotation(org.andengine.input.touch.TouchEvent) -> e
+    void unapplySceneRotation(org.andengine.input.touch.TouchEvent) -> f
+    void applyCameraSceneRotation(org.andengine.input.touch.TouchEvent) -> g
+    void unapplyCameraSceneRotation(org.andengine.input.touch.TouchEvent) -> h
+    void convertSurfaceToSceneTouchEvent(org.andengine.input.touch.TouchEvent,int,int) -> a
+    void convertAxisAlignedSurfaceToSceneTouchEvent(org.andengine.input.touch.TouchEvent,float,float) -> a
+    void onSurfaceSizeInitialized(int,int,int,int) -> b
+    void onSurfaceSizeChanged(int,int,int,int,int,int,int,int) -> a
+org.andengine.engine.camera.hud.HUD -> org.andengine.b.a.a.a:
+org.andengine.engine.handler.DrawHandlerList -> org.andengine.b.b.a:
+    void onDraw(org.andengine.opengl.util.GLState,org.andengine.engine.camera.Camera) -> a
+org.andengine.engine.handler.IDrawHandler -> org.andengine.b.b.b:
+    void onDraw(org.andengine.opengl.util.GLState,org.andengine.engine.camera.Camera) -> a
+org.andengine.engine.handler.IUpdateHandler -> org.andengine.b.b.c:
+    void onUpdate(float) -> a
+    void reset() -> a
+org.andengine.engine.handler.UpdateHandlerList -> org.andengine.b.b.d:
+    void onUpdate(float) -> a
+    void reset() -> a
+org.andengine.engine.handler.runnable.RunnableHandler -> org.andengine.b.b.a.a:
+    java.util.ArrayList mRunnables -> a
+    void onUpdate(float) -> a
+    void reset() -> a
+org.andengine.engine.handler.timer.ITimerCallback -> org.andengine.b.b.b.a:
+    void onTimePassed(org.andengine.engine.handler.timer.TimerHandler) -> a
+org.andengine.engine.handler.timer.TimerHandler -> org.andengine.b.b.b.b:
+    float mTimerSeconds -> b
+    float mTimerSecondsElapsed -> c
+    boolean mTimerCallbackTriggered -> d
+    org.andengine.engine.handler.timer.ITimerCallback mTimerCallback -> a
+    boolean mAutoReset -> e
+    void setTimerSeconds(float) -> b
+    void onUpdate(float) -> a
+    void reset() -> a
+org.andengine.engine.options.AudioOptions -> org.andengine.b.c.a:
+    org.andengine.engine.options.SoundOptions mSoundOptions -> a
+    org.andengine.engine.options.MusicOptions mMusicOptions -> b
+    org.andengine.engine.options.SoundOptions getSoundOptions() -> a
+    boolean needsSound() -> b
+    boolean needsMusic() -> c
+org.andengine.engine.options.EngineOptions -> org.andengine.b.c.b:
+    org.andengine.engine.Engine$EngineLock mEngineLock -> a
+    boolean mFullscreen -> b
+    org.andengine.engine.options.ScreenOrientation mScreenOrientation -> c
+    org.andengine.engine.options.resolutionpolicy.IResolutionPolicy mResolutionPolicy -> d
+    org.andengine.engine.camera.Camera mCamera -> e
+    org.andengine.engine.options.TouchOptions mTouchOptions -> f
+    org.andengine.engine.options.AudioOptions mAudioOptions -> g
+    org.andengine.engine.options.RenderOptions mRenderOptions -> h
+    org.andengine.engine.options.WakeLockOptions mWakeLockOptions -> i
+    org.andengine.engine.Engine$UpdateThread mUpdateThread -> j
+    int mUpdateThreadPriority -> k
+    boolean hasEngineLock() -> a
+    org.andengine.engine.Engine$EngineLock getEngineLock() -> b
+    org.andengine.engine.options.TouchOptions getTouchOptions() -> c
+    org.andengine.engine.options.AudioOptions getAudioOptions() -> d
+    org.andengine.engine.options.RenderOptions getRenderOptions() -> e
+    boolean isFullscreen() -> f
+    org.andengine.engine.options.ScreenOrientation getScreenOrientation() -> g
+    org.andengine.engine.options.resolutionpolicy.IResolutionPolicy getResolutionPolicy() -> h
+    org.andengine.engine.camera.Camera getCamera() -> i
+    boolean hasUpdateThread() -> j
+    org.andengine.engine.Engine$UpdateThread getUpdateThread() -> k
+    int getUpdateThreadPriority() -> l
+    org.andengine.engine.options.WakeLockOptions getWakeLockOptions() -> m
+org.andengine.engine.options.MusicOptions -> org.andengine.b.c.c:
+    boolean mNeedsMusic -> a
+    boolean needsMusic() -> a
+org.andengine.engine.options.RenderOptions -> org.andengine.b.c.d:
+    boolean mMultiSampling -> a
+    boolean isMultiSampling() -> a
+org.andengine.engine.options.ScreenOrientation -> org.andengine.b.c.e:
+    org.andengine.engine.options.ScreenOrientation LANDSCAPE_FIXED -> a
+    org.andengine.engine.options.ScreenOrientation LANDSCAPE_SENSOR -> b
+    org.andengine.engine.options.ScreenOrientation PORTRAIT_FIXED -> c
+    org.andengine.engine.options.ScreenOrientation PORTRAIT_SENSOR -> d
+    org.andengine.engine.options.ScreenOrientation[] ENUM$VALUES -> e
+    org.andengine.engine.options.ScreenOrientation[] values() -> values
+    org.andengine.engine.options.ScreenOrientation valueOf(java.lang.String) -> valueOf
+org.andengine.engine.options.SoundOptions -> org.andengine.b.c.f:
+    boolean mNeedsSound -> a
+    int mMaxSimultaneousStreams -> b
+    boolean needsSound() -> a
+    int getMaxSimultaneousStreams() -> b
+org.andengine.engine.options.TouchOptions -> org.andengine.b.c.g:
+    boolean mNeedsMultiTouch -> a
+    long mTouchEventIntervalMilliseconds -> b
+    boolean needsMultiTouch() -> a
+    long getTouchEventIntervalMilliseconds() -> b
+org.andengine.engine.options.WakeLockOptions -> org.andengine.b.c.h:
+    org.andengine.engine.options.WakeLockOptions BRIGHT -> a
+    org.andengine.engine.options.WakeLockOptions SCREEN_BRIGHT -> b
+    org.andengine.engine.options.WakeLockOptions SCREEN_DIM -> c
+    org.andengine.engine.options.WakeLockOptions SCREEN_ON -> d
+    int mFlag -> e
+    org.andengine.engine.options.WakeLockOptions[] ENUM$VALUES -> f
+    int getFlag() -> a
+    org.andengine.engine.options.WakeLockOptions[] values() -> values
+    org.andengine.engine.options.WakeLockOptions valueOf(java.lang.String) -> valueOf
+org.andengine.engine.options.resolutionpolicy.BaseResolutionPolicy -> org.andengine.b.c.a.a:
+    void throwOnNotMeasureSpecEXACTLY(int,int) -> a
+org.andengine.engine.options.resolutionpolicy.IResolutionPolicy -> org.andengine.b.c.a.b:
+    void onMeasure(org.andengine.opengl.view.RenderSurfaceView,int,int) -> a
+org.andengine.engine.options.resolutionpolicy.RatioResolutionPolicy -> org.andengine.b.c.a.c:
+    float mRatio -> a
+    void onMeasure(org.andengine.opengl.view.RenderSurfaceView,int,int) -> a
+org.andengine.entity.Entity -> org.andengine.c.a:
+    float[] VERTICES_SCENE_TO_LOCAL_TMP -> a
+    float[] VERTICES_LOCAL_TO_SCENE_TMP -> b
+    org.andengine.util.call.ParameterCallable PARAMETERCALLABLE_DETACHCHILD -> c
+    boolean mDisposed -> d
+    boolean mVisible -> e
+    boolean mCullingEnabled -> f
+    boolean mIgnoreUpdate -> g
+    boolean mChildrenVisible -> h
+    boolean mChildrenIgnoreUpdate -> i
+    boolean mChildrenSortPending -> j
+    int mTag -> k
+    int mZIndex -> l
+    org.andengine.entity.IEntity mParent -> B
+    org.andengine.util.adt.list.SmartList mChildren -> m
+    org.andengine.entity.modifier.EntityModifierList mEntityModifiers -> C
+    org.andengine.engine.handler.UpdateHandlerList mUpdateHandlers -> D
+    org.andengine.util.color.Color mColor -> n
+    float mX -> o
+    float mY -> p
+    float mRotation -> q
+    float mRotationCenterX -> r
+    float mRotationCenterY -> s
+    float mScaleX -> t
+    float mScaleY -> u
+    float mScaleCenterX -> v
+    float mScaleCenterY -> w
+    float mSkewX -> x
+    float mSkewY -> y
+    float mSkewCenterX -> z
+    float mSkewCenterY -> A
+    boolean mLocalToParentTransformationDirty -> E
+    boolean mParentToLocalTransformationDirty -> F
+    org.andengine.util.adt.transformation.Transformation mLocalToParentTransformation -> G
+    org.andengine.util.adt.transformation.Transformation mParentToLocalTransformation -> H
+    org.andengine.util.adt.transformation.Transformation mLocalToSceneTransformation -> I
+    org.andengine.util.adt.transformation.Transformation mSceneToLocalTransformation -> J
+    void onUpdateColor() -> l
+    boolean isDisposed() -> m
+    boolean isCulled(org.andengine.engine.camera.Camera) -> a
+    boolean hasParent() -> n
+    org.andengine.entity.IEntity getParent() -> o
+    void setParent(org.andengine.entity.IEntity) -> a
+    int getZIndex() -> p
+    void setX(float) -> c
+    void setPosition(float,float) -> a_
+    float getAlpha() -> q
+    org.andengine.util.color.Color getColor() -> r
+    void setAlpha(float) -> d
+    void detachChildren() -> s
+    void attachChild(org.andengine.entity.IEntity) -> b
+    boolean detachChild(org.andengine.entity.IEntity) -> c
+    void registerUpdateHandler(org.andengine.engine.handler.IUpdateHandler) -> a
+    void clearUpdateHandlers() -> t
+    void registerEntityModifier(org.andengine.entity.modifier.IEntityModifier) -> a
+    void clearEntityModifiers() -> u
+    float[] getSceneCenterCoordinates() -> v
+    org.andengine.util.adt.transformation.Transformation getLocalToParentTransformation() -> w
+    org.andengine.util.adt.transformation.Transformation getParentToLocalTransformation() -> x
+    org.andengine.util.adt.transformation.Transformation getLocalToSceneTransformation() -> y
+    org.andengine.util.adt.transformation.Transformation getSceneToLocalTransformation() -> z
+    float[] convertLocalToSceneCoordinates(float,float) -> b
+    float[] convertLocalToSceneCoordinates(float,float,float[]) -> a
+    float[] convertSceneToLocalCoordinates(float,float) -> c
+    float[] convertSceneToLocalCoordinates(float,float,float[]) -> b
+    void onAttached() -> A
+    void onDetached() -> B
+    void onDraw(org.andengine.opengl.util.GLState,org.andengine.engine.camera.Camera) -> a
+    void onUpdate(float) -> a
+    void reset() -> a
+    void dispose() -> C
+    void finalize() -> finalize
+    java.lang.String toString() -> toString
+    void toString(java.lang.StringBuilder) -> a
+    void preDraw(org.andengine.opengl.util.GLState,org.andengine.engine.camera.Camera) -> b
+    void draw(org.andengine.opengl.util.GLState,org.andengine.engine.camera.Camera) -> c
+    void postDraw(org.andengine.opengl.util.GLState,org.andengine.engine.camera.Camera) -> d
+    void allocateEntityModifiers() -> b
+    void allocateChildren() -> c
+    void allocateUpdateHandlers() -> d
+    void onApplyTransformations(org.andengine.opengl.util.GLState) -> a
+    void applyTranslation(org.andengine.opengl.util.GLState) -> b
+    void applyRotation(org.andengine.opengl.util.GLState) -> c
+    void applySkew(org.andengine.opengl.util.GLState) -> d
+    void applyScale(org.andengine.opengl.util.GLState) -> e
+    void onManagedDraw(org.andengine.opengl.util.GLState,org.andengine.engine.camera.Camera) -> e
+    void onManagedUpdate(float) -> e
+    void assertEntityHasNoParent(org.andengine.entity.IEntity) -> d
+org.andengine.entity.Entity$1 -> org.andengine.c.b:
+    void call(org.andengine.entity.IEntity) -> a
+    void call(java.lang.Object) -> a
+org.andengine.entity.IEntity -> org.andengine.c.c:
+    int getZIndex() -> p
+    boolean hasParent() -> n
+    org.andengine.entity.IEntity getParent() -> o
+    void setParent(org.andengine.entity.IEntity) -> a
+    void setX(float) -> c
+    void setAlpha(float) -> d
+    float[] getSceneCenterCoordinates() -> v
+    org.andengine.util.adt.transformation.Transformation getLocalToSceneTransformation() -> y
+    org.andengine.util.adt.transformation.Transformation getSceneToLocalTransformation() -> z
+    void onAttached() -> A
+    void onDetached() -> B
+    void toString(java.lang.StringBuilder) -> a
+org.andengine.entity.ZIndexSorter -> org.andengine.c.d:
+    org.andengine.entity.ZIndexSorter INSTANCE -> a
+    java.util.Comparator mZIndexComparator -> b
+    org.andengine.entity.ZIndexSorter getInstance() -> a
+    void sort(java.util.List) -> a
+org.andengine.entity.ZIndexSorter$1 -> org.andengine.c.e:
+    org.andengine.entity.ZIndexSorter this$0 -> a
+    int compare(org.andengine.entity.IEntity,org.andengine.entity.IEntity) -> a
+    int compare(java.lang.Object,java.lang.Object) -> compare
+org.andengine.entity.modifier.AlphaModifier -> org.andengine.c.a.a:
+    void onSetInitialValue(org.andengine.entity.IEntity,float) -> a
+    void onSetValue(org.andengine.entity.IEntity,float,float) -> a
+    void onSetValue(java.lang.Object,float,float) -> a
+    void onSetInitialValue(java.lang.Object,float) -> a
+org.andengine.entity.modifier.DelayModifier -> org.andengine.c.a.b:
+    void onManagedInitialize(org.andengine.entity.IEntity) -> a
+    void onManagedUpdate(float,org.andengine.entity.IEntity) -> a
+    void onManagedInitialize(java.lang.Object) -> a
+    void onManagedUpdate(float,java.lang.Object) -> a
+org.andengine.entity.modifier.DurationEntityModifier -> org.andengine.c.a.c:
+org.andengine.entity.modifier.EntityModifierList -> org.andengine.c.a.d:
+org.andengine.entity.modifier.IEntityModifier -> org.andengine.c.a.e:
+org.andengine.entity.modifier.IEntityModifier$IEntityModifierListener -> org.andengine.c.a.f:
+org.andengine.entity.modifier.MoveXModifier -> org.andengine.c.a.g:
+    void onSetInitialValue(org.andengine.entity.IEntity,float) -> a
+    void onSetValue(org.andengine.entity.IEntity,float,float) -> a
+    void onSetValue(java.lang.Object,float,float) -> a
+    void onSetInitialValue(java.lang.Object,float) -> a
+org.andengine.entity.modifier.SequenceEntityModifier -> org.andengine.c.a.h:
+org.andengine.entity.modifier.SingleValueSpanEntityModifier -> org.andengine.c.a.i:
+org.andengine.entity.scene.CameraScene -> org.andengine.c.b.a:
+    org.andengine.engine.camera.Camera mCamera -> B
+    void setCamera(org.andengine.engine.camera.Camera) -> b
+    boolean onSceneTouchEvent(org.andengine.input.touch.TouchEvent) -> a
+    boolean onChildSceneTouchEvent(org.andengine.input.touch.TouchEvent) -> b
+    void onApplyMatrix(org.andengine.opengl.util.GLState,org.andengine.engine.camera.Camera) -> f
+org.andengine.entity.scene.IOnAreaTouchListener -> org.andengine.c.b.b:
+    boolean onAreaTouched(org.andengine.input.touch.TouchEvent,org.andengine.entity.scene.ITouchArea,float,float) -> a
+org.andengine.entity.scene.IOnSceneTouchListener -> org.andengine.c.b.c:
+    boolean onSceneTouchEvent(org.andengine.entity.scene.Scene,org.andengine.input.touch.TouchEvent) -> a
+org.andengine.entity.scene.ITouchArea -> org.andengine.c.b.d:
+    boolean contains(float,float) -> a
+    float[] convertSceneToLocalCoordinates(float,float) -> c
+    boolean onAreaTouched(org.andengine.input.touch.TouchEvent,float,float) -> a
+org.andengine.entity.scene.Scene -> org.andengine.c.b.e:
+    float mSecondsElapsedTotal -> a
+    org.andengine.entity.scene.Scene mParentScene -> C
+    org.andengine.entity.scene.Scene mChildScene -> D
+    boolean mChildSceneModalDraw -> b
+    boolean mChildSceneModalUpdate -> c
+    boolean mChildSceneModalTouch -> B
+    org.andengine.util.adt.list.SmartList mTouchAreas -> E
+    org.andengine.engine.handler.runnable.RunnableHandler mRunnableHandler -> F
+    org.andengine.entity.scene.IOnSceneTouchListener mOnSceneTouchListener -> G
+    org.andengine.entity.scene.IOnAreaTouchListener mOnAreaTouchListener -> H
+    org.andengine.entity.scene.background.IBackground mBackground -> I
+    boolean mBackgroundEnabled -> J
+    boolean mOnAreaTouchTraversalBackToFront -> K
+    boolean mTouchAreaBindingOnActionDownEnabled -> L
+    boolean mTouchAreaBindingOnActionMoveEnabled -> M
+    android.util.SparseArray mTouchAreaBindings -> N
+    boolean mOnSceneTouchListenerBindingOnActionDownEnabled -> O
+    android.util.SparseArray mOnSceneTouchListenerBindings -> P
+    void setBackground(org.andengine.entity.scene.background.IBackground) -> a
+    void setBackgroundEnabled(boolean) -> b
+    void setOnSceneTouchListener(org.andengine.entity.scene.IOnSceneTouchListener) -> a
+    void setOnAreaTouchListener(org.andengine.entity.scene.IOnAreaTouchListener) -> a
+    void setParentScene(org.andengine.entity.scene.Scene) -> a
+    org.andengine.entity.scene.Scene getChildScene() -> D
+    void setChildScene(org.andengine.entity.scene.Scene,boolean,boolean,boolean) -> a
+    void clearChildScene() -> E
+    void onManagedDraw(org.andengine.opengl.util.GLState,org.andengine.engine.camera.Camera) -> e
+    void onApplyMatrix(org.andengine.opengl.util.GLState,org.andengine.engine.camera.Camera) -> f
+    void onManagedUpdate(float) -> e
+    boolean onSceneTouchEvent(org.andengine.input.touch.TouchEvent) -> a
+    java.lang.Boolean onAreaTouchEvent(org.andengine.input.touch.TouchEvent,float,float,org.andengine.entity.scene.ITouchArea) -> a
+    boolean onChildSceneTouchEvent(org.andengine.input.touch.TouchEvent) -> b
+    void reset() -> a
+    void setParent(org.andengine.entity.IEntity) -> a
+org.andengine.entity.scene.background.Background -> org.andengine.c.b.a.a:
+    org.andengine.util.modifier.ModifierList mBackgroundModifiers -> a
+    org.andengine.util.color.Color mColor -> b
+    boolean mColorEnabled -> c
+    void onUpdate(float) -> a
+    void onDraw(org.andengine.opengl.util.GLState,org.andengine.engine.camera.Camera) -> a
+    void reset() -> a
+org.andengine.entity.scene.background.IBackground -> org.andengine.c.b.a.b:
+org.andengine.entity.shape.IAreaShape -> org.andengine.c.c.a:
+org.andengine.entity.shape.IShape -> org.andengine.c.c.b:
+    org.andengine.opengl.vbo.IVertexBufferObject getVertexBufferObject() -> b
+org.andengine.entity.shape.RectangularShape -> org.andengine.c.c.c:
+    float mWidth -> a
+    float mHeight -> b
+    float getWidth() -> c
+    float getHeight() -> d
+    boolean isCulled(org.andengine.engine.camera.Camera) -> a
+    void reset() -> a
+    boolean contains(float,float) -> a
+    float[] getSceneCenterCoordinates() -> v
+    void resetRotationCenter() -> e
+    void resetScaleCenter() -> f
+    void resetSkewCenter() -> g
+org.andengine.entity.shape.Shape -> org.andengine.c.c.d:
+    int mSourceBlendFunction -> c
+    int mDestinationBlendFunction -> B
+    boolean mBlendingEnabled -> C
+    org.andengine.opengl.shader.ShaderProgram mShaderProgram -> D
+    void setBlendingEnabled(boolean) -> a
+    void setBlendFunction(int,int) -> a
+    void preDraw(org.andengine.opengl.util.GLState,org.andengine.engine.camera.Camera) -> b
+    void postDraw(org.andengine.opengl.util.GLState,org.andengine.engine.camera.Camera) -> d
+    boolean onAreaTouched(org.andengine.input.touch.TouchEvent,float,float) -> a
+    void reset() -> a
+    void dispose() -> C
+    void initBlendFunction(org.andengine.opengl.texture.region.ITextureRegion) -> a
+    void initBlendFunction(org.andengine.opengl.texture.ITexture) -> a
+    void initBlendFunction(org.andengine.opengl.texture.TextureOptions) -> a
+org.andengine.entity.sprite.Sprite -> org.andengine.c.d.a:
+    org.andengine.opengl.vbo.attribute.VertexBufferObjectAttributes VERTEXBUFFEROBJECTATTRIBUTES_DEFAULT -> E
+    org.andengine.opengl.texture.region.ITextureRegion mTextureRegion -> F
+    org.andengine.entity.sprite.vbo.ISpriteVertexBufferObject mSpriteVertexBufferObject -> G
+    boolean mFlippedVertical -> H
+    boolean mFlippedHorizontal -> I
+    org.andengine.opengl.texture.region.ITextureRegion getTextureRegion() -> h
+    boolean isFlippedHorizontal() -> i
+    boolean isFlippedVertical() -> j
+    org.andengine.entity.sprite.vbo.ISpriteVertexBufferObject getVertexBufferObject() -> k
+    void reset() -> a
+    void preDraw(org.andengine.opengl.util.GLState,org.andengine.engine.camera.Camera) -> b
+    void draw(org.andengine.opengl.util.GLState,org.andengine.engine.camera.Camera) -> c
+    void postDraw(org.andengine.opengl.util.GLState,org.andengine.engine.camera.Camera) -> d
+    void onUpdateVertices() -> D
+    void onUpdateColor() -> l
+    void onUpdateTextureCoordinates() -> E
+    org.andengine.opengl.vbo.IVertexBufferObject getVertexBufferObject() -> b
+org.andengine.entity.sprite.vbo.HighPerformanceSpriteVertexBufferObject -> org.andengine.c.d.a.a:
+    void onUpdateColor(org.andengine.entity.sprite.Sprite) -> a
+    void onUpdateVertices(org.andengine.entity.sprite.Sprite) -> b
+    void onUpdateTextureCoordinates(org.andengine.entity.sprite.Sprite) -> c
+org.andengine.entity.sprite.vbo.ISpriteVertexBufferObject -> org.andengine.c.d.a.b:
+    void onUpdateColor(org.andengine.entity.sprite.Sprite) -> a
+    void onUpdateVertices(org.andengine.entity.sprite.Sprite) -> b
+    void onUpdateTextureCoordinates(org.andengine.entity.sprite.Sprite) -> c
+org.andengine.entity.text.AutoWrap -> org.andengine.c.e.a:
+    org.andengine.entity.text.AutoWrap NONE -> a
+    org.andengine.entity.text.AutoWrap WORDS -> b
+    org.andengine.entity.text.AutoWrap LETTERS -> c
+    org.andengine.entity.text.AutoWrap CJK -> d
+    org.andengine.entity.text.AutoWrap[] ENUM$VALUES -> e
+    org.andengine.entity.text.AutoWrap[] values() -> values
+    org.andengine.entity.text.AutoWrap valueOf(java.lang.String) -> valueOf
+org.andengine.entity.text.Text -> org.andengine.c.e.b:
+    org.andengine.opengl.vbo.attribute.VertexBufferObjectAttributes VERTEXBUFFEROBJECTATTRIBUTES_DEFAULT -> E
+    org.andengine.opengl.font.IFont mFont -> F
+    float mLineWidthMaximum -> G
+    float mLineAlignmentWidth -> H
+    org.andengine.entity.text.TextOptions mTextOptions -> I
+    int mCharactersMaximum -> J
+    int mCharactersToDraw -> K
+    int mVertexCountToDraw -> L
+    int mVertexCount -> M
+    org.andengine.entity.text.vbo.ITextVertexBufferObject mTextVertexBufferObject -> N
+    java.lang.CharSequence mText -> O
+    java.util.ArrayList mLines -> P
+    org.andengine.util.adt.list.IFloatList mLineWidths -> Q
+    org.andengine.opengl.font.IFont getFont() -> h
+    int getCharactersMaximum() -> i
+    void setText(java.lang.CharSequence) -> a
+    java.util.ArrayList getLines() -> j
+    org.andengine.util.adt.list.IFloatList getLineWidths() -> k
+    float getLineAlignmentWidth() -> D
+    float getLeading() -> E
+    org.andengine.util.HorizontalAlign getHorizontalAlign() -> F
+    float getAutoWrapWidth() -> G
+    void setCharactersToDraw(int) -> a
+    org.andengine.entity.text.vbo.ITextVertexBufferObject getVertexBufferObject() -> H
+    void preDraw(org.andengine.opengl.util.GLState,org.andengine.engine.camera.Camera) -> b
+    void draw(org.andengine.opengl.util.GLState,org.andengine.engine.camera.Camera) -> c
+    void postDraw(org.andengine.opengl.util.GLState,org.andengine.engine.camera.Camera) -> d
+    void onUpdateColor() -> l
+    void onUpdateVertices() -> I
+    org.andengine.opengl.vbo.IVertexBufferObject getVertexBufferObject() -> b
+org.andengine.entity.text.TextOptions -> org.andengine.c.e.c:
+    org.andengine.entity.text.AutoWrap mAutoWrap -> a
+    float mAutoWrapWidth -> b
+    float mLeading -> c
+    org.andengine.util.HorizontalAlign mHorizontalAlign -> d
+org.andengine.entity.text.exception.OutOfCharactersException -> org.andengine.c.e.a.a:
+org.andengine.entity.text.exception.TextException -> org.andengine.c.e.a.b:
+org.andengine.entity.text.vbo.HighPerformanceTextVertexBufferObject -> org.andengine.c.e.b.a:
+    int[] $SWITCH_TABLE$org$andengine$util$HorizontalAlign -> l
+    void onUpdateColor(org.andengine.entity.text.Text) -> a
+    void onUpdateVertices(org.andengine.entity.text.Text) -> b
+    int[] $SWITCH_TABLE$org$andengine$util$HorizontalAlign() -> a
+org.andengine.entity.text.vbo.ITextVertexBufferObject -> org.andengine.c.e.b.b:
+    void onUpdateColor(org.andengine.entity.text.Text) -> a
+    void onUpdateVertices(org.andengine.entity.text.Text) -> b
+org.andengine.entity.util.AverageFPSCounter -> org.andengine.c.f.a:
+    float mAverageDuration -> a
+    void onHandleAverageDurationElapsed(float) -> b
+    void onUpdate(float) -> a
+org.andengine.entity.util.FPSCounter -> org.andengine.c.f.b:
+    float mSecondsElapsed -> b
+    int mFrames -> c
+    float getFPS() -> b
+    void onUpdate(float) -> a
+    void reset() -> a
+org.andengine.entity.util.FPSLogger -> org.andengine.c.f.c:
+    float mShortestFrame -> d
+    float mLongestFrame -> e
+    void onHandleAverageDurationElapsed(float) -> b
+    void onUpdate(float) -> a
+    void reset() -> a
+    void onLogFPS() -> c
+org.andengine.extension.svg.SVGHandler -> org.andengine.d.a.a:
+    android.graphics.Canvas mCanvas -> a
+    android.graphics.Picture mPicture -> b
+    org.andengine.extension.svg.adt.SVGPaint mSVGPaint -> c
+    boolean mBoundsMode -> d
+    android.graphics.RectF mBounds -> e
+    java.util.Stack mSVGGroupStack -> f
+    org.andengine.extension.svg.util.SVGPathParser mSVGPathParser -> g
+    org.andengine.extension.svg.adt.SVGGradient mCurrentSVGGradient -> h
+    org.andengine.extension.svg.adt.filter.SVGFilter mCurrentSVGFilter -> i
+    boolean mHidden -> j
+    android.graphics.RectF mRect -> k
+    android.graphics.RectF getBounds() -> a
+    android.graphics.RectF getComputedBounds() -> b
+    void startElement(java.lang.String,java.lang.String,java.lang.String,org.xml.sax.Attributes) -> startElement
+    void endElement(java.lang.String,java.lang.String,java.lang.String) -> endElement
+    void parseSVG(org.xml.sax.Attributes) -> a
+    void parseBounds(java.lang.String,org.xml.sax.Attributes) -> a
+    void parseFilter(org.xml.sax.Attributes) -> b
+    void parseFilterElementGaussianBlur(org.xml.sax.Attributes) -> c
+    void parseLinearGradient(org.xml.sax.Attributes) -> d
+    void parseRadialGradient(org.xml.sax.Attributes) -> e
+    void parseGradientStop(org.xml.sax.Attributes) -> f
+    void parseGroup(org.xml.sax.Attributes) -> g
+    void parseGroupEnd() -> c
+    void updateHidden() -> d
+    void parsePath(org.xml.sax.Attributes) -> h
+    void parsePolygon(org.xml.sax.Attributes) -> i
+    void parsePolyline(org.xml.sax.Attributes) -> j
+    void parseEllipse(org.xml.sax.Attributes) -> k
+    void parseCircle(org.xml.sax.Attributes) -> l
+    void parseLine(org.xml.sax.Attributes) -> m
+    void parseRect(org.xml.sax.Attributes) -> n
+    org.andengine.extension.svg.adt.SVGProperties getSVGPropertiesFromAttributes(org.xml.sax.Attributes) -> o
+    org.andengine.extension.svg.adt.SVGProperties getSVGPropertiesFromAttributes(org.xml.sax.Attributes,boolean) -> a
+    boolean pushTransform(org.xml.sax.Attributes) -> p
+    void popTransform() -> e
+org.andengine.extension.svg.SVGParser -> org.andengine.d.a.b:
+    org.andengine.extension.svg.adt.SVG parseSVGFromAsset(android.content.res.AssetManager,java.lang.String,org.andengine.extension.svg.adt.ISVGColorMapper) -> a
+    org.andengine.extension.svg.adt.SVG parseSVGFromInputStream(java.io.InputStream,org.andengine.extension.svg.adt.ISVGColorMapper) -> a
+org.andengine.extension.svg.adt.ISVGColorMapper -> org.andengine.d.a.a.a:
+    java.lang.Integer mapColor(java.lang.Integer) -> a
+org.andengine.extension.svg.adt.SVG -> org.andengine.d.a.a.b:
+    android.graphics.Picture mPicture -> a
+    android.graphics.RectF mBounds -> b
+    android.graphics.RectF mComputedBounds -> c
+    android.graphics.Picture getPicture() -> a
+org.andengine.extension.svg.adt.SVGAttributes -> org.andengine.d.a.a.c:
+    org.xml.sax.Attributes mAttributes -> a
+    org.andengine.extension.svg.adt.SVGAttributes mParentSVGAttributes -> b
+    void setParentSVGAttributes(org.andengine.extension.svg.adt.SVGAttributes) -> a
+    java.lang.String getStringAttribute(java.lang.String,boolean) -> a
+    java.lang.Float getFloatAttribute(java.lang.String,boolean) -> b
+    java.lang.Float getFloatAttribute(java.lang.String,boolean,float) -> a
+org.andengine.extension.svg.adt.SVGGradient -> org.andengine.d.a.a.d:
+    java.lang.String mID -> a
+    java.lang.String mHref -> b
+    org.andengine.extension.svg.adt.SVGGradient mParent -> c
+    android.graphics.Shader mShader -> d
+    org.andengine.extension.svg.adt.SVGAttributes mSVGAttributes -> e
+    boolean mLinear -> f
+    android.graphics.Matrix mMatrix -> g
+    java.util.ArrayList mSVGGradientStops -> h
+    float[] mSVGGradientStopsPositions -> i
+    int[] mSVGGradientStopsColors -> j
+    boolean mSVGGradientStopsBuilt -> k
+    boolean hasHrefResolved() -> a
+    android.graphics.Shader getShader() -> b
+    android.graphics.Shader createShader() -> c
+    android.graphics.Shader$TileMode getTileMode() -> d
+    android.graphics.Matrix getTransform() -> e
+    void ensureHrefResolved(java.util.HashMap) -> a
+    void resolveHref(java.util.HashMap) -> b
+    void buildSVGGradientStopsArrays() -> f
+    void addSVGGradientStop(org.andengine.extension.svg.adt.SVGGradient$SVGGradientStop) -> a
+org.andengine.extension.svg.adt.SVGGradient$SVGGradientStop -> org.andengine.d.a.a.e:
+    float mOffset -> a
+    int mColor -> b
+    int access$0(org.andengine.extension.svg.adt.SVGGradient$SVGGradientStop) -> a
+    float access$1(org.andengine.extension.svg.adt.SVGGradient$SVGGradientStop) -> b
+org.andengine.extension.svg.adt.SVGGroup -> org.andengine.d.a.a.f:
+    org.andengine.extension.svg.adt.SVGGroup mSVGroupParent -> a
+    org.andengine.extension.svg.adt.SVGProperties mSVGProperties -> b
+    boolean mHasTransform -> c
+    boolean mHidden -> d
+    boolean hasTransform() -> a
+    org.andengine.extension.svg.adt.SVGProperties getSVGProperties() -> b
+    boolean isHidden() -> c
+    boolean isDisplayNone() -> d
+org.andengine.extension.svg.adt.SVGPaint -> org.andengine.d.a.a.g:
+    android.graphics.Paint mPaint -> a
+    org.andengine.extension.svg.adt.ISVGColorMapper mSVGColorMapper -> b
+    android.graphics.RectF mRect -> c
+    android.graphics.RectF mComputedBounds -> d
+    java.util.HashMap mSVGGradientMap -> e
+    java.util.HashMap mSVGFilterMap -> f
+    android.graphics.Paint getPaint() -> a
+    android.graphics.RectF getComputedBounds() -> b
+    void resetPaint(android.graphics.Paint$Style) -> a
+    boolean setFill(org.andengine.extension.svg.adt.SVGProperties) -> a
+    boolean setStroke(org.andengine.extension.svg.adt.SVGProperties) -> b
+    boolean isDisplayNone(org.andengine.extension.svg.adt.SVGProperties) -> d
+    boolean isFillNone(org.andengine.extension.svg.adt.SVGProperties) -> e
+    boolean isStrokeNone(org.andengine.extension.svg.adt.SVGProperties) -> f
+    boolean applyPaintProperties(org.andengine.extension.svg.adt.SVGProperties,boolean) -> a
+    boolean setColorProperties(org.andengine.extension.svg.adt.SVGProperties,boolean) -> b
+    boolean applyFillProperties(org.andengine.extension.svg.adt.SVGProperties) -> g
+    boolean applyStrokeProperties(org.andengine.extension.svg.adt.SVGProperties) -> h
+    void applyColor(org.andengine.extension.svg.adt.SVGProperties,java.lang.Integer,boolean) -> a
+    int parseAlpha(org.andengine.extension.svg.adt.SVGProperties,boolean) -> c
+    void ensureComputedBoundsInclude(float,float) -> a
+    void ensureComputedBoundsInclude(float,float,float,float) -> a
+    void ensureComputedBoundsInclude(android.graphics.Path) -> a
+    java.lang.Integer parseColor(java.lang.String,java.lang.Integer) -> a
+    java.lang.Integer parseColor(java.lang.String) -> a
+    java.lang.Integer applySVGColorMapper(java.lang.Integer) -> a
+    org.andengine.extension.svg.adt.filter.SVGFilter parseFilter(org.xml.sax.Attributes) -> a
+    org.andengine.extension.svg.adt.SVGGradient parseGradient(org.xml.sax.Attributes,boolean) -> a
+    org.andengine.extension.svg.adt.SVGGradient$SVGGradientStop parseGradientStop(org.andengine.extension.svg.adt.SVGProperties) -> c
+    int parseGradientStopAlpha(org.andengine.extension.svg.adt.SVGProperties) -> i
+    android.graphics.Shader getGradientShader(java.lang.String) -> b
+    org.andengine.extension.svg.adt.filter.SVGFilter getFilter(java.lang.String) -> c
+    org.andengine.extension.svg.adt.filter.element.SVGFilterElementGaussianBlur parseFilterElementGaussianBlur(org.xml.sax.Attributes) -> b
+org.andengine.extension.svg.adt.SVGProperties -> org.andengine.d.a.a.h:
+    org.andengine.extension.svg.adt.SVGStyleSet mSVGStyleSet -> a
+    org.xml.sax.Attributes mAttributes -> b
+    org.andengine.extension.svg.adt.SVGProperties mParentSVGProperties -> c
+    java.lang.String getStringProperty(java.lang.String) -> a
+    java.lang.String getStringProperty(java.lang.String,boolean) -> a
+    java.lang.Float getFloatProperty(java.lang.String) -> b
+    java.lang.Float getFloatProperty(java.lang.String,float) -> a
+    java.lang.String getStringAttribute(java.lang.String) -> c
+    java.lang.Float getFloatAttribute(java.lang.String) -> d
+    float getFloatAttribute(java.lang.String,float) -> b
+    boolean isURLProperty(java.lang.String) -> e
+    boolean isRGBProperty(java.lang.String) -> f
+    boolean isHexProperty(java.lang.String) -> g
+org.andengine.extension.svg.adt.SVGStyleSet -> org.andengine.d.a.a.i:
+    java.util.HashMap mStyleMap -> a
+    java.lang.String getStyle(java.lang.String) -> a
+org.andengine.extension.svg.adt.filter.SVGFilter -> org.andengine.d.a.a.a.a:
+    java.lang.String mID -> a
+    java.lang.String mHref -> b
+    org.andengine.extension.svg.adt.filter.SVGFilter mParent -> c
+    org.andengine.extension.svg.adt.SVGAttributes mSVGAttributes -> d
+    java.util.ArrayList mSVGFilterElements -> e
+    boolean hasHrefResolved() -> a
+    void ensureHrefResolved(java.util.HashMap) -> a
+    void resolveHref(java.util.HashMap) -> b
+    void applyFilterElements(android.graphics.Paint) -> a
+    void addFilterElement(org.andengine.extension.svg.adt.filter.element.ISVGFilterElement) -> a
+org.andengine.extension.svg.adt.filter.element.ISVGFilterElement -> org.andengine.d.a.a.a.a.a:
+    void apply(android.graphics.Paint) -> a
+org.andengine.extension.svg.adt.filter.element.SVGFilterElementGaussianBlur -> org.andengine.d.a.a.a.a.b:
+    android.graphics.BlurMaskFilter mBlurMaskFilter -> a
+    void apply(android.graphics.Paint) -> a
+org.andengine.extension.svg.exception.SVGParseException -> org.andengine.d.a.b.a:
+org.andengine.extension.svg.opengl.texture.atlas.bitmap.SVGBitmapTextureAtlasTextureRegionFactory -> org.andengine.d.a.c.a.a.a.a:
+    java.lang.String sAssetBasePath -> a
+    float sScaleFactor -> b
+    void setAssetBasePath(java.lang.String) -> a
+    int applyScaleFactor(int) -> a
+    org.andengine.opengl.texture.region.ITiledTextureRegion createTiledFromAsset(org.andengine.opengl.texture.atlas.bitmap.BuildableBitmapTextureAtlas,android.content.Context,java.lang.String,int,int,int,int) -> a
+    org.andengine.opengl.texture.region.ITiledTextureRegion createTiledFromAsset(org.andengine.opengl.texture.atlas.bitmap.BuildableBitmapTextureAtlas,android.content.Context,java.lang.String,int,int,org.andengine.extension.svg.adt.ISVGColorMapper,int,int) -> a
+org.andengine.extension.svg.opengl.texture.atlas.bitmap.source.SVGAssetBitmapTextureAtlasSource -> org.andengine.d.a.c.a.a.a.a.a:
+    android.content.Context mContext -> f
+    java.lang.String mAssetPath -> g
+    org.andengine.extension.svg.adt.ISVGColorMapper mSVGColorMapper -> h
+    org.andengine.extension.svg.adt.SVG getSVG(android.content.Context,java.lang.String,org.andengine.extension.svg.adt.ISVGColorMapper) -> a
+org.andengine.extension.svg.opengl.texture.atlas.bitmap.source.SVGBaseBitmapTextureAtlasSource -> org.andengine.d.a.c.a.a.a.a.b:
+    org.andengine.extension.svg.adt.SVG mSVG -> f
+org.andengine.extension.svg.util.SAXHelper -> org.andengine.d.a.d.a:
+    java.lang.String getStringAttribute(org.xml.sax.Attributes,java.lang.String) -> a
+    java.lang.Float getFloatAttribute(org.xml.sax.Attributes,java.lang.String) -> b
+    float getFloatAttribute(org.xml.sax.Attributes,java.lang.String,float) -> a
+org.andengine.extension.svg.util.SVGCircleParser -> org.andengine.d.a.d.b:
+    void parse(org.andengine.extension.svg.adt.SVGProperties,android.graphics.Canvas,org.andengine.extension.svg.adt.SVGPaint) -> a
+org.andengine.extension.svg.util.SVGEllipseParser -> org.andengine.d.a.d.c:
+    void parse(org.andengine.extension.svg.adt.SVGProperties,android.graphics.Canvas,org.andengine.extension.svg.adt.SVGPaint,android.graphics.RectF) -> a
+org.andengine.extension.svg.util.SVGLineParser -> org.andengine.d.a.d.d:
+    void parse(org.andengine.extension.svg.adt.SVGProperties,android.graphics.Canvas,org.andengine.extension.svg.adt.SVGPaint) -> a
+org.andengine.extension.svg.util.SVGNumberParser -> org.andengine.d.a.d.e:
+    org.andengine.extension.svg.util.SVGNumberParser$SVGNumberParserFloatResult parseFloats(java.lang.String) -> a
+    org.andengine.extension.svg.util.SVGNumberParser$SVGNumberParserIntegerResult parseInts(java.lang.String) -> b
+org.andengine.extension.svg.util.SVGNumberParser$SVGNumberParserFloatResult -> org.andengine.d.a.d.f:
+    float[] mNumbers -> a
+    float[] getNumbers() -> a
+    int getNumberCount() -> b
+    float getNumber(int) -> a
+org.andengine.extension.svg.util.SVGNumberParser$SVGNumberParserIntegerResult -> org.andengine.d.a.d.g:
+    int[] mNumbers -> a
+    int getNumberCount() -> a
+    int getNumber(int) -> a
+org.andengine.extension.svg.util.SVGParserUtils -> org.andengine.d.a.d.h:
+    java.lang.Float extractFloatAttribute(java.lang.String) -> a
+    java.lang.String extractIDFromURLProperty(java.lang.String) -> b
+    java.lang.Integer extractColorFromRGBProperty(java.lang.String) -> c
+    java.lang.Integer extraColorIntegerProperty(java.lang.String) -> d
+    java.lang.Integer extractColorFromHexProperty(java.lang.String) -> e
+    java.lang.String parseHref(org.xml.sax.Attributes) -> a
+org.andengine.extension.svg.util.SVGPathParser -> org.andengine.d.a.d.i:
+    java.lang.String mString -> a
+    int mLength -> b
+    int mPosition -> c
+    char mCurrentChar -> d
+    org.andengine.extension.svg.util.SVGPathParser$PathParserHelper mPathParserHelper -> e
+    android.graphics.Path mPath -> f
+    java.lang.Character mCommand -> g
+    int mCommandStart -> h
+    java.util.Queue mCommandParameters -> i
+    float mSubPathStartX -> j
+    float mSubPathStartY -> k
+    float mLastX -> l
+    float mLastY -> m
+    float mLastCubicBezierX2 -> n
+    float mLastCubicBezierY2 -> o
+    float mLastQuadraticBezierX2 -> p
+    float mLastQuadraticBezierY2 -> q
+    android.graphics.RectF mArcRect -> r
+    void parse(org.andengine.extension.svg.adt.SVGProperties,android.graphics.Canvas,org.andengine.extension.svg.adt.SVGPaint) -> a
+    android.graphics.Path parse(org.andengine.extension.svg.adt.SVGProperties) -> a
+    void processCommand() -> a
+    void generatePathElement() -> b
+    void assertParameterCountMinimum(int) -> a
+    void assertParameterCount(int) -> b
+    void generateMove(boolean) -> a
+    void generateLine(boolean) -> b
+    void generateHorizontalLine(boolean) -> c
+    void generateVerticalLine(boolean) -> d
+    void generateCubicBezierCurve(boolean) -> e
+    void generateSmoothCubicBezierCurve(boolean) -> f
+    void generateQuadraticBezierCurve(boolean) -> g
+    void generateSmoothQuadraticBezierCurve(boolean) -> h
+    void generateArc(boolean) -> i
+    void generateArc(float,float,float,boolean,boolean,float,float) -> a
+    void generateClose() -> c
+    int access$0(org.andengine.extension.svg.util.SVGPathParser) -> a
+    int access$1(org.andengine.extension.svg.util.SVGPathParser) -> b
+    void access$2(org.andengine.extension.svg.util.SVGPathParser,int) -> a
+    java.lang.String access$3(org.andengine.extension.svg.util.SVGPathParser) -> c
+    void access$4(org.andengine.extension.svg.util.SVGPathParser,char) -> a
+    char access$5(org.andengine.extension.svg.util.SVGPathParser) -> d
+org.andengine.extension.svg.util.SVGPathParser$PathParserHelper -> org.andengine.d.a.d.j:
+    org.andengine.extension.svg.util.SVGPathParser this$0 -> a
+    char read() -> e
+    void skipWhitespace() -> a
+    void skipNumberSeparator() -> b
+    void advance() -> c
+    float parseFloat() -> f
+    float nextFloat() -> d
+    float buildFloat(int,int) -> a
+org.andengine.extension.svg.util.SVGPolygonParser -> org.andengine.d.a.d.k:
+    void parse(org.andengine.extension.svg.adt.SVGProperties,android.graphics.Canvas,org.andengine.extension.svg.adt.SVGPaint) -> a
+org.andengine.extension.svg.util.SVGPolylineParser -> org.andengine.d.a.d.l:
+    void parse(org.andengine.extension.svg.adt.SVGProperties,android.graphics.Canvas,org.andengine.extension.svg.adt.SVGPaint) -> a
+    android.graphics.Path parse(float[]) -> a
+org.andengine.extension.svg.util.SVGRectParser -> org.andengine.d.a.d.m:
+    void parse(org.andengine.extension.svg.adt.SVGProperties,android.graphics.Canvas,org.andengine.extension.svg.adt.SVGPaint,android.graphics.RectF) -> a
+org.andengine.extension.svg.util.SVGTransformParser -> org.andengine.d.a.d.n:
+    java.util.regex.Pattern MULTITRANSFORM_PATTERN -> a
+    android.graphics.Matrix parseTransform(java.lang.String) -> a
+    android.graphics.Matrix parseMultiTransform(java.lang.String) -> c
+    android.graphics.Matrix parseSingleTransform(java.lang.String) -> d
+    android.graphics.Matrix parseTransformRotate(java.lang.String) -> b
+    android.graphics.Matrix parseTransformSkewY(java.lang.String) -> e
+    android.graphics.Matrix parseTransformSkewX(java.lang.String) -> f
+    android.graphics.Matrix parseTransformScale(java.lang.String) -> g
+    android.graphics.Matrix parseTransformTranslate(java.lang.String) -> h
+    android.graphics.Matrix parseTransformMatrix(java.lang.String) -> i
+    void assertNumberParserResultNumberCountMinimum(org.andengine.extension.svg.util.SVGNumberParser$SVGNumberParserFloatResult,int) -> a
+    void assertNumberParserResultNumberCount(org.andengine.extension.svg.util.SVGNumberParser$SVGNumberParserFloatResult,int) -> b
+org.andengine.extension.svg.util.constants.ColorUtils -> org.andengine.d.a.d.a.a:
+    java.util.regex.Pattern RGB_PATTERN -> a
+    java.util.HashMap NAMED_COLORS -> b
+    java.lang.Integer getColorByName(java.lang.String) -> a
+org.andengine.extension.svg.util.constants.MathUtils -> org.andengine.d.a.d.a.b:
+    double[] POWERS_OF_10 -> a
+org.andengine.input.sensor.BaseSensorData -> org.andengine.input.sensor.a:
+    float[] mValues -> a
+    int mAccuracy -> b
+    int mDisplayRotation -> c
+    void setValues(float[]) -> a
+    void setAccuracy(int) -> a
+    java.lang.String toString() -> toString
+org.andengine.input.sensor.SensorDelay -> org.andengine.input.sensor.b:
+    org.andengine.input.sensor.SensorDelay NORMAL -> a
+    org.andengine.input.sensor.SensorDelay UI -> b
+    org.andengine.input.sensor.SensorDelay GAME -> c
+    org.andengine.input.sensor.SensorDelay FASTEST -> d
+    int mDelay -> e
+    org.andengine.input.sensor.SensorDelay[] ENUM$VALUES -> f
+    org.andengine.input.sensor.SensorDelay[] values() -> values
+    org.andengine.input.sensor.SensorDelay valueOf(java.lang.String) -> valueOf
+org.andengine.input.sensor.acceleration.AccelerationData -> org.andengine.input.sensor.a.a:
+    org.andengine.input.sensor.acceleration.AccelerationData$IAxisSwap[] AXISSWAPS -> d
+    void setValues(float[]) -> a
+    java.lang.String toString() -> toString
+org.andengine.input.sensor.acceleration.AccelerationData$1 -> org.andengine.input.sensor.a.b:
+    void swapAxis(float[]) -> a
+org.andengine.input.sensor.acceleration.AccelerationData$2 -> org.andengine.input.sensor.a.c:
+    void swapAxis(float[]) -> a
+org.andengine.input.sensor.acceleration.AccelerationData$3 -> org.andengine.input.sensor.a.d:
+    void swapAxis(float[]) -> a
+org.andengine.input.sensor.acceleration.AccelerationData$4 -> org.andengine.input.sensor.a.e:
+    void swapAxis(float[]) -> a
+org.andengine.input.sensor.acceleration.AccelerationData$IAxisSwap -> org.andengine.input.sensor.a.f:
+    void swapAxis(float[]) -> a
+org.andengine.input.sensor.acceleration.IAccelerationListener -> org.andengine.input.sensor.a.g:
+    void onAccelerationAccuracyChanged(org.andengine.input.sensor.acceleration.AccelerationData) -> a
+    void onAccelerationChanged(org.andengine.input.sensor.acceleration.AccelerationData) -> b
+org.andengine.input.sensor.location.ILocationListener -> org.andengine.input.sensor.location.a:
+    void onLocationProviderEnabled() -> a
+    void onLocationChanged(android.location.Location) -> a
+    void onLocationLost() -> b
+    void onLocationProviderDisabled() -> c
+    void onLocationProviderStatusChanged(org.andengine.input.sensor.location.LocationProviderStatus,android.os.Bundle) -> a
+org.andengine.input.sensor.location.LocationProviderStatus -> org.andengine.input.sensor.location.b:
+    org.andengine.input.sensor.location.LocationProviderStatus AVAILABLE -> a
+    org.andengine.input.sensor.location.LocationProviderStatus OUT_OF_SERVICE -> b
+    org.andengine.input.sensor.location.LocationProviderStatus TEMPORARILY_UNAVAILABLE -> c
+    org.andengine.input.sensor.location.LocationProviderStatus[] ENUM$VALUES -> d
+    org.andengine.input.sensor.location.LocationProviderStatus[] values() -> values
+    org.andengine.input.sensor.location.LocationProviderStatus valueOf(java.lang.String) -> valueOf
+org.andengine.input.sensor.location.LocationSensorOptions -> org.andengine.input.sensor.location.LocationSensorOptions:
+    boolean mEnabledOnly -> a
+    long mMinimumTriggerTime -> b
+    long mMinimumTriggerDistance -> c
+org.andengine.input.sensor.orientation.IOrientationListener -> org.andengine.input.sensor.b.a:
+    void onOrientationAccuracyChanged(org.andengine.input.sensor.orientation.OrientationData) -> a
+    void onOrientationChanged(org.andengine.input.sensor.orientation.OrientationData) -> b
+org.andengine.input.sensor.orientation.OrientationData -> org.andengine.input.sensor.b.b:
+    float[] mAccelerationValues -> d
+    float[] mMagneticFieldValues -> e
+    float[] mRotationMatrix -> f
+    int mMagneticFieldAccuracy -> g
+    void setValues(float[]) -> a
+    void setAccuracy(int) -> a
+    void setAccelerationValues(float[]) -> b
+    void setMagneticFieldValues(float[]) -> c
+    void updateOrientation() -> a
+    void setAccelerationAccuracy(int) -> b
+    void setMagneticFieldAccuracy(int) -> c
+    java.lang.String toString() -> toString
+org.andengine.input.touch.TouchEvent -> org.andengine.input.a.a:
+    org.andengine.input.touch.TouchEvent$TouchEventPool TOUCHEVENT_POOL -> f
+    int mPointerID -> a
+    float mX -> b
+    float mY -> c
+    int mAction -> d
+    android.view.MotionEvent mMotionEvent -> e
+    org.andengine.input.touch.TouchEvent obtain(float,float,int,int,android.view.MotionEvent) -> a
+    void set(float,float,int,int,android.view.MotionEvent) -> b
+    void recycle() -> a
+    float getX() -> b
+    float getY() -> c
+    void set(float,float) -> a
+    void offset(float,float) -> b
+    int getPointerID() -> d
+    int getAction() -> e
+    boolean isActionDown() -> f
+    boolean isActionMove() -> g
+    android.view.MotionEvent getMotionEvent() -> h
+org.andengine.input.touch.TouchEvent$TouchEventPool -> org.andengine.input.a.b:
+    org.andengine.input.touch.TouchEvent onAllocatePoolItem() -> a
+    java.lang.Object onAllocatePoolItem() -> b
+org.andengine.input.touch.controller.BaseTouchController -> org.andengine.input.a.a.a:
+    org.andengine.input.touch.controller.ITouchEventCallback mTouchEventCallback -> a
+    org.andengine.util.adt.pool.RunnablePoolUpdateHandler mTouchEventRunnablePoolUpdateHandler -> b
+    void setTouchEventCallback(org.andengine.input.touch.controller.ITouchEventCallback) -> a
+    void reset() -> a
+    void onUpdate(float) -> a
+    void fireTouchEvent(float,float,int,int,android.view.MotionEvent) -> a
+    org.andengine.input.touch.controller.ITouchEventCallback access$0(org.andengine.input.touch.controller.BaseTouchController) -> a
+org.andengine.input.touch.controller.BaseTouchController$1 -> org.andengine.input.a.a.b:
+    org.andengine.input.touch.controller.BaseTouchController this$0 -> a
+    org.andengine.input.touch.controller.BaseTouchController$TouchEventRunnablePoolItem onAllocatePoolItem() -> b
+    org.andengine.util.adt.pool.RunnablePoolItem onAllocatePoolItem() -> c
+org.andengine.input.touch.controller.BaseTouchController$TouchEventRunnablePoolItem -> org.andengine.input.a.a.c:
+    org.andengine.input.touch.TouchEvent mTouchEvent -> d
+    org.andengine.input.touch.controller.BaseTouchController this$0 -> a
+    void set(org.andengine.input.touch.TouchEvent) -> a
+    void run() -> run
+    void onRecycle() -> a
+org.andengine.input.touch.controller.ITouchController -> org.andengine.input.a.a.d:
+    void setTouchEventCallback(org.andengine.input.touch.controller.ITouchEventCallback) -> a
+    void onHandleMotionEvent(android.view.MotionEvent) -> a
+org.andengine.input.touch.controller.ITouchEventCallback -> org.andengine.input.a.a.e:
+    boolean onTouchEvent(org.andengine.input.touch.TouchEvent) -> a
+org.andengine.input.touch.controller.MultiTouchController -> org.andengine.input.a.a.f:
+    void onHandleMotionEvent(android.view.MotionEvent) -> a
+    void onHandleTouchMove(android.view.MotionEvent) -> b
+    void onHandleTouchAction(int,android.view.MotionEvent) -> a
+    int getPointerIndex(android.view.MotionEvent) -> c
+org.andengine.input.touch.controller.SingleTouchController -> org.andengine.input.a.a.g:
+    void onHandleMotionEvent(android.view.MotionEvent) -> a
+org.andengine.opengl.GLES20Fix -> org.andengine.opengl.GLES20Fix:
+    boolean NATIVE_LIB_LOADED -> a
+    boolean WORKAROUND_MISSING_GLES20_METHODS -> b
+    void glVertexAttribPointer(int,int,int,boolean,int,int) -> glVertexAttribPointer
+org.andengine.opengl.font.Font -> org.andengine.opengl.a.a:
+    org.andengine.opengl.font.FontManager mFontManager -> f
+    org.andengine.opengl.texture.ITexture mTexture -> g
+    int mTextureWidth -> h
+    int mTextureHeight -> i
+    int mCurrentTextureX -> j
+    int mCurrentTextureY -> k
+    int mCurrentTextureYHeightMax -> l
+    android.util.SparseArray mManagedCharacterToLetterMap -> m
+    java.util.ArrayList mLettersPendingToBeDrawnToTexture -> n
+    android.graphics.Paint mPaint -> a
+    android.graphics.Paint mBackgroundPaint -> o
+    android.graphics.Paint$FontMetrics mFontMetrics -> b
+    android.graphics.Canvas mCanvas -> c
+    android.graphics.Rect mTextBounds -> d
+    float[] mTextWidthContainer -> e
+    float getAscent() -> a
+    float getDescent() -> b
+    org.andengine.opengl.texture.ITexture getTexture() -> c
+    void load() -> d
+    void unload() -> e
+    float getLineHeight() -> f
+    org.andengine.opengl.font.Letter getLetter(char) -> a
+    void invalidateLetters() -> g
+    float getLetterAdvance(java.lang.String) -> b
+    android.graphics.Bitmap getLetterBitmap(org.andengine.opengl.font.Letter) -> a
+    void drawLetter(java.lang.String,float,float) -> a
+    org.andengine.opengl.font.Letter createLetter(char) -> b
+    void updateTextBounds(java.lang.String) -> a
+    void update(org.andengine.opengl.util.GLState) -> a
+org.andengine.opengl.font.FontFactory -> org.andengine.opengl.a.b:
+    int COLOR_DEFAULT -> a
+    java.lang.String sAssetBasePath -> b
+    void setAssetBasePath(java.lang.String) -> a
+    void onCreate() -> a
+    org.andengine.opengl.font.Font createFromAsset(org.andengine.opengl.font.FontManager,org.andengine.opengl.texture.ITexture,android.content.res.AssetManager,java.lang.String,float,boolean,int) -> a
+org.andengine.opengl.font.FontManager -> org.andengine.opengl.a.c:
+    java.util.ArrayList mFontsManaged -> a
+    void onCreate() -> a
+    void onDestroy() -> b
+    void loadFont(org.andengine.opengl.font.Font) -> a
+    void unloadFont(org.andengine.opengl.font.Font) -> b
+    void updateFonts(org.andengine.opengl.util.GLState) -> a
+    void onReload() -> c
+org.andengine.opengl.font.FontUtils -> org.andengine.opengl.a.d:
+    int[] $SWITCH_TABLE$org$andengine$entity$text$AutoWrap -> a
+    float measureText(org.andengine.opengl.font.IFont,java.lang.CharSequence) -> a
+    float measureText(org.andengine.opengl.font.IFont,java.lang.CharSequence,int,int) -> a
+    float measureText(org.andengine.opengl.font.IFont,java.lang.CharSequence,float[]) -> a
+    float measureText(org.andengine.opengl.font.IFont,java.lang.CharSequence,int,int,float[]) -> a
+    java.util.List splitLines(java.lang.CharSequence,java.util.List) -> a
+    java.util.List splitLines(org.andengine.opengl.font.IFont,java.lang.CharSequence,java.util.List,org.andengine.entity.text.AutoWrap,float) -> a
+    java.util.List splitLinesByLetters(org.andengine.opengl.font.IFont,java.lang.CharSequence,java.util.List,float) -> a
+    java.util.List splitLinesByWords(org.andengine.opengl.font.IFont,java.lang.CharSequence,java.util.List,float) -> b
+    java.util.List splitLinesByCJK(org.andengine.opengl.font.IFont,java.lang.CharSequence,java.util.List,float) -> c
+    float getAdvanceCorrection(org.andengine.opengl.font.IFont,java.lang.CharSequence,int) -> a
+    int[] $SWITCH_TABLE$org$andengine$entity$text$AutoWrap() -> a
+org.andengine.opengl.font.IFont -> org.andengine.opengl.a.e:
+    org.andengine.opengl.texture.ITexture getTexture() -> c
+    float getLineHeight() -> f
+    org.andengine.opengl.font.Letter getLetter(char) -> a
+org.andengine.opengl.font.Letter -> org.andengine.opengl.a.f:
+    char mCharacter -> a
+    boolean mWhitespace -> m
+    int mTextureX -> b
+    int mTextureY -> c
+    int mWidth -> d
+    int mHeight -> e
+    float mOffsetX -> f
+    float mOffsetY -> g
+    float mAdvance -> h
+    float mU -> i
+    float mV -> j
+    float mU2 -> k
+    float mV2 -> l
+    android.util.SparseIntArray mKernings -> n
+    int getKerning(int) -> a
+    boolean isWhitespace() -> a
+    int hashCode() -> hashCode
+    boolean equals(java.lang.Object) -> equals
+    java.lang.String toString() -> toString
+org.andengine.opengl.font.exception.FontException -> org.andengine.opengl.a.a.a:
+org.andengine.opengl.font.exception.LetterNotFoundException -> org.andengine.opengl.a.a.b:
+org.andengine.opengl.shader.PositionColorShaderProgram -> org.andengine.opengl.b.a:
+    org.andengine.opengl.shader.PositionColorShaderProgram INSTANCE -> b
+    int sUniformModelViewPositionMatrixLocation -> a
+    org.andengine.opengl.shader.PositionColorShaderProgram getInstance() -> a
+    void link(org.andengine.opengl.util.GLState) -> a
+    void bind(org.andengine.opengl.util.GLState,org.andengine.opengl.vbo.attribute.VertexBufferObjectAttributes) -> a
+    void unbind(org.andengine.opengl.util.GLState) -> b
+org.andengine.opengl.shader.PositionColorTextureCoordinatesShaderProgram -> org.andengine.opengl.b.b:
+    org.andengine.opengl.shader.PositionColorTextureCoordinatesShaderProgram INSTANCE -> c
+    int sUniformModelViewPositionMatrixLocation -> a
+    int sUniformTexture0Location -> b
+    org.andengine.opengl.shader.PositionColorTextureCoordinatesShaderProgram getInstance() -> a
+    void link(org.andengine.opengl.util.GLState) -> a
+    void bind(org.andengine.opengl.util.GLState,org.andengine.opengl.vbo.attribute.VertexBufferObjectAttributes) -> a
+org.andengine.opengl.shader.PositionTextureCoordinatesPositionInterpolationTextureSelectShaderProgram -> org.andengine.opengl.b.c:
+    org.andengine.opengl.shader.PositionTextureCoordinatesPositionInterpolationTextureSelectShaderProgram INSTANCE -> l
+    int sUniformModelViewPositionMatrixLocation -> a
+    int sUniformTexture0Location -> b
+    int sUniformTexture1Location -> c
+    int sUniformTextureSelectTexture0Location -> d
+    int sUniformPositionInterpolationMix0Location -> e
+    org.andengine.opengl.shader.PositionTextureCoordinatesPositionInterpolationTextureSelectShaderProgram getInstance() -> a
+    void link(org.andengine.opengl.util.GLState) -> a
+    void bind(org.andengine.opengl.util.GLState,org.andengine.opengl.vbo.attribute.VertexBufferObjectAttributes) -> a
+    void unbind(org.andengine.opengl.util.GLState) -> b
+org.andengine.opengl.shader.PositionTextureCoordinatesShaderProgram -> org.andengine.opengl.b.d:
+    org.andengine.opengl.shader.PositionTextureCoordinatesShaderProgram INSTANCE -> c
+    int sUniformModelViewPositionMatrixLocation -> a
+    int sUniformTexture0Location -> b
+    org.andengine.opengl.shader.PositionTextureCoordinatesShaderProgram getInstance() -> a
+    void link(org.andengine.opengl.util.GLState) -> a
+    void bind(org.andengine.opengl.util.GLState,org.andengine.opengl.vbo.attribute.VertexBufferObjectAttributes) -> a
+    void unbind(org.andengine.opengl.util.GLState) -> b
+org.andengine.opengl.shader.PositionTextureCoordinatesTextureSelectShaderProgram -> org.andengine.opengl.b.e:
+    org.andengine.opengl.shader.PositionTextureCoordinatesTextureSelectShaderProgram INSTANCE -> e
+    int sUniformModelViewPositionMatrixLocation -> a
+    int sUniformTexture0Location -> b
+    int sUniformTexture1Location -> c
+    int sUniformTextureSelectTexture0Location -> d
+    org.andengine.opengl.shader.PositionTextureCoordinatesTextureSelectShaderProgram getInstance() -> a
+    void link(org.andengine.opengl.util.GLState) -> a
+    void bind(org.andengine.opengl.util.GLState,org.andengine.opengl.vbo.attribute.VertexBufferObjectAttributes) -> a
+    void unbind(org.andengine.opengl.util.GLState) -> b
+org.andengine.opengl.shader.PositionTextureCoordinatesUniformColorShaderProgram -> org.andengine.opengl.b.f:
+    org.andengine.opengl.shader.PositionTextureCoordinatesUniformColorShaderProgram INSTANCE -> d
+    int sUniformModelViewPositionMatrixLocation -> a
+    int sUniformTexture0Location -> b
+    int sUniformColorLocation -> c
+    org.andengine.opengl.shader.PositionTextureCoordinatesUniformColorShaderProgram getInstance() -> a
+    void link(org.andengine.opengl.util.GLState) -> a
+    void bind(org.andengine.opengl.util.GLState,org.andengine.opengl.vbo.attribute.VertexBufferObjectAttributes) -> a
+    void unbind(org.andengine.opengl.util.GLState) -> b
+org.andengine.opengl.shader.ShaderProgram -> org.andengine.opengl.b.g:
+    int[] HARDWAREID_CONTAINER -> a
+    int[] PARAMETERS_CONTAINER -> b
+    int[] LENGTH_CONTAINER -> c
+    int[] SIZE_CONTAINER -> d
+    int[] TYPE_CONTAINER -> e
+    byte[] NAME_CONTAINER -> l
+    org.andengine.opengl.shader.source.IShaderSource mVertexShaderSource -> f
+    org.andengine.opengl.shader.source.IShaderSource mFragmentShaderSource -> g
+    int mProgramID -> h
+    boolean mCompiled -> i
+    java.util.HashMap mUniformLocations -> j
+    java.util.HashMap mAttributeLocations -> k
+    boolean isCompiled() -> b
+    void setCompiled(boolean) -> a
+    int getUniformLocation(java.lang.String) -> a
+    void bind(org.andengine.opengl.util.GLState,org.andengine.opengl.vbo.attribute.VertexBufferObjectAttributes) -> a
+    void unbind(org.andengine.opengl.util.GLState) -> b
+    void compile(org.andengine.opengl.util.GLState) -> c
+    void link(org.andengine.opengl.util.GLState) -> a
+    int compileShader(java.lang.String,int) -> a
+    void initUniformLocations() -> a
+    void initAttributeLocations() -> c
+org.andengine.opengl.shader.ShaderProgramManager -> org.andengine.opengl.b.h:
+    java.util.ArrayList mShaderProgramsManaged -> a
+    void onCreate() -> a
+    void onDestroy() -> b
+    void loadShaderProgram(org.andengine.opengl.shader.ShaderProgram) -> a
+    void onReload() -> c
+org.andengine.opengl.shader.exception.ShaderProgramCompileException -> org.andengine.opengl.b.a.a:
+org.andengine.opengl.shader.exception.ShaderProgramException -> org.andengine.opengl.b.a.b:
+org.andengine.opengl.shader.exception.ShaderProgramLinkException -> org.andengine.opengl.b.a.c:
+org.andengine.opengl.shader.source.IShaderSource -> org.andengine.opengl.b.b.a:
+    java.lang.String getShaderSource(org.andengine.opengl.util.GLState) -> a
+org.andengine.opengl.shader.source.StringShaderSource -> org.andengine.opengl.b.b.b:
+    java.lang.String mShaderSource -> a
+    java.lang.String getShaderSource(org.andengine.opengl.util.GLState) -> a
+org.andengine.opengl.texture.ITexture -> org.andengine.opengl.c.a:
+    int getWidth() -> a
+    int getHeight() -> b
+    boolean isLoadedToHardware() -> c
+    void setNotLoadedToHardware() -> d
+    boolean isUpdateOnHardwareNeeded() -> e
+    void setUpdateOnHardwareNeeded(boolean) -> a
+    void load() -> f
+    void unload() -> g
+    void loadToHardware(org.andengine.opengl.util.GLState) -> a
+    void unloadFromHardware(org.andengine.opengl.util.GLState) -> b
+    void reloadToHardware(org.andengine.opengl.util.GLState) -> c
+    void bind(org.andengine.opengl.util.GLState) -> d
+    org.andengine.opengl.texture.PixelFormat getPixelFormat() -> h
+    org.andengine.opengl.texture.TextureOptions getTextureOptions() -> i
+org.andengine.opengl.texture.ITextureStateListener -> org.andengine.opengl.c.b:
+    void onLoadedToHardware(org.andengine.opengl.texture.ITexture) -> a
+    void onUnloadedFromHardware(org.andengine.opengl.texture.ITexture) -> b
+org.andengine.opengl.texture.PixelFormat -> org.andengine.opengl.c.c:
+    org.andengine.opengl.texture.PixelFormat UNDEFINED -> a
+    org.andengine.opengl.texture.PixelFormat RGBA_4444 -> b
+    org.andengine.opengl.texture.PixelFormat RGBA_5551 -> c
+    org.andengine.opengl.texture.PixelFormat RGBA_8888 -> d
+    org.andengine.opengl.texture.PixelFormat RGB_565 -> e
+    org.andengine.opengl.texture.PixelFormat A_8 -> f
+    org.andengine.opengl.texture.PixelFormat I_8 -> g
+    org.andengine.opengl.texture.PixelFormat AI_88 -> h
+    int mGLInternalFormat -> i
+    int mGLFormat -> j
+    int mGLType -> k
+    int mBitsPerPixel -> l
+    org.andengine.opengl.texture.PixelFormat[] ENUM$VALUES -> m
+    int getGLInternalFormat() -> a
+    int getGLFormat() -> b
+    int getGLType() -> c
+    org.andengine.opengl.texture.PixelFormat[] values() -> values
+    org.andengine.opengl.texture.PixelFormat valueOf(java.lang.String) -> valueOf
+org.andengine.opengl.texture.Texture -> org.andengine.opengl.c.d:
+    org.andengine.opengl.texture.TextureManager mTextureManager -> a
+    org.andengine.opengl.texture.PixelFormat mPixelFormat -> b
+    org.andengine.opengl.texture.TextureOptions mTextureOptions -> c
+    int mHardwareTextureID -> d
+    boolean mUpdateOnHardwareNeeded -> e
+    org.andengine.opengl.texture.ITextureStateListener mTextureStateListener -> f
+    boolean isLoadedToHardware() -> c
+    void setNotLoadedToHardware() -> d
+    boolean isUpdateOnHardwareNeeded() -> e
+    void setUpdateOnHardwareNeeded(boolean) -> a
+    org.andengine.opengl.texture.PixelFormat getPixelFormat() -> h
+    org.andengine.opengl.texture.TextureOptions getTextureOptions() -> i
+    org.andengine.opengl.texture.ITextureStateListener getTextureStateListener() -> j
+    void writeTextureToHardware(org.andengine.opengl.util.GLState) -> e
+    void load() -> f
+    void unload() -> g
+    void loadToHardware(org.andengine.opengl.util.GLState) -> a
+    void unloadFromHardware(org.andengine.opengl.util.GLState) -> b
+    void reloadToHardware(org.andengine.opengl.util.GLState) -> c
+    void bind(org.andengine.opengl.util.GLState) -> d
+org.andengine.opengl.texture.TextureManager -> org.andengine.opengl.c.e:
+    java.util.HashSet mTexturesManaged -> a
+    java.util.HashMap mTexturesMapped -> b
+    java.util.ArrayList mTexturesLoaded -> c
+    java.util.ArrayList mTexturesToBeLoaded -> d
+    java.util.ArrayList mTexturesToBeUnloaded -> e
+    void onCreate() -> a
+    void onReload() -> b
+    void onDestroy() -> c
+    boolean loadTexture(org.andengine.opengl.texture.ITexture) -> a
+    boolean unloadTexture(org.andengine.opengl.texture.ITexture) -> b
+    void updateTextures(org.andengine.opengl.util.GLState) -> a
+org.andengine.opengl.texture.TextureOptions -> org.andengine.opengl.c.f:
+    org.andengine.opengl.texture.TextureOptions NEAREST -> a
+    org.andengine.opengl.texture.TextureOptions BILINEAR -> b
+    org.andengine.opengl.texture.TextureOptions REPEATING_NEAREST -> c
+    org.andengine.opengl.texture.TextureOptions REPEATING_BILINEAR -> d
+    org.andengine.opengl.texture.TextureOptions NEAREST_PREMULTIPLYALPHA -> e
+    org.andengine.opengl.texture.TextureOptions BILINEAR_PREMULTIPLYALPHA -> f
+    org.andengine.opengl.texture.TextureOptions REPEATING_NEAREST_PREMULTIPLYALPHA -> g
+    org.andengine.opengl.texture.TextureOptions REPEATING_BILINEAR_PREMULTIPLYALPHA -> h
+    org.andengine.opengl.texture.TextureOptions DEFAULT -> i
+    int mMagFilter -> j
+    int mMinFilter -> k
+    float mWrapT -> l
+    float mWrapS -> m
+    boolean mPreMultiplyAlpha -> n
+    void apply() -> a
+org.andengine.opengl.texture.atlas.ITextureAtlas -> org.andengine.opengl.c.a.a:
+    void addTextureAtlasSource(org.andengine.opengl.texture.atlas.source.ITextureAtlasSource,int,int) -> a
+    void addTextureAtlasSource(org.andengine.opengl.texture.atlas.source.ITextureAtlasSource,int,int,int) -> a
+    void addEmptyTextureAtlasSource(int,int,int,int) -> a
+org.andengine.opengl.texture.atlas.ITextureAtlas$ITextureAtlasStateListener -> org.andengine.opengl.c.a.b:
+    void onTextureAtlasSourceLoaded(org.andengine.opengl.texture.atlas.ITextureAtlas,org.andengine.opengl.texture.atlas.source.ITextureAtlasSource) -> a
+    void onTextureAtlasSourceLoadExeption(org.andengine.opengl.texture.atlas.ITextureAtlas,org.andengine.opengl.texture.atlas.source.ITextureAtlasSource,java.lang.Throwable) -> a
+org.andengine.opengl.texture.atlas.TextureAtlas -> org.andengine.opengl.c.a.c:
+    int mWidth -> g
+    int mHeight -> h
+    java.util.ArrayList mTextureAtlasSources -> i
+    int getWidth() -> a
+    int getHeight() -> b
+    org.andengine.opengl.texture.atlas.ITextureAtlas$ITextureAtlasStateListener getTextureStateListener() -> k
+    org.andengine.opengl.texture.atlas.ITextureAtlas$ITextureAtlasStateListener getTextureAtlasStateListener() -> l
+    void addTextureAtlasSource(org.andengine.opengl.texture.atlas.source.ITextureAtlasSource,int,int) -> a
+    void addTextureAtlasSource(org.andengine.opengl.texture.atlas.source.ITextureAtlasSource,int,int,int) -> a
+    void checkTextureAtlasSourcePosition(org.andengine.opengl.texture.atlas.source.ITextureAtlasSource,int,int) -> b
+    org.andengine.opengl.texture.ITextureStateListener getTextureStateListener() -> j
+org.andengine.opengl.texture.atlas.bitmap.BitmapTextureAtlas -> org.andengine.opengl.c.a.a.a:
+    org.andengine.opengl.texture.bitmap.BitmapTextureFormat mBitmapTextureFormat -> j
+    void addEmptyTextureAtlasSource(int,int,int,int) -> a
+    void writeTextureToHardware(org.andengine.opengl.util.GLState) -> e
+org.andengine.opengl.texture.atlas.bitmap.BitmapTextureAtlasTextureRegionFactory -> org.andengine.opengl.c.a.a.b:
+    java.lang.String sAssetBasePath -> a
+    void setAssetBasePath(java.lang.String) -> a
+    void reset() -> a
+org.andengine.opengl.texture.atlas.bitmap.BuildableBitmapTextureAtlas -> org.andengine.opengl.c.a.a.c:
+org.andengine.opengl.texture.atlas.bitmap.source.EmptyBitmapTextureAtlasSource -> org.andengine.opengl.c.a.a.a.a:
+    android.graphics.Bitmap onLoadBitmap(android.graphics.Bitmap$Config) -> a
+    java.lang.String toString() -> toString
+org.andengine.opengl.texture.atlas.bitmap.source.IBitmapTextureAtlasSource -> org.andengine.opengl.c.a.a.a.b:
+    android.graphics.Bitmap onLoadBitmap(android.graphics.Bitmap$Config) -> a
+org.andengine.opengl.texture.atlas.bitmap.source.PictureBitmapTextureAtlasSource -> org.andengine.opengl.c.a.a.a.c:
+    android.graphics.Picture mPicture -> a
+    android.graphics.Bitmap onLoadBitmap(android.graphics.Bitmap$Config) -> a
+org.andengine.opengl.texture.atlas.buildable.BuildableTextureAtlas -> org.andengine.opengl.c.a.b.a:
+    org.andengine.opengl.texture.atlas.ITextureAtlas mTextureAtlas -> a
+    java.util.ArrayList mTextureAtlasSourcesToPlace -> b
+    int getWidth() -> a
+    int getHeight() -> b
+    boolean isLoadedToHardware() -> c
+    void setNotLoadedToHardware() -> d
+    boolean isUpdateOnHardwareNeeded() -> e
+    void setUpdateOnHardwareNeeded(boolean) -> a
+    void load() -> f
+    void unload() -> g
+    void loadToHardware(org.andengine.opengl.util.GLState) -> a
+    void unloadFromHardware(org.andengine.opengl.util.GLState) -> b
+    void reloadToHardware(org.andengine.opengl.util.GLState) -> c
+    void bind(org.andengine.opengl.util.GLState) -> d
+    org.andengine.opengl.texture.PixelFormat getPixelFormat() -> h
+    org.andengine.opengl.texture.TextureOptions getTextureOptions() -> i
+    void addTextureAtlasSource(org.andengine.opengl.texture.atlas.source.ITextureAtlasSource,int,int) -> a
+    void addTextureAtlasSource(org.andengine.opengl.texture.atlas.source.ITextureAtlasSource,int,int,int) -> a
+    void addEmptyTextureAtlasSource(int,int,int,int) -> a
+    void addTextureAtlasSource(org.andengine.opengl.texture.atlas.source.ITextureAtlasSource,org.andengine.util.call.Callback) -> a
+    org.andengine.opengl.texture.atlas.buildable.IBuildableTextureAtlas build(org.andengine.opengl.texture.atlas.buildable.builder.ITextureAtlasBuilder) -> a
+org.andengine.opengl.texture.atlas.buildable.BuildableTextureAtlas$TextureAtlasSourceWithWithLocationCallback -> org.andengine.opengl.c.a.b.b:
+    org.andengine.opengl.texture.atlas.source.ITextureAtlasSource mTextureAtlasSource -> a
+    org.andengine.util.call.Callback mCallback -> b
+    org.andengine.opengl.texture.atlas.source.ITextureAtlasSource getTextureAtlasSource() -> a
+    org.andengine.util.call.Callback getCallback() -> b
+org.andengine.opengl.texture.atlas.buildable.BuildableTextureAtlasTextureRegionFactory -> org.andengine.opengl.c.a.b.c:
+    org.andengine.opengl.texture.region.TiledTextureRegion createTiledFromSource(org.andengine.opengl.texture.atlas.buildable.BuildableTextureAtlas,org.andengine.opengl.texture.atlas.source.ITextureAtlasSource,int,int) -> a
+org.andengine.opengl.texture.atlas.buildable.BuildableTextureAtlasTextureRegionFactory$2 -> org.andengine.opengl.c.a.b.d:
+    org.andengine.opengl.texture.atlas.source.ITextureAtlasSource val$pTextureAtlasSource -> a
+    int val$pTileColumns -> b
+    int val$pTileRows -> c
+    org.andengine.opengl.texture.region.TiledTextureRegion val$tiledTextureRegion -> d
+    void onCallback(org.andengine.opengl.texture.atlas.source.ITextureAtlasSource) -> a
+    void onCallback(java.lang.Object) -> a
+org.andengine.opengl.texture.atlas.buildable.IBuildableTextureAtlas -> org.andengine.opengl.c.a.b.e:
+org.andengine.opengl.texture.atlas.buildable.builder.BlackPawnTextureAtlasBuilder -> org.andengine.opengl.c.a.b.a.a:
+    java.util.Comparator TEXTURESOURCE_COMPARATOR -> a
+    int mTextureAtlasBorderSpacing -> b
+    int mTextureAtlasSourceSpacing -> c
+    int mTextureAtlasSourcePadding -> d
+    void build(org.andengine.opengl.texture.atlas.ITextureAtlas,java.util.ArrayList) -> a
+org.andengine.opengl.texture.atlas.buildable.builder.BlackPawnTextureAtlasBuilder$1 -> org.andengine.opengl.c.a.b.a.b:
+    int compare(org.andengine.opengl.texture.atlas.buildable.BuildableTextureAtlas$TextureAtlasSourceWithWithLocationCallback,org.andengine.opengl.texture.atlas.buildable.BuildableTextureAtlas$TextureAtlasSourceWithWithLocationCallback) -> a
+    int compare(java.lang.Object,java.lang.Object) -> compare
+org.andengine.opengl.texture.atlas.buildable.builder.BlackPawnTextureAtlasBuilder$Node -> org.andengine.opengl.c.a.b.a.c:
+    org.andengine.opengl.texture.atlas.buildable.builder.BlackPawnTextureAtlasBuilder$Node mChildA -> a
+    org.andengine.opengl.texture.atlas.buildable.builder.BlackPawnTextureAtlasBuilder$Node mChildB -> b
+    org.andengine.opengl.texture.atlas.buildable.builder.BlackPawnTextureAtlasBuilder$Rect mRect -> c
+    org.andengine.opengl.texture.atlas.source.ITextureAtlasSource mTextureAtlasSource -> d
+    org.andengine.opengl.texture.atlas.buildable.builder.BlackPawnTextureAtlasBuilder$Node insert(org.andengine.opengl.texture.atlas.source.ITextureAtlasSource,int,int,int,int) -> a
+    org.andengine.opengl.texture.atlas.buildable.builder.BlackPawnTextureAtlasBuilder$Node createChildren(org.andengine.opengl.texture.atlas.source.ITextureAtlasSource,int,int,int,int,int,int) -> a
+    org.andengine.opengl.texture.atlas.buildable.builder.BlackPawnTextureAtlasBuilder$Rect access$0(org.andengine.opengl.texture.atlas.buildable.builder.BlackPawnTextureAtlasBuilder$Node) -> a
+org.andengine.opengl.texture.atlas.buildable.builder.BlackPawnTextureAtlasBuilder$Rect -> org.andengine.opengl.c.a.b.a.d:
+    int mLeft -> a
+    int mTop -> b
+    int mWidth -> c
+    int mHeight -> d
+    int getWidth() -> a
+    int getHeight() -> b
+    int getLeft() -> c
+    int getTop() -> d
+    java.lang.String toString() -> toString
+    int access$0(org.andengine.opengl.texture.atlas.buildable.builder.BlackPawnTextureAtlasBuilder$Rect) -> a
+    int access$1(org.andengine.opengl.texture.atlas.buildable.builder.BlackPawnTextureAtlasBuilder$Rect) -> b
+org.andengine.opengl.texture.atlas.buildable.builder.ITextureAtlasBuilder -> org.andengine.opengl.c.a.b.a.e:
+    void build(org.andengine.opengl.texture.atlas.ITextureAtlas,java.util.ArrayList) -> a
+org.andengine.opengl.texture.atlas.buildable.builder.ITextureAtlasBuilder$TextureAtlasBuilderException -> org.andengine.opengl.c.a.b.a.f:
+org.andengine.opengl.texture.atlas.source.BaseTextureAtlasSource -> org.andengine.opengl.c.a.c.a:
+    int mTextureX -> b
+    int mTextureY -> c
+    int mTextureWidth -> d
+    int mTextureHeight -> e
+    int getTextureX() -> a
+    int getTextureY() -> b
+    void setTextureX(int) -> a
+    void setTextureY(int) -> b
+    int getTextureWidth() -> c
+    int getTextureHeight() -> d
+    java.lang.String toString() -> toString
+org.andengine.opengl.texture.atlas.source.ITextureAtlasSource -> org.andengine.opengl.c.a.c.b:
+    int getTextureX() -> a
+    int getTextureY() -> b
+    void setTextureX(int) -> a
+    void setTextureY(int) -> b
+    int getTextureWidth() -> c
+    int getTextureHeight() -> d
+org.andengine.opengl.texture.bitmap.BitmapTextureFormat -> org.andengine.opengl.c.b.a:
+    org.andengine.opengl.texture.bitmap.BitmapTextureFormat RGBA_8888 -> a
+    org.andengine.opengl.texture.bitmap.BitmapTextureFormat RGB_565 -> b
+    org.andengine.opengl.texture.bitmap.BitmapTextureFormat RGBA_4444 -> c
+    org.andengine.opengl.texture.bitmap.BitmapTextureFormat A_8 -> d
+    android.graphics.Bitmap$Config mBitmapConfig -> e
+    org.andengine.opengl.texture.PixelFormat mPixelFormat -> f
+    org.andengine.opengl.texture.bitmap.BitmapTextureFormat[] ENUM$VALUES -> g
+    android.graphics.Bitmap$Config getBitmapConfig() -> a
+    org.andengine.opengl.texture.PixelFormat getPixelFormat() -> b
+    org.andengine.opengl.texture.bitmap.BitmapTextureFormat[] values() -> values
+    org.andengine.opengl.texture.bitmap.BitmapTextureFormat valueOf(java.lang.String) -> valueOf
+org.andengine.opengl.texture.region.BaseTextureRegion -> org.andengine.opengl.c.c.a:
+    org.andengine.opengl.texture.ITexture mTexture -> a
+    org.andengine.opengl.texture.ITexture getTexture() -> a
+org.andengine.opengl.texture.region.ITextureRegion -> org.andengine.opengl.c.c.b:
+    void setTexturePosition(float,float) -> a
+    float getU() -> b
+    float getU2() -> c
+    float getV() -> d
+    float getV2() -> e
+    boolean isRotated() -> f
+    org.andengine.opengl.texture.ITexture getTexture() -> a
+org.andengine.opengl.texture.region.ITiledTextureRegion -> org.andengine.opengl.c.c.c:
+    org.andengine.opengl.texture.region.ITextureRegion getTextureRegion(int) -> a
+    int getTileCount() -> g
+org.andengine.opengl.texture.region.TextureRegion -> org.andengine.opengl.c.c.d:
+    float mTextureX -> b
+    float mTextureY -> c
+    float mTextureWidth -> d
+    float mTextureHeight -> e
+    float mU -> f
+    float mU2 -> g
+    float mV -> h
+    float mV2 -> i
+    float mScale -> j
+    boolean mRotated -> k
+    float getTextureX() -> g
+    float getTextureY() -> h
+    void setTexturePosition(float,float) -> a
+    float getU() -> b
+    float getU2() -> c
+    float getV() -> d
+    float getV2() -> e
+    boolean isRotated() -> f
+    void updateUV() -> i
+org.andengine.opengl.texture.region.TiledTextureRegion -> org.andengine.opengl.c.c.e:
+    int mCurrentTileIndex -> b
+    int mTileCount -> c
+    org.andengine.opengl.texture.region.ITextureRegion[] mTextureRegions -> d
+    org.andengine.opengl.texture.region.TiledTextureRegion create(org.andengine.opengl.texture.ITexture,int,int,int,int,int,int) -> a
+    org.andengine.opengl.texture.region.TiledTextureRegion create(org.andengine.opengl.texture.ITexture,int,int,int,int,int,int,boolean) -> a
+    org.andengine.opengl.texture.region.ITextureRegion getTextureRegion(int) -> a
+    int getTileCount() -> g
+    void setTexturePosition(float,float) -> a
+    void setTexturePosition(int,float,float) -> a
+    float getU() -> b
+    float getV() -> d
+    float getU2() -> c
+    float getV2() -> e
+    boolean isRotated() -> f
+org.andengine.opengl.util.BufferUtils -> org.andengine.opengl.util.BufferUtils:
+    boolean NATIVE_LIB_LOADED -> a
+    boolean WORKAROUND_BYTEBUFFER_PUT_FLOATARRAY -> b
+    boolean WORKAROUND_BYTEBUFFER_ALLOCATE_DIRECT -> c
+    java.nio.ByteBuffer allocateDirectByteBuffer(int) -> a
+    void freeDirectByteBuffer(java.nio.ByteBuffer) -> a
+    java.nio.ByteBuffer jniAllocateDirect(int) -> jniAllocateDirect
+    void jniFreeDirect(java.nio.ByteBuffer) -> jniFreeDirect
+    void put(java.nio.ByteBuffer,float[],int,int) -> a
+    void jniPut(java.nio.ByteBuffer,float[],int,int) -> jniPut
+org.andengine.opengl.util.GLHelper -> org.andengine.opengl.util.a:
+    int[] $SWITCH_TABLE$org$andengine$opengl$texture$PixelFormat -> a
+    java.nio.Buffer getPixels(android.graphics.Bitmap,org.andengine.opengl.texture.PixelFormat,java.nio.ByteOrder) -> a
+    int[] convertARGB_8888toRGBA_8888(int[],java.nio.ByteOrder) -> a
+    short[] convertARGB_8888toRGB_565(int[],java.nio.ByteOrder) -> b
+    short[] convertARGB_8888toRGBA_4444(int[],java.nio.ByteOrder) -> c
+    byte[] convertARGB_8888toA_8(int[]) -> a
+    int[] getPixelsARGB_8888(android.graphics.Bitmap) -> a
+    int[] $SWITCH_TABLE$org$andengine$opengl$texture$PixelFormat() -> a
+org.andengine.opengl.util.GLMatrixStack -> org.andengine.opengl.util.b:
+    float[] mMatrixStack -> a
+    int mMatrixStackOffset -> b
+    float[] mTemp -> c
+    void glLoadIdentity() -> a
+    void glTranslatef(float,float,float) -> a
+    void glRotatef(float,float,float,float) -> a
+    void glScalef(float,float,float) -> b
+    void glSkewf(float,float) -> a
+    void glOrthof(float,float,float,float,float,float) -> a
+    void glPushMatrix() -> b
+    void glPopMatrix() -> c
+    void reset() -> d
+    void setSkewM(float[],int,float,float) -> a
+org.andengine.opengl.util.GLMatrixStack$GLMatrixStackOverflowException -> org.andengine.opengl.util.c:
+org.andengine.opengl.util.GLMatrixStack$GLMatrixStackUnderflowException -> org.andengine.opengl.util.d:
+org.andengine.opengl.util.GLState -> org.andengine.opengl.util.e:
+    int[] mHardwareIDContainer -> a
+    java.lang.String mVersion -> b
+    java.lang.String mRenderer -> c
+    java.lang.String mExtensions -> d
+    int mMaximumVertexAttributeCount -> e
+    int mMaximumVertexShaderUniformVectorCount -> f
+    int mMaximumFragmentShaderUniformVectorCount -> g
+    int mMaximumTextureSize -> h
+    int mMaximumTextureUnits -> i
+    int mCurrentArrayBufferID -> j
+    int mCurrentIndexBufferID -> k
+    int mCurrentShaderProgramID -> l
+    int[] mCurrentBoundTextureIDs -> m
+    int mCurrentFramebufferID -> n
+    int mCurrentActiveTextureIndex -> o
+    int mCurrentSourceBlendMode -> p
+    int mCurrentDestinationBlendMode -> q
+    boolean mEnableDither -> r
+    boolean mEnableDepthTest -> s
+    boolean mEnableScissorTest -> t
+    boolean mEnableBlend -> u
+    boolean mEnableCulling -> v
+    float mLineWidth -> w
+    org.andengine.opengl.util.GLMatrixStack mModelViewGLMatrixStack -> x
+    org.andengine.opengl.util.GLMatrixStack mProjectionGLMatrixStack -> y
+    float[] mModelViewGLMatrix -> z
+    float[] mProjectionGLMatrix -> A
+    float[] mModelViewProjectionGLMatrix -> B
+    void reset(org.andengine.engine.options.RenderOptions,org.andengine.opengl.view.ConfigChooser,javax.microedition.khronos.egl.EGLConfig) -> a
+    void enableBlend() -> a
+    void disableBlend() -> b
+    void disableCulling() -> c
+    void enableDither() -> d
+    void disableDither() -> e
+    void enableDepthTest() -> f
+    void disableDepthTest() -> g
+    int generateBuffer() -> h
+    void bindArrayBuffer(int) -> a
+    void deleteArrayBuffer(int) -> b
+    void useProgram(int) -> c
+    int generateTexture() -> i
+    void bindTexture(int) -> d
+    void deleteTexture(int) -> e
+    void blendFunction(int,int) -> a
+    void pushModelViewGLMatrix() -> j
+    void popModelViewGLMatrix() -> k
+    void loadModelViewGLMatrixIdentity() -> l
+    void translateModelViewGLMatrixf(float,float,float) -> a
+    void rotateModelViewGLMatrixf(float,float,float,float) -> a
+    void scaleModelViewGLMatrixf(float,float,int) -> a
+    void skewModelViewGLMatrixf(float,float) -> a
+    void pushProjectionGLMatrix() -> m
+    void popProjectionGLMatrix() -> n
+    void loadProjectionGLMatrixIdentity() -> o
+    void translateProjectionGLMatrixf(float,float,float) -> b
+    void rotateProjectionGLMatrixf(float,float,float,float) -> b
+    void orthoProjectionGLMatrixf(float,float,float,float,float,float) -> a
+    float[] getModelViewProjectionGLMatrix() -> p
+    void glTexSubImage2D(int,int,int,int,android.graphics.Bitmap,org.andengine.opengl.texture.PixelFormat) -> a
+    int getInteger(int) -> f
+org.andengine.opengl.util.VertexUtils -> org.andengine.opengl.util.f:
+    float getVertex(float[],int,int,int) -> a
+org.andengine.opengl.vbo.DrawType -> org.andengine.opengl.d.a:
+    org.andengine.opengl.vbo.DrawType STATIC -> a
+    org.andengine.opengl.vbo.DrawType DYNAMIC -> b
+    org.andengine.opengl.vbo.DrawType STREAM -> c
+    int mUsage -> d
+    org.andengine.opengl.vbo.DrawType[] ENUM$VALUES -> e
+    int getUsage() -> a
+    org.andengine.opengl.vbo.DrawType[] values() -> values
+    org.andengine.opengl.vbo.DrawType valueOf(java.lang.String) -> valueOf
+org.andengine.opengl.vbo.HighPerformanceVertexBufferObject -> org.andengine.opengl.d.b:
+    float[] mBufferData -> a
+    java.nio.FloatBuffer mFloatBuffer -> b
+    void onBufferData() -> b
+org.andengine.opengl.vbo.IVertexBufferObject -> org.andengine.opengl.d.c:
+    boolean isAutoDispose() -> c
+    boolean isLoadedToHardware() -> d
+    void setNotLoadedToHardware() -> e
+    void unloadFromHardware(org.andengine.opengl.util.GLState) -> a
+    void bind(org.andengine.opengl.util.GLState,org.andengine.opengl.shader.ShaderProgram) -> a
+    void unbind(org.andengine.opengl.util.GLState,org.andengine.opengl.shader.ShaderProgram) -> b
+    void draw(int,int) -> a
+org.andengine.opengl.vbo.VertexBufferObject -> org.andengine.opengl.d.d:
+    int mCapacity -> c
+    boolean mAutoDispose -> d
+    int mUsage -> e
+    java.nio.ByteBuffer mByteBuffer -> f
+    int mHardwareBufferID -> g
+    boolean mDirtyOnHardware -> h
+    boolean mDisposed -> i
+    org.andengine.opengl.vbo.VertexBufferObjectManager mVertexBufferObjectManager -> j
+    org.andengine.opengl.vbo.attribute.VertexBufferObjectAttributes mVertexBufferObjectAttributes -> k
+    boolean isDisposed() -> m
+    boolean isAutoDispose() -> c
+    boolean isLoadedToHardware() -> d
+    void setNotLoadedToHardware() -> e
+    void setDirtyOnHardware() -> f
+    void onBufferData() -> b
+    void bind(org.andengine.opengl.util.GLState) -> b
+    void bind(org.andengine.opengl.util.GLState,org.andengine.opengl.shader.ShaderProgram) -> a
+    void unbind(org.andengine.opengl.util.GLState,org.andengine.opengl.shader.ShaderProgram) -> b
+    void unloadFromHardware(org.andengine.opengl.util.GLState) -> a
+    void draw(int,int) -> a
+    void dispose() -> C
+    void finalize() -> finalize
+    void loadToHardware(org.andengine.opengl.util.GLState) -> c
+org.andengine.opengl.vbo.VertexBufferObjectManager -> org.andengine.opengl.d.e:
+    java.util.ArrayList mVertexBufferObjectsLoaded -> a
+    java.util.ArrayList mVertexBufferObjectsToBeUnloaded -> b
+    void onCreate() -> a
+    void onDestroy() -> b
+    void onVertexBufferObjectLoaded(org.andengine.opengl.vbo.IVertexBufferObject) -> a
+    void onUnloadVertexBufferObject(org.andengine.opengl.vbo.IVertexBufferObject) -> b
+    void onReload() -> c
+    void updateVertexBufferObjects(org.andengine.opengl.util.GLState) -> a
+org.andengine.opengl.vbo.attribute.VertexBufferObjectAttribute -> org.andengine.opengl.d.a.a:
+    int mLocation -> a
+    java.lang.String mName -> b
+    int mSize -> c
+    int mType -> d
+    boolean mNormalized -> e
+    int mOffset -> f
+    void glVertexAttribPointer(int) -> a
+org.andengine.opengl.vbo.attribute.VertexBufferObjectAttributeFix -> org.andengine.opengl.d.a.b:
+    void glVertexAttribPointer(int) -> a
+org.andengine.opengl.vbo.attribute.VertexBufferObjectAttributes -> org.andengine.opengl.d.a.c:
+    int mStride -> a
+    org.andengine.opengl.vbo.attribute.VertexBufferObjectAttribute[] mVertexBufferObjectAttributes -> b
+    void glVertexAttribPointers() -> a
+org.andengine.opengl.vbo.attribute.VertexBufferObjectAttributesBuilder -> org.andengine.opengl.d.a.d:
+    boolean WORAROUND_GLES2_GLVERTEXATTRIBPOINTER_MISSING -> a
+    int mIndex -> b
+    org.andengine.opengl.vbo.attribute.VertexBufferObjectAttribute[] mVertexBufferObjectAttributes -> c
+    int mOffset -> d
+    org.andengine.opengl.vbo.attribute.VertexBufferObjectAttributesBuilder add(int,java.lang.String,int,int,boolean) -> a
+    org.andengine.opengl.vbo.attribute.VertexBufferObjectAttributes build() -> a
+org.andengine.opengl.view.ConfigChooser -> org.andengine.opengl.view.a:
+    int[] BUFFER -> a
+    int[] EGLCONFIG_ATTRIBUTES_MULTISAMPLE -> b
+    int[] EGLCONFIG_ATTRIBUTES_COVERAGEMULTISAMPLE_NVIDIA -> c
+    int[] EGLCONFIG_ATTRIBUTES_FALLBACK -> d
+    boolean mMultiSamplingRequested -> e
+    boolean mMultiSampling -> f
+    boolean mCoverageMultiSampling -> g
+    int mRedSize -> h
+    int mGreenSize -> i
+    int mBlueSize -> j
+    int mAlphaSize -> k
+    int mDepthSize -> l
+    int mStencilSize -> m
+    boolean isCoverageMultiSampling() -> a
+    int getRedSize() -> b
+    int getGreenSize() -> c
+    int getBlueSize() -> d
+    int getAlphaSize() -> e
+    int getDepthSize() -> f
+    int getStencilSize() -> g
+    javax.microedition.khronos.egl.EGLConfig chooseConfig(javax.microedition.khronos.egl.EGL10,javax.microedition.khronos.egl.EGLDisplay) -> chooseConfig
+    javax.microedition.khronos.egl.EGLConfig chooseConfig(javax.microedition.khronos.egl.EGL10,javax.microedition.khronos.egl.EGLDisplay,org.andengine.opengl.view.ConfigChooser$ConfigChooserMatcher) -> a
+    int getEGLConfigCount(javax.microedition.khronos.egl.EGL10,javax.microedition.khronos.egl.EGLDisplay,int[]) -> a
+    javax.microedition.khronos.egl.EGLConfig findEGLConfig(javax.microedition.khronos.egl.EGL10,javax.microedition.khronos.egl.EGLDisplay,int[],int,org.andengine.opengl.view.ConfigChooser$ConfigChooserMatcher) -> a
+    javax.microedition.khronos.egl.EGLConfig findEGLConfig(javax.microedition.khronos.egl.EGL10,javax.microedition.khronos.egl.EGLDisplay,javax.microedition.khronos.egl.EGLConfig[],org.andengine.opengl.view.ConfigChooser$ConfigChooserMatcher) -> a
+    int getConfigAttrib(javax.microedition.khronos.egl.EGL10,javax.microedition.khronos.egl.EGLDisplay,javax.microedition.khronos.egl.EGLConfig,int,int) -> a
+org.andengine.opengl.view.ConfigChooser$1 -> org.andengine.opengl.view.b:
+    boolean matches(int,int,int,int,int,int) -> a
+org.andengine.opengl.view.ConfigChooser$2 -> org.andengine.opengl.view.c:
+    boolean matches(int,int,int,int,int,int) -> a
+org.andengine.opengl.view.ConfigChooser$3 -> org.andengine.opengl.view.d:
+    boolean matches(int,int,int,int,int,int) -> a
+org.andengine.opengl.view.ConfigChooser$4 -> org.andengine.opengl.view.e:
+    boolean matches(int,int,int,int,int,int) -> a
+org.andengine.opengl.view.ConfigChooser$ConfigChooserMatcher -> org.andengine.opengl.view.f:
+    org.andengine.opengl.view.ConfigChooser$ConfigChooserMatcher STRICT -> a
+    org.andengine.opengl.view.ConfigChooser$ConfigChooserMatcher LOOSE_STENCIL -> b
+    org.andengine.opengl.view.ConfigChooser$ConfigChooserMatcher LOOSE_DEPTH_AND_STENCIL -> c
+    org.andengine.opengl.view.ConfigChooser$ConfigChooserMatcher ANY -> d
+    org.andengine.opengl.view.ConfigChooser$ConfigChooserMatcher[] ENUM$VALUES -> e
+    boolean matches(int,int,int,int,int,int) -> a
+    org.andengine.opengl.view.ConfigChooser$ConfigChooserMatcher[] values() -> values
+    org.andengine.opengl.view.ConfigChooser$ConfigChooserMatcher valueOf(java.lang.String) -> valueOf
+org.andengine.opengl.view.EngineRenderer -> org.andengine.opengl.view.g:
+    org.andengine.engine.Engine mEngine -> a
+    org.andengine.opengl.view.ConfigChooser mConfigChooser -> b
+    boolean mMultiSampling -> c
+    org.andengine.opengl.view.IRendererListener mRendererListener -> d
+    org.andengine.opengl.util.GLState mGLState -> e
+    void onSurfaceCreated(javax.microedition.khronos.opengles.GL10,javax.microedition.khronos.egl.EGLConfig) -> onSurfaceCreated
+    void onSurfaceChanged(javax.microedition.khronos.opengles.GL10,int,int) -> onSurfaceChanged
+    void onDrawFrame(javax.microedition.khronos.opengles.GL10) -> onDrawFrame
+org.andengine.opengl.view.IRendererListener -> org.andengine.opengl.view.h:
+    void onSurfaceCreated(org.andengine.opengl.util.GLState) -> a
+    void onSurfaceChanged(org.andengine.opengl.util.GLState,int,int) -> a
+org.andengine.opengl.view.RenderSurfaceView -> org.andengine.opengl.view.RenderSurfaceView:
+    org.andengine.opengl.view.EngineRenderer mEngineRenderer -> a
+    org.andengine.opengl.view.ConfigChooser mConfigChooser -> b
+    void onMeasure(int,int) -> onMeasure
+    void setMeasuredDimensionProxy(int,int) -> setMeasuredDimensionProxy
+    void setRenderer(org.andengine.engine.Engine,org.andengine.opengl.view.IRendererListener) -> setRenderer
+org.andengine.ui.IGameInterface -> org.andengine.ui.a:
+    org.andengine.engine.options.EngineOptions onCreateEngineOptions() -> a
+    void onCreateResources(org.andengine.ui.IGameInterface$OnCreateResourcesCallback) -> a
+    void onCreateScene(org.andengine.ui.IGameInterface$OnCreateSceneCallback) -> a
+    void onPopulateScene(org.andengine.entity.scene.Scene,org.andengine.ui.IGameInterface$OnPopulateSceneCallback) -> a
+org.andengine.ui.IGameInterface$OnCreateResourcesCallback -> org.andengine.ui.b:
+    void onCreateResourcesFinished() -> a
+org.andengine.ui.IGameInterface$OnCreateSceneCallback -> org.andengine.ui.c:
+    void onCreateSceneFinished(org.andengine.entity.scene.Scene) -> a
+org.andengine.ui.IGameInterface$OnPopulateSceneCallback -> org.andengine.ui.d:
+    void onPopulateSceneFinished() -> a
+org.andengine.ui.activity.BaseActivity -> org.andengine.ui.activity.BaseActivity:
+org.andengine.ui.activity.BaseGameActivity -> org.andengine.ui.activity.BaseGameActivity:
+    org.andengine.engine.Engine mEngine -> a
+    android.os.PowerManager$WakeLock mWakeLock -> c
+    org.andengine.opengl.view.RenderSurfaceView mRenderSurfaceView -> b
+    boolean mGamePaused -> d
+    boolean mGameCreated -> e
+    boolean mCreateGameCalled -> f
+    boolean mOnReloadResourcesScheduled -> g
+    int[] $SWITCH_TABLE$org$andengine$engine$options$ScreenOrientation -> h
+    void onCreate(android.os.Bundle) -> onCreate
+    org.andengine.engine.Engine onCreateEngine(org.andengine.engine.options.EngineOptions) -> a
+    void onSurfaceCreated(org.andengine.opengl.util.GLState) -> a
+    void onSurfaceChanged(org.andengine.opengl.util.GLState,int,int) -> a
+    void onCreateGame() -> f
+    void onGameCreated() -> g
+    void onResume() -> onResume
+    void onResumeGame() -> h
+    void onWindowFocusChanged(boolean) -> onWindowFocusChanged
+    void onReloadResources() -> i
+    void onPause() -> onPause
+    void onPauseGame() -> j
+    void onDestroy() -> onDestroy
+    void onDestroyResources() -> k
+    void onGameDestroyed() -> l
+    org.andengine.engine.Engine getEngine() -> m
+    org.andengine.opengl.vbo.VertexBufferObjectManager getVertexBufferObjectManager() -> n
+    org.andengine.opengl.texture.TextureManager getTextureManager() -> o
+    org.andengine.opengl.font.FontManager getFontManager() -> p
+    org.andengine.audio.sound.SoundManager getSoundManager() -> q
+    org.andengine.audio.music.MusicManager getMusicManager() -> r
+    void callGameResumedOnUIThread() -> b
+    void onSetContentView() -> s
+    void acquireWakeLock() -> c
+    void acquireWakeLock(org.andengine.engine.options.WakeLockOptions) -> a
+    void releaseWakeLock() -> d
+    void applyEngineOptions() -> e
+    android.widget.FrameLayout$LayoutParams createSurfaceViewLayoutParams() -> t
+    void access$0(org.andengine.ui.activity.BaseGameActivity) -> a
+    int[] $SWITCH_TABLE$org$andengine$engine$options$ScreenOrientation() -> u
+org.andengine.ui.activity.BaseGameActivity$1 -> org.andengine.ui.activity.a:
+    org.andengine.ui.activity.BaseGameActivity this$0 -> a
+    void onPopulateSceneFinished() -> a
+org.andengine.ui.activity.BaseGameActivity$2 -> org.andengine.ui.activity.b:
+    org.andengine.ui.activity.BaseGameActivity this$0 -> a
+    org.andengine.ui.IGameInterface$OnPopulateSceneCallback val$onPopulateSceneCallback -> b
+    void onCreateSceneFinished(org.andengine.entity.scene.Scene) -> a
+org.andengine.ui.activity.BaseGameActivity$3 -> org.andengine.ui.activity.c:
+    org.andengine.ui.activity.BaseGameActivity this$0 -> a
+    org.andengine.ui.IGameInterface$OnCreateSceneCallback val$onCreateSceneCallback -> b
+    void onCreateResourcesFinished() -> a
+org.andengine.ui.activity.BaseGameActivity$4 -> org.andengine.ui.activity.d:
+    org.andengine.ui.activity.BaseGameActivity this$0 -> a
+    void run() -> run
+org.andengine.ui.activity.LayoutGameActivity -> org.andengine.ui.activity.LayoutGameActivity:
+org.andengine.ui.activity.LegacyBaseGameActivity -> org.andengine.ui.activity.LegacyBaseGameActivity:
+org.andengine.ui.activity.SimpleAsyncGameActivity -> org.andengine.ui.activity.SimpleAsyncGameActivity:
+org.andengine.ui.activity.SimpleBaseGameActivity -> org.andengine.ui.activity.SimpleBaseGameActivity:
+    void onCreateResources() -> b
+    org.andengine.entity.scene.Scene onCreateScene() -> c
+    void onCreateResources(org.andengine.ui.IGameInterface$OnCreateResourcesCallback) -> a
+    void onCreateScene(org.andengine.ui.IGameInterface$OnCreateSceneCallback) -> a
+    void onPopulateScene(org.andengine.entity.scene.Scene,org.andengine.ui.IGameInterface$OnPopulateSceneCallback) -> a
+org.andengine.ui.activity.SimpleLayoutGameActivity -> org.andengine.ui.activity.SimpleLayoutGameActivity:
+org.andengine.util.ActivityUtils -> org.andengine.e.a:
+    void requestFullscreen(android.app.Activity) -> a
+    void keepScreenOn(android.app.Activity) -> b
+org.andengine.util.HorizontalAlign -> org.andengine.e.b:
+    org.andengine.util.HorizontalAlign LEFT -> a
+    org.andengine.util.HorizontalAlign CENTER -> b
+    org.andengine.util.HorizontalAlign RIGHT -> c
+    org.andengine.util.HorizontalAlign[] ENUM$VALUES -> d
+    org.andengine.util.HorizontalAlign[] values() -> values
+    org.andengine.util.HorizontalAlign valueOf(java.lang.String) -> valueOf
+org.andengine.util.IDisposable -> org.andengine.e.c:
+    boolean isDisposed() -> m
+    void dispose() -> C
+org.andengine.util.IDisposable$AlreadyDisposedException -> org.andengine.e.d:
+org.andengine.util.TextUtils -> org.andengine.e.e:
+    java.util.regex.Pattern SPLITPATTERN_SPACE -> a
+    java.util.regex.Pattern SPLITPATTERN_SPACES -> b
+    java.util.regex.Pattern SPLITPATTERN_COMMA -> c
+    int countOccurrences(java.lang.CharSequence,char) -> a
+    java.util.List split(java.lang.CharSequence,char,java.util.List) -> a
+org.andengine.util.adt.list.CircularList -> org.andengine.e.a.a.a:
+    java.lang.Object[] mItems -> a
+    int mHead -> b
+    int mSize -> c
+    boolean isEmpty() -> a
+    void add(java.lang.Object) -> a
+    java.lang.Object get(int) -> a
+    java.lang.Object remove(int) -> b
+    int size() -> b
+    void ensureCapacity() -> c
+    int encodeToInternalIndex(int) -> c
+org.andengine.util.adt.list.FloatArrayList -> org.andengine.e.a.a.b:
+    float[] mItems -> a
+    int mSize -> b
+    float get(int) -> a
+    void add(float) -> a
+    void clear() -> a
+    void ensureCapacity(int) -> b
+org.andengine.util.adt.list.IFloatList -> org.andengine.e.a.a.c:
+    float get(int) -> a
+    void add(float) -> a
+    void clear() -> a
+org.andengine.util.adt.list.ShiftList -> org.andengine.e.a.a.d:
+    java.lang.Object[] mItems -> a
+    int mHead -> b
+    int mTail -> c
+    java.lang.Object poll() -> b_
+    void enter(java.lang.Object) -> a_
+    void shift() -> b
+    void ensureShiftableRight() -> c
+org.andengine.util.adt.list.SmartList -> org.andengine.e.a.a.e:
+    boolean remove(java.lang.Object,org.andengine.util.call.ParameterCallable) -> a
+    void clear(org.andengine.util.call.ParameterCallable) -> a
+org.andengine.util.adt.map.SparseArrayUtils -> org.andengine.e.a.b.a:
+    java.lang.String toString(android.util.SparseArray) -> a
+org.andengine.util.adt.pool.GenericPool -> org.andengine.e.a.c.a:
+    java.util.ArrayList mAvailableItems -> a
+    int mGrowth -> b
+    int mAvailableItemCountMaximum -> c
+    int mUnrecycledItemCount -> d
+    java.lang.Object onAllocatePoolItem() -> b
+    void onHandleRecycleItem(java.lang.Object) -> a
+    java.lang.Object onHandleAllocatePoolItem() -> c
+    void onHandleObtainItem(java.lang.Object) -> b
+    void batchAllocatePoolItems(int) -> a
+    java.lang.Object obtainPoolItem() -> d
+    void recyclePoolItem(java.lang.Object) -> c
+org.andengine.util.adt.pool.Pool -> org.andengine.e.a.c.b:
+    org.andengine.util.adt.pool.PoolItem onHandleAllocatePoolItem() -> a
+    void onHandleObtainItem(org.andengine.util.adt.pool.PoolItem) -> a
+    void onHandleRecycleItem(org.andengine.util.adt.pool.PoolItem) -> b
+    void recyclePoolItem(org.andengine.util.adt.pool.PoolItem) -> c
+    boolean ownsPoolItem(org.andengine.util.adt.pool.PoolItem) -> d
+    java.lang.Object onHandleAllocatePoolItem() -> c
+    void onHandleRecycleItem(java.lang.Object) -> a
+    void onHandleObtainItem(java.lang.Object) -> b
+    void recyclePoolItem(java.lang.Object) -> c
+org.andengine.util.adt.pool.PoolItem -> org.andengine.e.a.c.c:
+    org.andengine.util.adt.pool.Pool mParent -> b
+    boolean mRecycled -> c
+    boolean isRecycled() -> b
+    boolean isFromPool(org.andengine.util.adt.pool.Pool) -> a
+    void onRecycle() -> a
+    void onObtain() -> c
+org.andengine.util.adt.pool.PoolUpdateHandler -> org.andengine.e.a.c.d:
+    org.andengine.util.adt.pool.Pool mPool -> a
+    org.andengine.util.adt.queue.IQueue mScheduledPoolItemQueue -> b
+    org.andengine.util.adt.pool.PoolItem onAllocatePoolItem() -> d
+    void onHandlePoolItem(org.andengine.util.adt.pool.PoolItem) -> a
+    void onUpdate(float) -> a
+    void reset() -> a
+    org.andengine.util.adt.pool.PoolItem obtainPoolItem() -> e
+    void postPoolItem(org.andengine.util.adt.pool.PoolItem) -> b
+org.andengine.util.adt.pool.PoolUpdateHandler$1 -> org.andengine.e.a.c.e:
+    org.andengine.util.adt.pool.PoolUpdateHandler this$0 -> a
+    org.andengine.util.adt.pool.PoolItem onAllocatePoolItem() -> e
+    java.lang.Object onAllocatePoolItem() -> b
+org.andengine.util.adt.pool.RunnablePoolItem -> org.andengine.e.a.c.f:
+org.andengine.util.adt.pool.RunnablePoolUpdateHandler -> org.andengine.e.a.c.g:
+    org.andengine.util.adt.pool.RunnablePoolItem onAllocatePoolItem() -> c
+    void onHandlePoolItem(org.andengine.util.adt.pool.RunnablePoolItem) -> a
+    void onHandlePoolItem(org.andengine.util.adt.pool.PoolItem) -> a
+    org.andengine.util.adt.pool.PoolItem onAllocatePoolItem() -> d
+org.andengine.util.adt.queue.CircularQueue -> org.andengine.e.a.d.a:
+    java.lang.Object poll() -> b_
+    void enter(java.lang.Object) -> a_
+org.andengine.util.adt.queue.IQueue -> org.andengine.e.a.d.b:
+    java.lang.Object poll() -> b_
+    void enter(java.lang.Object) -> a_
+org.andengine.util.adt.queue.concurrent.SynchronizedQueue -> org.andengine.e.a.d.a.a:
+    org.andengine.util.adt.queue.IQueue mQueue -> a
+    java.lang.Object poll() -> b_
+    void enter(java.lang.Object) -> a_
+org.andengine.util.adt.transformation.Transformation -> org.andengine.e.a.e.a:
+    float a -> a
+    float b -> b
+    float c -> c
+    float d -> d
+    float tx -> e
+    float ty -> f
+    java.lang.String toString() -> toString
+    void setToIdentity() -> a
+    void setTo(org.andengine.util.adt.transformation.Transformation) -> a
+    void postTranslate(float,float) -> a
+    void postRotate(float) -> a
+    void postScale(float,float) -> b
+    void postSkew(float,float) -> c
+    void postConcat(org.andengine.util.adt.transformation.Transformation) -> b
+    void postConcat(float,float,float,float,float,float) -> a
+    void preConcat(org.andengine.util.adt.transformation.Transformation) -> c
+    void preConcat(float,float,float,float,float,float) -> b
+    void transform(float[]) -> a
+org.andengine.util.algorithm.collision.BaseCollisionChecker -> org.andengine.e.b.a.a:
+    int relativeCCW(float,float,float,float,float,float) -> a
+org.andengine.util.algorithm.collision.LineCollisionChecker -> org.andengine.e.b.a.b:
+    boolean checkLineCollision(float,float,float,float,float,float,float,float) -> a
+org.andengine.util.algorithm.collision.RectangularShapeCollisionChecker -> org.andengine.e.b.a.c:
+    float[] VERTICES_CONTAINS_TMP -> a
+    float[] VERTICES_COLLISION_TMP_A -> b
+    float[] VERTICES_COLLISION_TMP_B -> c
+    boolean checkContains(org.andengine.entity.shape.RectangularShape,float,float) -> a
+    boolean isVisible(org.andengine.engine.camera.Camera,org.andengine.entity.shape.RectangularShape) -> a
+    void fillVertices(org.andengine.entity.shape.RectangularShape,float[]) -> a
+    void fillVertices(float,float,float,float,org.andengine.util.adt.transformation.Transformation,float[]) -> a
+    void fillVertices(org.andengine.engine.camera.Camera,float[]) -> a
+org.andengine.util.algorithm.collision.ShapeCollisionChecker -> org.andengine.e.b.a.d:
+    boolean checkCollision(float[],int,float[],int) -> a
+    boolean checkCollision(float[],int,int,int,int,float[],int,int,int,int) -> a
+    boolean checkCollisionSub(float[],int,int,int,int,int,float[],int,int,int,int) -> a
+    boolean checkContains(float[],int,float,float) -> a
+    boolean checkContains(float[],int,int,int,int,float,float) -> a
+org.andengine.util.algorithm.sort.InsertionSorter -> org.andengine.e.b.b.a:
+    void sort(java.util.List,int,int,java.util.Comparator) -> a
+org.andengine.util.algorithm.sort.Sorter -> org.andengine.e.b.b.b:
+    void sort(java.util.List,int,int,java.util.Comparator) -> a
+    void sort(java.util.List,java.util.Comparator) -> a
+org.andengine.util.call.Callback -> org.andengine.e.c.a:
+    void onCallback(java.lang.Object) -> a
+org.andengine.util.call.ParameterCallable -> org.andengine.e.c.b:
+    void call(java.lang.Object) -> a
+org.andengine.util.color.Color -> org.andengine.e.d.a:
+    org.andengine.util.color.Color WHITE -> a
+    org.andengine.util.color.Color BLACK -> b
+    org.andengine.util.color.Color RED -> c
+    org.andengine.util.color.Color YELLOW -> d
+    org.andengine.util.color.Color GREEN -> e
+    org.andengine.util.color.Color CYAN -> f
+    org.andengine.util.color.Color BLUE -> g
+    org.andengine.util.color.Color PINK -> h
+    org.andengine.util.color.Color TRANSPARENT -> i
+    int WHITE_ABGR_PACKED_INT -> j
+    int BLACK_ABGR_PACKED_INT -> k
+    int RED_ABGR_PACKED_INT -> l
+    int YELLOW_ABGR_PACKED_INT -> m
+    int GREEN_ABGR_PACKED_INT -> n
+    int CYAN_ABGR_PACKED_INT -> o
+    int BLUE_ABGR_PACKED_INT -> p
+    int PINK_ABGR_PACKED_INT -> q
+    int TRANSPARENT_ABGR_PACKED_INT -> r
+    float WHITE_ABGR_PACKED_FLOAT -> s
+    float BLACK_ABGR_PACKED_FLOAT -> t
+    float RED_ABGR_PACKED_FLOAT -> u
+    float YELLOW_ABGR_PACKED_FLOAT -> v
+    float GREEN_ABGR_PACKED_FLOAT -> w
+    float CYAN_ABGR_PACKED_FLOAT -> x
+    float BLUE_ABGR_PACKED_FLOAT -> y
+    float PINK_ABGR_PACKED_FLOAT -> z
+    float TRANSPARENT_ABGR_PACKED_FLOAT -> A
+    int WHITE_ARGB_PACKED_INT -> B
+    int BLACK_ARGB_PACKED_INT -> C
+    int RED_ARGB_PACKED_INT -> D
+    int YELLOW_ARGB_PACKED_INT -> E
+    int GREEN_ARGB_PACKED_INT -> F
+    int CYAN_ARGB_PACKED_INT -> G
+    int BLUE_ARGB_PACKED_INT -> H
+    int PINK_ARGB_PACKED_INT -> I
+    int TRANSPARENT_ARGB_PACKED_INT -> J
+    float mRed -> K
+    float mGreen -> L
+    float mBlue -> M
+    float mAlpha -> N
+    int mABGRPackedInt -> O
+    float mABGRPackedFloat -> P
+    float getRed() -> a
+    float getGreen() -> b
+    float getBlue() -> c
+    float getAlpha() -> d
+    boolean setAlphaChecking(float) -> a
+    void set(float,float,float) -> a
+    void set(float,float,float,float) -> a
+    void set(org.andengine.util.color.Color) -> a
+    int getABGRPackedInt() -> e
+    float getABGRPackedFloat() -> f
+    int getARGBPackedInt() -> g
+    void reset() -> h
+    int hashCode() -> hashCode
+    boolean equals(java.lang.Object) -> equals
+    java.lang.String toString() -> toString
+    boolean equals(org.andengine.util.color.Color) -> b
+    void packABGRAlpha() -> i
+    void packABGR() -> j
+org.andengine.util.color.ColorUtils -> org.andengine.e.d.b:
+    float[] HSV_TO_COLOR -> a
+    int convertRGBAToARGBPackedInt(float,float,float,float) -> a
+    int convertRGBAToABGRPackedInt(float,float,float,float) -> b
+    float convertPackedIntToPackedFloat(int) -> a
+org.andengine.util.debug.Debug -> org.andengine.e.e.a:
+    java.lang.String sTag -> a
+    java.lang.String sDebugUser -> b
+    org.andengine.util.debug.Debug$DebugLevel sDebugLevel -> c
+    void v(java.lang.String) -> a
+    void v(java.lang.String,java.lang.String,java.lang.Throwable) -> a
+    void d(java.lang.String) -> b
+    void d(java.lang.String,java.lang.Throwable) -> a
+    void d(java.lang.String,java.lang.String,java.lang.Throwable) -> b
+    void w(java.lang.String) -> c
+    void w(java.lang.String,java.lang.String,java.lang.Throwable) -> c
+    void e(java.lang.String) -> d
+    void e(java.lang.Throwable) -> a
+    void e(java.lang.String,java.lang.Throwable) -> b
+    void e(java.lang.String,java.lang.String,java.lang.Throwable) -> d
+org.andengine.util.debug.Debug$DebugLevel -> org.andengine.e.e.b:
+    org.andengine.util.debug.Debug$DebugLevel NONE -> a
+    org.andengine.util.debug.Debug$DebugLevel ERROR -> b
+    org.andengine.util.debug.Debug$DebugLevel WARNING -> c
+    org.andengine.util.debug.Debug$DebugLevel INFO -> d
+    org.andengine.util.debug.Debug$DebugLevel DEBUG -> e
+    org.andengine.util.debug.Debug$DebugLevel VERBOSE -> f
+    org.andengine.util.debug.Debug$DebugLevel ALL -> g
+    org.andengine.util.debug.Debug$DebugLevel[] ENUM$VALUES -> h
+    boolean isSameOrLessThan(org.andengine.util.debug.Debug$DebugLevel) -> a
+    org.andengine.util.debug.Debug$DebugLevel[] values() -> values
+    org.andengine.util.debug.Debug$DebugLevel valueOf(java.lang.String) -> valueOf
+org.andengine.util.exception.AndEngineRuntimeException -> org.andengine.e.f.a:
+org.andengine.util.exception.NullBitmapException -> org.andengine.e.f.b:
+org.andengine.util.math.MathUtils -> org.andengine.e.g.a:
+    java.util.Random RANDOM -> a
+    float radToDeg(float) -> a
+    float degToRad(float) -> b
+    boolean isPowerOfTwo(int) -> a
+    float[] rotateAroundCenter(float[],float,float,float) -> a
+    float[] revertRotateAroundCenter(float[],float,float,float) -> b
+org.andengine.util.modifier.BaseDurationModifier -> org.andengine.e.h.a:
+    float mSecondsElapsed -> c
+    float mDuration -> a
+    float getSecondsElapsed() -> a
+    float getDuration() -> b
+    void onManagedUpdate(float,java.lang.Object) -> a
+    void onManagedInitialize(java.lang.Object) -> a
+    float onUpdate(float,java.lang.Object) -> b
+    void reset() -> c
+org.andengine.util.modifier.BaseModifier -> org.andengine.e.h.b:
+    boolean mFinished -> b
+    boolean mAutoUnregisterWhenFinished -> a
+    org.andengine.util.adt.list.SmartList mModifierListeners -> c
+    boolean isFinished() -> d
+    boolean isAutoUnregisterWhenFinished() -> e
+    void addModifierListener(org.andengine.util.modifier.IModifier$IModifierListener) -> a
+    boolean removeModifierListener(org.andengine.util.modifier.IModifier$IModifierListener) -> b
+    void onModifierStarted(java.lang.Object) -> b
+    void onModifierFinished(java.lang.Object) -> c
+    void assertNoNullModifier(org.andengine.util.modifier.IModifier[]) -> a
+org.andengine.util.modifier.BaseSingleValueSpanModifier -> org.andengine.e.h.c:
+    float mFromValue -> e
+    float mValueSpan -> f
+    org.andengine.util.modifier.ease.IEaseFunction mEaseFunction -> c
+    void onSetInitialValue(java.lang.Object,float) -> a
+    void onSetValue(java.lang.Object,float,float) -> a
+    void onManagedInitialize(java.lang.Object) -> a
+    void onManagedUpdate(float,java.lang.Object) -> a
+org.andengine.util.modifier.IModifier -> org.andengine.e.h.d:
+    java.util.Comparator MODIFIER_COMPARATOR_DURATION_DESCENDING -> d
+    void reset() -> c
+    boolean isFinished() -> d
+    boolean isAutoUnregisterWhenFinished() -> e
+    float getDuration() -> b
+    float onUpdate(float,java.lang.Object) -> b
+    void addModifierListener(org.andengine.util.modifier.IModifier$IModifierListener) -> a
+    boolean removeModifierListener(org.andengine.util.modifier.IModifier$IModifierListener) -> b
+org.andengine.util.modifier.IModifier$1 -> org.andengine.e.h.e:
+    int compare(org.andengine.util.modifier.IModifier,org.andengine.util.modifier.IModifier) -> a
+    int compare(java.lang.Object,java.lang.Object) -> compare
+org.andengine.util.modifier.IModifier$IModifierListener -> org.andengine.e.h.f:
+    void onModifierStarted(org.andengine.util.modifier.IModifier,java.lang.Object) -> b
+    void onModifierFinished(org.andengine.util.modifier.IModifier,java.lang.Object) -> a
+org.andengine.util.modifier.ModifierList -> org.andengine.e.h.g:
+    java.lang.Object mTarget -> a
+    boolean add(org.andengine.util.modifier.IModifier) -> a
+    void onUpdate(float) -> a
+    void reset() -> a
+    boolean add(java.lang.Object) -> add
+org.andengine.util.modifier.SequenceModifier -> org.andengine.e.h.h:
+    org.andengine.util.modifier.SequenceModifier$ISubSequenceModifierListener mSubSequenceModifierListener -> a
+    org.andengine.util.modifier.IModifier[] mSubSequenceModifiers -> c
+    int mCurrentSubSequenceModifierIndex -> e
+    float mSecondsElapsed -> f
+    float mDuration -> g
+    boolean mFinishedCached -> h
+    float getDuration() -> b
+    float onUpdate(float,java.lang.Object) -> b
+    void reset() -> c
+    void onModifierStarted(org.andengine.util.modifier.IModifier,java.lang.Object) -> b
+    void onModifierFinished(org.andengine.util.modifier.IModifier,java.lang.Object) -> a
+org.andengine.util.modifier.SequenceModifier$ISubSequenceModifierListener -> org.andengine.e.h.i:
+    void onSubSequenceStarted(org.andengine.util.modifier.IModifier,java.lang.Object,int) -> a
+    void onSubSequenceFinished(org.andengine.util.modifier.IModifier,java.lang.Object,int) -> b
+org.andengine.util.modifier.ease.EaseExponentialIn -> org.andengine.e.h.a.a:
+    org.andengine.util.modifier.ease.EaseExponentialIn INSTANCE -> a
+    org.andengine.util.modifier.ease.EaseExponentialIn getInstance() -> a
+    float getPercentage(float,float) -> a
+    float getValue(float) -> a
+org.andengine.util.modifier.ease.EaseExponentialOut -> org.andengine.e.h.a.b:
+    org.andengine.util.modifier.ease.EaseExponentialOut INSTANCE -> a
+    org.andengine.util.modifier.ease.EaseExponentialOut getInstance() -> a
+    float getPercentage(float,float) -> a
+    float getValue(float) -> a
+org.andengine.util.modifier.ease.EaseLinear -> org.andengine.e.h.a.c:
+    org.andengine.util.modifier.ease.EaseLinear INSTANCE -> a
+    org.andengine.util.modifier.ease.EaseLinear getInstance() -> a
+    float getPercentage(float,float) -> a
+org.andengine.util.modifier.ease.IEaseFunction -> org.andengine.e.h.a.d:
+    float getPercentage(float,float) -> a
+org.andengine.util.modifier.util.ModifierUtils -> org.andengine.e.h.b.a:
+    float getSequenceDurationOfModifier(org.andengine.util.modifier.IModifier[]) -> a
+org.andengine.util.system.SystemUtils -> org.andengine.e.i.a:
+    boolean SDK_VERSION_ECLAIR_OR_LATER -> a
+    boolean SDK_VERSION_FROYO_OR_LATER -> b
+    boolean SDK_VERSION_GINGERBREAD_OR_LATER -> c
+    boolean SDK_VERSION_HONEYCOMB_OR_LATER -> d
+    boolean SDK_VERSION_ICE_CREAM_SANDWICH_OR_LATER -> e
+    boolean isAndroidVersionOrLower(int) -> a
+    boolean isAndroidVersion(int,int) -> a

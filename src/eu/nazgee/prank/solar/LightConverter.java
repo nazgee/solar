@@ -39,7 +39,7 @@ public class LightConverter implements SensorEventListener{
 	public float getLightValue(final float pTimeToAvg) {
 		final float avg = mStats.getAverage(pTimeToAvg);
 		if (avg < 0) {
-			return 0.5f;
+			return avg;
 		}
 		return (avg - mStats.getMin() + MACHEPS) / (mStats.getMax() - mStats.getMin() + MACHEPS);
 	}
