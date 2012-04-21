@@ -16,7 +16,10 @@
    version="1.1"
    inkscape:version="0.48.2 r9819"
    sodipodi:docname="solar-tiles.svg"
-   style="enable-background:new">
+   style="enable-background:new"
+   inkscape:export-filename="/home/nazgee/Desktop/textures/promo/solar/hiresicon.png"
+   inkscape:export-xdpi="102.67"
+   inkscape:export-ydpi="102.67">
   <defs
      id="defs4">
     <linearGradient
@@ -241,32 +244,6 @@
          offset="1"
          style="stop-color:#808080;stop-opacity:1;" />
     </linearGradient>
-    <filter
-       color-interpolation-filters="sRGB"
-       inkscape:collect="always"
-       id="filter4283-2"
-       x="-0.0095259165"
-       width="1.0190518"
-       y="-0.16301695"
-       height="1.3260339">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="0.75140625"
-         id="feGaussianBlur4285-8" />
-    </filter>
-    <filter
-       color-interpolation-filters="sRGB"
-       inkscape:collect="always"
-       id="filter4287-4"
-       x="-0.0095259165"
-       width="1.0190518"
-       y="-0.16301695"
-       height="1.3260339">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="0.75140625"
-         id="feGaussianBlur4289-9" />
-    </filter>
     <linearGradient
        id="linearGradient4549-6-9">
       <stop
@@ -363,32 +340,6 @@
          offset="1"
          style="stop-color:#808080;stop-opacity:1;" />
     </linearGradient>
-    <filter
-       color-interpolation-filters="sRGB"
-       inkscape:collect="always"
-       id="filter4287-4-3"
-       x="-0.0095259165"
-       width="1.0190518"
-       y="-0.16301695"
-       height="1.3260339">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="0.75140625"
-         id="feGaussianBlur4289-9-2" />
-    </filter>
-    <filter
-       color-interpolation-filters="sRGB"
-       inkscape:collect="always"
-       id="filter4283-2-4"
-       x="-0.0095259165"
-       width="1.0190518"
-       y="-0.16301695"
-       height="1.3260339">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="0.75140625"
-         id="feGaussianBlur4285-8-0" />
-    </filter>
     <linearGradient
        id="linearGradient4549-6-99">
       <stop
@@ -485,32 +436,6 @@
          offset="1"
          style="stop-color:#808080;stop-opacity:1;" />
     </linearGradient>
-    <filter
-       color-interpolation-filters="sRGB"
-       inkscape:collect="always"
-       id="filter4287-4-4"
-       x="-0.0095259165"
-       width="1.0190518"
-       y="-0.16301695"
-       height="1.3260339">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="0.75140625"
-         id="feGaussianBlur4289-9-28" />
-    </filter>
-    <filter
-       color-interpolation-filters="sRGB"
-       inkscape:collect="always"
-       id="filter4283-2-6"
-       x="-0.0095259165"
-       width="1.0190518"
-       y="-0.16301695"
-       height="1.3260339">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="0.75140625"
-         id="feGaussianBlur4285-8-87" />
-    </filter>
     <linearGradient
        id="linearGradient4549-6-3">
       <stop
@@ -607,32 +532,6 @@
          offset="1"
          style="stop-color:#808080;stop-opacity:1;" />
     </linearGradient>
-    <filter
-       color-interpolation-filters="sRGB"
-       inkscape:collect="always"
-       id="filter4287-4-38"
-       x="-0.0095259165"
-       width="1.0190518"
-       y="-0.16301695"
-       height="1.3260339">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="0.75140625"
-         id="feGaussianBlur4289-9-20" />
-    </filter>
-    <filter
-       color-interpolation-filters="sRGB"
-       inkscape:collect="always"
-       id="filter4283-2-13"
-       x="-0.0095259165"
-       width="1.0190518"
-       y="-0.16301695"
-       height="1.3260339">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="0.75140625"
-         id="feGaussianBlur4285-8-9" />
-    </filter>
     <linearGradient
        id="linearGradient4549-6-4">
       <stop
@@ -681,32 +580,6 @@
          offset="1"
          style="stop-color:#808080;stop-opacity:1;" />
     </linearGradient>
-    <filter
-       color-interpolation-filters="sRGB"
-       inkscape:collect="always"
-       id="filter4287-4-38-5"
-       x="-0.0095259165"
-       width="1.0190518"
-       y="-0.16301695"
-       height="1.3260339">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="0.75140625"
-         id="feGaussianBlur4289-9-20-0" />
-    </filter>
-    <filter
-       color-interpolation-filters="sRGB"
-       inkscape:collect="always"
-       id="filter4283-2-13-6"
-       x="-0.0095259165"
-       width="1.0190518"
-       y="-0.16301695"
-       height="1.3260339">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="0.75140625"
-         id="feGaussianBlur4285-8-9-3" />
-    </filter>
     <linearGradient
        id="linearGradient4549-6-4-4">
       <stop
@@ -745,32 +618,6 @@
          offset="1"
          style="stop-color:#808080;stop-opacity:1;" />
     </linearGradient>
-    <filter
-       color-interpolation-filters="sRGB"
-       inkscape:collect="always"
-       id="filter4287-4-4-4"
-       x="-0.0095259165"
-       width="1.0190518"
-       y="-0.16301695"
-       height="1.3260339">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="0.75140625"
-         id="feGaussianBlur4289-9-28-8" />
-    </filter>
-    <filter
-       color-interpolation-filters="sRGB"
-       inkscape:collect="always"
-       id="filter4283-2-6-4"
-       x="-0.0095259165"
-       width="1.0190518"
-       y="-0.16301695"
-       height="1.3260339">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="0.75140625"
-         id="feGaussianBlur4285-8-87-0" />
-    </filter>
     <linearGradient
        id="linearGradient4549-6-3-3">
       <stop
@@ -809,32 +656,6 @@
          offset="1"
          style="stop-color:#808080;stop-opacity:1;" />
     </linearGradient>
-    <filter
-       color-interpolation-filters="sRGB"
-       inkscape:collect="always"
-       id="filter4287-4-3-9"
-       x="-0.0095259165"
-       width="1.0190518"
-       y="-0.16301695"
-       height="1.3260339">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="0.75140625"
-         id="feGaussianBlur4289-9-2-0" />
-    </filter>
-    <filter
-       color-interpolation-filters="sRGB"
-       inkscape:collect="always"
-       id="filter4283-2-4-5"
-       x="-0.0095259165"
-       width="1.0190518"
-       y="-0.16301695"
-       height="1.3260339">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="0.75140625"
-         id="feGaussianBlur4285-8-0-5" />
-    </filter>
     <linearGradient
        id="linearGradient4549-6-99-8">
       <stop
@@ -873,32 +694,6 @@
          offset="1"
          style="stop-color:#808080;stop-opacity:1;" />
     </linearGradient>
-    <filter
-       color-interpolation-filters="sRGB"
-       inkscape:collect="always"
-       id="filter4287-4-0"
-       x="-0.0095259165"
-       width="1.0190518"
-       y="-0.16301695"
-       height="1.3260339">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="0.75140625"
-         id="feGaussianBlur4289-9-07" />
-    </filter>
-    <filter
-       color-interpolation-filters="sRGB"
-       inkscape:collect="always"
-       id="filter4283-2-3"
-       x="-0.0095259165"
-       width="1.0190518"
-       y="-0.16301695"
-       height="1.3260339">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="0.75140625"
-         id="feGaussianBlur4285-8-56" />
-    </filter>
     <linearGradient
        id="linearGradient4549-6-72">
       <stop
@@ -3427,166 +3222,6 @@
        y2="847.30121" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient4549-6"
-       id="linearGradient22717"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1,0,0,1.0639193,-26.072911,252.31346)"
-       x1="374.12576"
-       y1="238.72534"
-       x2="374.12576"
-       y2="249.80237" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient4549-3-3"
-       id="linearGradient22719"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1,0,0,1.0639193,-26.072911,296.56192)"
-       x1="374.12576"
-       y1="238.72534"
-       x2="374.12576"
-       y2="249.80237" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient4549-6-72"
-       id="linearGradient22721"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1,0,0,1.0639193,197.92709,252.31346)"
-       x1="374.12576"
-       y1="238.72534"
-       x2="374.12576"
-       y2="249.80237" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient4549-3-3-96"
-       id="linearGradient22723"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1,0,0,1.0639193,197.92709,296.56192)"
-       x1="374.12576"
-       y1="238.72534"
-       x2="374.12576"
-       y2="249.80237" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient4549-6-99"
-       id="linearGradient22725"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1,0,0,1.0639193,-26.072911,376.30217)"
-       x1="374.12576"
-       y1="238.72534"
-       x2="374.12576"
-       y2="249.80237" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient4549-3-3-9"
-       id="linearGradient22727"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1,0,0,1.0639193,-26.072911,420.55063)"
-       x1="374.12576"
-       y1="238.72534"
-       x2="374.12576"
-       y2="249.80237" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient4549-6-99-8"
-       id="linearGradient22729"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1,0,0,1.0639193,197.92709,376.30217)"
-       x1="374.12576"
-       y1="238.72534"
-       x2="374.12576"
-       y2="249.80237" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient4549-3-3-9-3"
-       id="linearGradient22731"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1,0,0,1.0639193,197.92709,420.55063)"
-       x1="374.12576"
-       y1="238.72534"
-       x2="374.12576"
-       y2="249.80237" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient4549-6-3"
-       id="linearGradient22733"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1,0,0,1.0639193,-26.072911,500.29088)"
-       x1="374.12576"
-       y1="238.72534"
-       x2="374.12576"
-       y2="249.80237" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient4549-3-3-94"
-       id="linearGradient22735"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1,0,0,1.0639193,-26.072911,544.53934)"
-       x1="374.12576"
-       y1="238.72534"
-       x2="374.12576"
-       y2="249.80237" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient4549-6-3-3"
-       id="linearGradient22737"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1,0,0,1.0639193,197.92709,500.29088)"
-       x1="374.12576"
-       y1="238.72534"
-       x2="374.12576"
-       y2="249.80237" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient4549-3-3-94-0"
-       id="linearGradient22739"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1,0,0,1.0639193,197.92709,544.53934)"
-       x1="374.12576"
-       y1="238.72534"
-       x2="374.12576"
-       y2="249.80237" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient4549-6-4"
-       id="linearGradient22741"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1,0,0,1.0639193,-26.072911,624.27959)"
-       x1="374.12576"
-       y1="238.72534"
-       x2="374.12576"
-       y2="249.80237" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient4549-3-3-8"
-       id="linearGradient22743"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1,0,0,1.0639193,-26.072911,668.52805)"
-       x1="374.12576"
-       y1="238.72534"
-       x2="374.12576"
-       y2="249.80237" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient4549-6-4-4"
-       id="linearGradient22745"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1,0,0,1.0639193,197.92709,624.27959)"
-       x1="374.12576"
-       y1="238.72534"
-       x2="374.12576"
-       y2="249.80237" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient4549-3-3-8-8"
-       id="linearGradient22747"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1,0,0,1.0639193,197.92709,668.52805)"
-       x1="374.12576"
-       y1="238.72534"
-       x2="374.12576"
-       y2="249.80237" />
-    <linearGradient
-       inkscape:collect="always"
        xlink:href="#linearGradient4549-6-72"
        id="linearGradient25247"
        gradientUnits="userSpaceOnUse"
@@ -3753,19 +3388,19 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4142136"
-     inkscape:cx="251.30222"
-     inkscape:cy="230.77461"
+     inkscape:zoom="0.70710678"
+     inkscape:cx="367.13469"
+     inkscape:cy="240.35918"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="layer7"
      showgrid="true"
      inkscape:snap-page="false"
      inkscape:snap-grids="true"
      inkscape:snap-to-guides="false"
-     inkscape:window-width="1280"
-     inkscape:window-height="1000"
-     inkscape:window-x="1680"
-     inkscape:window-y="50"
+     inkscape:window-width="1630"
+     inkscape:window-height="1026"
+     inkscape:window-x="50"
+     inkscape:window-y="24"
      inkscape:window-maximized="1"
      fit-margin-top="0"
      fit-margin-left="0"
@@ -3787,7 +3422,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -3795,18 +3430,8 @@
      inkscape:groupmode="layer"
      id="layer7"
      inkscape:label="bottom"
-     style="display:none"
-     transform="translate(-144.09375,-448.63381)">
-    <rect
-       style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;display:inline;filter:url(#filter15058)"
-       id="rect3757"
-       width="420"
-       height="394.28571"
-       x="38.589581"
-       y="407.47562"
-       ry="15"
-       transform="matrix(1.3816132,0,0,1.4363908,28.585732,-145.78391)" />
-  </g>
+     style="display:inline"
+     transform="translate(-144.09375,-448.63381)" />
   <g
      inkscape:groupmode="layer"
      id="layer6"
@@ -3898,7 +3523,10 @@
     </g>
     <g
        id="g22530"
-       transform="translate(0,-22.591752)">
+       transform="translate(0,-22.591752)"
+       inkscape:export-filename="/home/nazgee/Desktop/textures/promo/solar/hiresicon2.png"
+       inkscape:export-xdpi="122.52332"
+       inkscape:export-ydpi="122.52332">
       <g
          id="g22481">
         <path
@@ -3915,7 +3543,10 @@
     </g>
     <g
        id="g22535"
-       transform="translate(0,-21.807628)">
+       transform="translate(0,-21.807628)"
+       inkscape:export-filename="/home/nazgee/Desktop/textures/promo/solar/hiresicon2.png"
+       inkscape:export-xdpi="122.52332"
+       inkscape:export-ydpi="122.52332">
       <g
          id="g22485">
         <path
@@ -3932,7 +3563,10 @@
     </g>
     <g
        id="g22540"
-       transform="translate(0,-21.023504)">
+       transform="translate(0,-21.023504)"
+       inkscape:export-filename="/home/nazgee/Desktop/textures/promo/solar/hiresicon2.png"
+       inkscape:export-xdpi="122.52332"
+       inkscape:export-ydpi="122.52332">
       <g
          id="g22489">
         <path
@@ -5420,61 +5054,97 @@
        style="fill:url(#linearGradient25290);fill-opacity:1;fill-rule:nonzero;stroke:none"
        d="m 144.09375,607.84729 0,11.76961 224.8125,0 0,-11.76961 -224.8125,0 z m 21,1.89511 182.8125,0 0,7.94614 -182.8125,0 0,-7.94614 z"
        id="rect3759-9-2-7-2-1-0"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/nazgee/Desktop/textures/promo/solar/hiresicon2.png"
+       inkscape:export-xdpi="122.52332"
+       inkscape:export-ydpi="122.52332" />
     <path
        style="fill:url(#linearGradient25287);fill-opacity:1;fill-rule:nonzero;stroke:none"
        d="m 144.09375,652.09574 0,11.76961 224.8125,0 0,-11.76961 -224.8125,0 z m 21,1.89511 182.8125,0 0,7.94614 -182.8125,0 0,-7.94614 z"
        id="rect3759-9-2-7-2-9-5-5"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/nazgee/Desktop/textures/promo/solar/hiresicon2.png"
+       inkscape:export-xdpi="122.52332"
+       inkscape:export-ydpi="122.52332" />
     <path
        style="fill:url(#linearGradient25282);fill-opacity:1;fill-rule:nonzero;stroke:none"
        d="m 368.09375,607.84729 0,11.76961 224.8125,0 0,-11.76961 -224.8125,0 z m 21,1.89511 182.8125,0 0,7.94614 -182.8125,0 0,-7.94614 z"
        id="rect3759-9-2-7-2-1-0-7"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/nazgee/Desktop/textures/promo/solar/hiresicon2.png"
+       inkscape:export-xdpi="122.52332"
+       inkscape:export-ydpi="122.52332" />
     <path
        style="fill:url(#linearGradient25279);fill-opacity:1;fill-rule:nonzero;stroke:none"
        d="m 368.09375,652.09574 0,11.76961 224.8125,0 0,-11.76961 -224.8125,0 z m 21,1.89511 182.8125,0 0,7.94614 -182.8125,0 0,-7.94614 z"
        id="rect3759-9-2-7-2-9-5-5-5"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/nazgee/Desktop/textures/promo/solar/hiresicon2.png"
+       inkscape:export-xdpi="122.52332"
+       inkscape:export-ydpi="122.52332" />
     <path
        style="fill:url(#linearGradient25274);fill-opacity:1;fill-rule:nonzero;stroke:none"
        d="m 144.09375,732.62012 0,11.76961 224.8125,0 0,-11.76961 -224.8125,0 z m 21,1.89511 182.8125,0 0,7.94614 -182.8125,0 0,-7.94614 z"
        id="rect3759-9-2-7-2-1-3"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/nazgee/Desktop/textures/promo/solar/hiresicon2.png"
+       inkscape:export-xdpi="122.52332"
+       inkscape:export-ydpi="122.52332" />
     <path
        style="fill:url(#linearGradient25271);fill-opacity:1;fill-rule:nonzero;stroke:none"
        d="m 144.09375,776.86857 0,11.76961 224.8125,0 0,-11.76961 -224.8125,0 z m 21,1.89511 182.8125,0 0,7.94614 -182.8125,0 0,-7.94614 z"
        id="rect3759-9-2-7-2-9-5-29"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/nazgee/Desktop/textures/promo/solar/hiresicon2.png"
+       inkscape:export-xdpi="122.52332"
+       inkscape:export-ydpi="122.52332" />
     <path
        style="fill:url(#linearGradient25266);fill-opacity:1;fill-rule:nonzero;stroke:none"
        d="m 368.09375,732.62012 0,11.76961 224.8125,0 0,-11.76961 -224.8125,0 z m 21,1.89511 182.8125,0 0,7.94614 -182.8125,0 0,-7.94614 z"
        id="rect3759-9-2-7-2-1-3-8"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/nazgee/Desktop/textures/promo/solar/hiresicon2.png"
+       inkscape:export-xdpi="122.52332"
+       inkscape:export-ydpi="122.52332" />
     <path
        style="fill:url(#linearGradient25263);fill-opacity:1;fill-rule:nonzero;stroke:none"
        d="m 368.09375,776.86857 0,11.76961 224.8125,0 0,-11.76961 -224.8125,0 z m 21,1.89511 182.8125,0 0,7.94614 -182.8125,0 0,-7.94614 z"
        id="rect3759-9-2-7-2-9-5-29-1"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/nazgee/Desktop/textures/promo/solar/hiresicon2.png"
+       inkscape:export-xdpi="122.52332"
+       inkscape:export-ydpi="122.52332" />
     <path
        style="fill:url(#linearGradient25258);fill-opacity:1;fill-rule:nonzero;stroke:none"
        d="m 144.09375,857.39296 0,11.76961 224.8125,0 0,-11.76961 -224.8125,0 z m 21,1.89511 182.8125,0 0,7.94614 -182.8125,0 0,-7.94614 z"
        id="rect3759-9-2-7-2-1-2"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/nazgee/Desktop/textures/promo/solar/hiresicon2.png"
+       inkscape:export-xdpi="122.52332"
+       inkscape:export-ydpi="122.52332" />
     <path
        style="fill:url(#linearGradient25255);fill-opacity:1;fill-rule:nonzero;stroke:none"
        d="m 144.09375,901.64141 0,11.76961 224.8125,0 0,-11.76961 -224.8125,0 z m 21,1.89511 182.8125,0 0,7.94614 -182.8125,0 0,-7.94614 z"
        id="rect3759-9-2-7-2-9-5-8"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-xdpi="122.52332"
+       inkscape:export-ydpi="122.52332"
+       inkscape:export-filename="/home/nazgee/Desktop/textures/promo/solar/hiresicon2.png" />
     <path
        style="fill:url(#linearGradient25250);fill-opacity:1;fill-rule:nonzero;stroke:none"
        d="m 368.09375,857.39296 0,11.76961 224.8125,0 0,-11.76961 -224.8125,0 z m 21,1.89511 182.8125,0 0,7.94614 -182.8125,0 0,-7.94614 z"
        id="rect3759-9-2-7-2-1-2-4"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/nazgee/Desktop/textures/promo/solar/hiresicon2.png"
+       inkscape:export-xdpi="122.52332"
+       inkscape:export-ydpi="122.52332" />
     <path
        style="fill:url(#linearGradient25247);fill-opacity:1;fill-rule:nonzero;stroke:none"
        d="m 368.09375,901.64141 0,11.76961 224.8125,0 0,-11.76961 -224.8125,0 z m 21,1.89511 182.8125,0 0,7.94614 -182.8125,0 0,-7.94614 z"
        id="rect3759-9-2-7-2-9-5-8-8"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-xdpi="122.52332"
+       inkscape:export-ydpi="122.52332"
+       inkscape:export-filename="/home/nazgee/Desktop/textures/promo/solar/hiresicon2.png" />
   </g>
 </svg>

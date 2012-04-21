@@ -11,7 +11,7 @@ public class LightConverter implements SensorEventListener{
 	
 	private static final float MACHEPS = 0.001f;
 	final private LightFeedback mLightFeedback;
-	private float mAdvertisedSensorMax = 1;
+	private final float mAdvertisedSensorMax;
 	private Statistics mStats;
 
 	public LightConverter(LightFeedback mLightFeedback,
@@ -32,8 +32,6 @@ public class LightConverter implements SensorEventListener{
 	@Override
 	public void onSensorChanged(SensorEvent pEvent) {
 		mStats.registerValue(pEvent.values[0]);
-		
-//		mLightFeedback.setLightLevel(val);
 	}
 
 	public float getLightValue(final float pTimeToAvg) {
@@ -52,8 +50,12 @@ public class LightConverter implements SensorEventListener{
 		return mStats.getMin();
 	}
 
+	public float getAdvertisedSensorMax() {
+		return mAdvertisedSensorMax;
+	}
+
 	public interface LightFeedback {
-		void setLightLevel(final float pValue);
+		void setLightLevel(final LightConverter mLightConverter, final float pTimePassed);
 	}
 	
 	private class StatEntry {
@@ -128,7 +130,7 @@ public class LightConverter implements SensorEventListener{
 				valSoFar += stat.getValue() * time;
 				prevStat = stat;
 
-				Log.d(getClass().getSimpleName(), "i=" + i + "; timeSoFar=" + timeSoFar + "; valSoFar=" + valSoFar);
+//				Log.d(getClass().getSimpleName(), "i=" + i + "; timeSoFar=" + timeSoFar + "; valSoFar=" + valSoFar);
 				if (bailEarly) {
 					break;
 				}

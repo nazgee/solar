@@ -32,6 +32,7 @@ import eu.nazgee.game.utils.misc.AppRater;
 import eu.nazgee.game.utils.scene.SceneLoader;
 import eu.nazgee.game.utils.scene.SceneLoader.eLoadingSceneHandling;
 import eu.nazgee.game.utils.scene.SceneLoading;
+import eu.nazgee.prank.solar.HUD.eChargeStatus;
 
 public class ActivityMain extends SimpleBaseGameActivity{
 	// ===========================================================
@@ -48,6 +49,8 @@ public class ActivityMain extends SimpleBaseGameActivity{
 	private SceneMain mSceneMain;
 	private SceneLoader mLoader;
 	private LightConverter mLightConverter;
+	private HUD mHud;
+	private UpdateTimerHandler mUpdateTimerHandler;
 
 	// ===========================================================
 	// Constructors
@@ -76,7 +79,7 @@ public class ActivityMain extends SimpleBaseGameActivity{
 		final FontManager fontManager = getFontManager();
 
 		final ITexture textureFontHud = new BitmapTextureAtlas(textureManager, 256, 256, TextureOptions.BILINEAR);
-		this.mFont = FontFactory.createFromAsset(fontManager, textureFontHud, getAssets(), "LCD.ttf", Consts.CAMERA_WIDTH*0.1f, true, Color.WHITE.getARGBPackedInt());
+		this.mFont = FontFactory.createFromAsset(fontManager, textureFontHud, getAssets(), Consts.FONT, Consts.CAMERA_WIDTH*0.1f, true, Color.WHITE.getARGBPackedInt());
 		this.mFont.load();
 	}
 
@@ -104,9 +107,9 @@ public class ActivityMain extends SimpleBaseGameActivity{
 	}
 
 	@Override
-	protected void onCreate(Bundle pSavedInstanceState) {
-		super.onCreate(pSavedInstanceState);
-
+	public synchronized void onResumeGame() {
+//	protected synchronized void onResume() {
+		super.onResumeGame();
 		if (!enableLightSensor()) {
 			Log.e(getClass().getSimpleName(), "light sensor is NOT supported!");
 		} else {
@@ -115,8 +118,9 @@ public class ActivityMain extends SimpleBaseGameActivity{
 	}
 
 	@Override
-	protected void onPause() {
-		super.onPause();
+	public void onPauseGame() {
+//	protected void onPause() {
+		super.onPauseGame();
 		disableLightSensor();
 	}
 
@@ -174,41 +178,21 @@ public class ActivityMain extends SimpleBaseGameActivity{
 	private void registerSelfAsSensorListener(final SensorManager pSensorManager, final int pType, final int pSensorDelay) {
 		final Sensor sensor = pSensorManager.getSensorList(pType).get(0);
 		
-		SharedPreferences prefs = getSharedPreferences(Consts.PREFS_NAME, 0);
-		float min = prefs.getFloat(Consts.PREFS_KEY_LIGHTMIN, Float.MAX_VALUE);
-		float max = prefs.getFloat(Consts.PREFS_KEY_LIGHTMAX, Float.MIN_VALUE);
-		mLightConverter = new LightConverter(mSceneMain, min, max, sensor.getMaximumRange());
+		if (mLightConverter == null) {
+			SharedPreferences prefs = getSharedPreferences(Consts.PREFS_NAME, 0);
+			float min = prefs.getFloat(Consts.PREFS_KEY_LIGHTMIN, Float.MAX_VALUE);
+			float max = prefs.getFloat(Consts.PREFS_KEY_LIGHTMAX, Float.MIN_VALUE);
+			mLightConverter = new LightConverter(mSceneMain, min, max, sensor.getMaximumRange());
+		}
 		
 		pSensorManager.registerListener(mLightConverter, sensor, pSensorDelay);
 
-		getEngine().registerUpdateHandler(new TimerHandler(0.1f, new ITimerCallback() {
-			private int skipper = 0;
-			@Override
-			public void onTimePassed(TimerHandler pTimerHandler) {
-				skipper = skipper++ % 10;
-				
-				if (mSceneMain.isLoaded()) {
-					final float avg = mLightConverter.getLightValue(5);
-					if (skipper == 0) {
-						mSceneMain.setLightLevel(avg);
-					}
-					
-					if (avg < 0) {
-						mHud.setProgressBar(0.01f);
-					} else {
-						if (!mHud.isFinishCalibration()) {
-							mHud.finishCalibration();
-						}
-						mHud.setProgressBar(avg);
-					}
-					
-				}
-				pTimerHandler.reset();
-			}
-		}));
+		mUpdateTimerHandler = new UpdateTimerHandler(0.1f);
+		getEngine().registerUpdateHandler(mUpdateTimerHandler);
 	}
 
 	private void unregisterSelfAsSensorListener(final SensorManager pSensorManager, final int pType) {
+		getEngine().unregisterUpdateHandler(mUpdateTimerHandler);
 		final Sensor sensor = pSensorManager.getSensorList(pType).get(0);
 		pSensorManager.unregisterListener(mLightConverter, sensor);
 		
@@ -217,6 +201,11 @@ public class ActivityMain extends SimpleBaseGameActivity{
 		e.putFloat(Consts.PREFS_KEY_LIGHTMIN, mLightConverter.getLightValueMin());
 		e.putFloat(Consts.PREFS_KEY_LIGHTMAX, mLightConverter.getLightValueMax());
 		e.commit();
+	}
+	
+	public void updateMiliAmps(final float pTimePassed) {
+		float mAhsPerSec = 1;
+		mHud.incMiliAmps(mLightConverter.getLightValue(pTimePassed) * pTimePassed * mAhsPerSec);
 	}
 	// ===========================================================
 	// Inner and Anonymous Classes
@@ -241,6 +230,34 @@ public class ActivityMain extends SimpleBaseGameActivity{
 		}
 	}
 
-	public static final String PREFS_KEY_TOTAL_BUBBLES_POPPED = "lightmin";
-	private HUD mHud;
+	class UpdateTimerHandler extends TimerHandler {
+		public UpdateTimerHandler(float pTimerSeconds) {
+			super(pTimerSeconds, new UpdateTimerCallback());
+		}
+	}
+
+	class UpdateTimerCallback implements ITimerCallback {
+		@Override
+		public void onTimePassed(TimerHandler pTimerHandler) {
+			
+			if (mSceneMain.isLoaded()) {
+				mSceneMain.setLightLevel(mLightConverter, 0.1f);
+				updateMiliAmps(0.1f);
+				
+				final float avg = mLightConverter.getLightValue(5);
+				if (avg < 0) {
+					mHud.setProgressBar(0.01f);
+				} else {
+					mHud.setProgressBar(avg);
+					if (avg < Consts.CHARGE_THRESHOLD) {
+						mHud.setChargeStatus(eChargeStatus.SUSPEND);
+					} else {
+						mHud.setChargeStatus(eChargeStatus.CHARGE);
+					}
+				}
+				
+			}
+			pTimerHandler.reset();
+		}
+	}
 }

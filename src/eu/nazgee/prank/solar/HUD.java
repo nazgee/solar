@@ -8,6 +8,7 @@ import org.andengine.entity.text.Text;
 import org.andengine.entity.text.TextOptions;
 import org.andengine.opengl.font.Font;
 import org.andengine.opengl.font.FontFactory;
+import org.andengine.opengl.font.Letter;
 import org.andengine.opengl.texture.ITexture;
 import org.andengine.opengl.texture.TextureOptions;
 import org.andengine.opengl.texture.atlas.bitmap.BitmapTextureAtlas;
@@ -21,11 +22,17 @@ import eu.nazgee.game.utils.scene.HUDLoadable;
 
 public class HUD extends HUDLoadable {
 	
+	public enum eChargeStatus {
+		CALIBRATION,
+		SUSPEND,
+		CHARGE,
+	};
 	MyResources mResources = new MyResources();
 	private Text mTextStatus;
 	private Text mTextPercent;
 	private Text mTextBar;
-	private volatile boolean mCalibrationFinished = false;
+	private volatile eChargeStatus mChargeStatus = eChargeStatus.CALIBRATION;
+	private volatile float mMiliAmps = 0;
 
 	public HUD(float W, float H,
 			VertexBufferObjectManager pVertexBufferObjectManager) {
@@ -55,17 +62,33 @@ public class HUD extends HUDLoadable {
 	public void onLoad(Engine e, Context c) {
 		this.registerUpdateHandler(new TimerHandler(1, new ITimerCallback() {
 			private int i = 0;
-			String txt[] = {"CHARGING","CHARGING.","CHARGING..","CHARGING..."};
 			String txt_cal[] = {"CALIBRATING","CALIBRATING.","CALIBRATING..","CALIBRATING..."};
+			String txt_sus[] = {"STANDBY","STANDBY...","TOO DARK HERE!","TOO DARK HERE!"};
+			String txt_chg[] = {"CHARGING   ","CHARGING.  ","CHARGING.. ","CHARGING..."};
+
 			@Override
 			public void onTimePassed(TimerHandler pTimerHandler) {
-				if (mCalibrationFinished) {
-					setStatus(txt[i++ % txt.length]);
-				}else{
-					setStatus(txt_cal[i++ % txt.length]);
+				switch (mChargeStatus) {
+				case CALIBRATION:
+					setNextText(txt_cal);
+					break;
+				case SUSPEND:
+					setNextText(txt_sus);
+					break;
+				case CHARGE:
+					setNextText(txt_chg);
+					mTextStatus.setText(mTextStatus.getText() + " " + (int)mMiliAmps + "mAh");
+					break;
+				default:
+					break;
 				}
+
 				pTimerHandler.setTimerSeconds(1);
 				pTimerHandler.reset();
+			}
+			
+			private void setNextText(String[] text) {
+				setStatus(text[i++ % text.length]);
 			}
 		}));
 	}
@@ -80,22 +103,30 @@ public class HUD extends HUDLoadable {
 	public void setProgressBar(final float pValue) {
 		mTextPercent.setText((int)(pValue * 100) + "%");
 		
-		final float w = mResources.FONT.getLetter('-').mWidth / (mTextBar.getAutoWrapWidth());
+		Letter l = mResources.FONT.getLetter('^');
+		final float w = (l.mWidth + l.mOffsetX) / (mTextBar.getAutoWrapWidth());
 		final int count = (int) (pValue / w);
 		String s = "";
-		for(int i = 0; i < (count-2); i++) {
-			s += "-";
+		for(int i = 0; i < (count); i++) {
+			s += "^";
 		}
-		s += "+";
 		mTextBar.setText(s);
 	}
 
-	public void finishCalibration() {
-		mCalibrationFinished  = true;
+	public void setChargeStatus(eChargeStatus pChargeStatus) {
+		mChargeStatus  = pChargeStatus;
 	}
-	
-	public boolean isFinishCalibration() {
-		return mCalibrationFinished;
+
+	public void setMiliAmps(float pMiliAmps) {
+		mMiliAmps = pMiliAmps;
+	}
+
+	public void incMiliAmps(float pMiliAmps) {
+		mMiliAmps += pMiliAmps;
+	}
+
+	public float getMiliAmps() {
+		return mMiliAmps;
 	}
 
 	public void setStatus(String pStatus) {
@@ -107,8 +138,8 @@ public class HUD extends HUDLoadable {
 
 		@Override
 		public void onLoadResources(Engine e, Context c) {
-			final ITexture textureFontHud = new BitmapTextureAtlas(e.getTextureManager(), 256, 256, TextureOptions.BILINEAR);
-			FONT = FontFactory.createFromAsset(e.getFontManager(), textureFontHud, c.getAssets(), "LCD.ttf", 50, true, Color.WHITE.getARGBPackedInt());
+			final ITexture textureFontHud = new BitmapTextureAtlas(e.getTextureManager(), 256, 512, TextureOptions.BILINEAR);
+			FONT = FontFactory.createFromAsset(e.getFontManager(), textureFontHud, c.getAssets(), Consts.FONT, 50, true, Color.WHITE.getARGBPackedInt());
 			
 		}
 

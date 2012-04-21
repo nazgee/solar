@@ -1,6 +1,8 @@
 eu.nazgee.game.utils.helpers.AtlasLoader -> eu.nazgee.a.a.a.a:
     void buildAndLoad(org.andengine.opengl.texture.atlas.bitmap.BuildableBitmapTextureAtlas[]) -> a
     void buildAndLoad(org.andengine.opengl.texture.atlas.buildable.builder.BlackPawnTextureAtlasBuilder,org.andengine.opengl.texture.atlas.bitmap.BuildableBitmapTextureAtlas[]) -> a
+eu.nazgee.game.utils.helpers.Positioner -> eu.nazgee.a.a.a.b:
+    void setCentered(org.andengine.entity.shape.IAreaShape,float,float) -> a
 eu.nazgee.game.utils.loadable.ILoadable -> eu.nazgee.a.a.b.a:
     void load(org.andengine.engine.Engine,android.content.Context) -> a
     void unload() -> a_
@@ -136,23 +138,26 @@ eu.nazgee.game.utils.scene.SceneLoader$1 -> eu.nazgee.a.a.d.d:
     void reset() -> a
     void onUpdate(float) -> a
 eu.nazgee.game.utils.scene.SceneLoader$2 -> eu.nazgee.a.a.d.e:
+    eu.nazgee.game.utils.scene.SceneLoader$SceneLoaderTasklet this$1 -> a
+    void run() -> run
+eu.nazgee.game.utils.scene.SceneLoader$3 -> eu.nazgee.a.a.d.f:
     eu.nazgee.game.utils.scene.SceneLoader this$0 -> a
     eu.nazgee.game.utils.scene.SceneLoader$eNewSceneHandling val$sceneHandling -> b
     int[] $SWITCH_TABLE$eu$nazgee$game$utils$scene$SceneLoader$eNewSceneHandling -> c
     void setupScene(org.andengine.engine.Engine,org.andengine.entity.scene.Scene,org.andengine.entity.scene.Scene) -> a
     void unloadOldScene(org.andengine.entity.scene.Scene) -> a
     int[] $SWITCH_TABLE$eu$nazgee$game$utils$scene$SceneLoader$eNewSceneHandling() -> a
-eu.nazgee.game.utils.scene.SceneLoader$3 -> eu.nazgee.a.a.d.f:
+eu.nazgee.game.utils.scene.SceneLoader$4 -> eu.nazgee.a.a.d.g:
     eu.nazgee.game.utils.scene.SceneLoader this$0 -> a
     eu.nazgee.game.utils.scene.SceneLoader$SceneLoaderTasklet val$loader -> b
     void run() -> run
-eu.nazgee.game.utils.scene.SceneLoader$ISceneLoaderListener -> eu.nazgee.a.a.d.g:
+eu.nazgee.game.utils.scene.SceneLoader$ISceneLoaderListener -> eu.nazgee.a.a.d.h:
     void onSceneLoaded(org.andengine.entity.scene.Scene) -> a
-eu.nazgee.game.utils.scene.SceneLoader$SceneFamily -> eu.nazgee.a.a.d.h:
+eu.nazgee.game.utils.scene.SceneLoader$SceneFamily -> eu.nazgee.a.a.d.i:
     org.andengine.entity.scene.Scene parent -> a
     org.andengine.entity.scene.Scene child -> b
     eu.nazgee.game.utils.scene.SceneLoader this$0 -> c
-eu.nazgee.game.utils.scene.SceneLoader$SceneLoaderTasklet -> eu.nazgee.a.a.d.i:
+eu.nazgee.game.utils.scene.SceneLoader$SceneLoaderTasklet -> eu.nazgee.a.a.d.j:
     java.lang.ref.WeakReference mEngine -> a
     java.lang.ref.WeakReference mContext -> b
     eu.nazgee.game.utils.scene.SceneLoader$ISceneLoaderListener mListener -> d
@@ -168,30 +173,32 @@ eu.nazgee.game.utils.scene.SceneLoader$SceneLoaderTasklet -> eu.nazgee.a.a.d.i:
     void onComplete() -> c
     void setupScene() -> d
     void access$0(eu.nazgee.game.utils.scene.SceneLoader$SceneLoaderTasklet) -> a
-eu.nazgee.game.utils.scene.SceneLoader$SetupHandler -> eu.nazgee.a.a.d.j:
+    eu.nazgee.game.utils.scene.SceneLoader$ISceneLoaderListener access$1(eu.nazgee.game.utils.scene.SceneLoader$SceneLoaderTasklet) -> b
+    org.andengine.entity.scene.Scene access$2(eu.nazgee.game.utils.scene.SceneLoader$SceneLoaderTasklet) -> c
+eu.nazgee.game.utils.scene.SceneLoader$SetupHandler -> eu.nazgee.a.a.d.k:
     void setupScene(org.andengine.engine.Engine,org.andengine.entity.scene.Scene,org.andengine.entity.scene.Scene) -> a
     void unloadOldScene(org.andengine.entity.scene.Scene) -> a
-eu.nazgee.game.utils.scene.SceneLoader$eLoadingSceneHandling -> eu.nazgee.a.a.d.k:
+eu.nazgee.game.utils.scene.SceneLoader$eLoadingSceneHandling -> eu.nazgee.a.a.d.l:
     eu.nazgee.game.utils.scene.SceneLoader$eLoadingSceneHandling SCENE_SET_CHILD -> a
     eu.nazgee.game.utils.scene.SceneLoader$eLoadingSceneHandling SCENE_SET_ACTIVE -> b
     eu.nazgee.game.utils.scene.SceneLoader$eLoadingSceneHandling SCENE_DONT_TOUCH -> c
     eu.nazgee.game.utils.scene.SceneLoader$eLoadingSceneHandling[] ENUM$VALUES -> d
     eu.nazgee.game.utils.scene.SceneLoader$eLoadingSceneHandling[] values() -> values
     eu.nazgee.game.utils.scene.SceneLoader$eLoadingSceneHandling valueOf(java.lang.String) -> valueOf
-eu.nazgee.game.utils.scene.SceneLoader$eNewSceneHandling -> eu.nazgee.a.a.d.l:
+eu.nazgee.game.utils.scene.SceneLoader$eNewSceneHandling -> eu.nazgee.a.a.d.m:
     eu.nazgee.game.utils.scene.SceneLoader$eNewSceneHandling SCENE_SET_CHILD -> a
     eu.nazgee.game.utils.scene.SceneLoader$eNewSceneHandling SCENE_SET_CHILD_NESTED -> b
     eu.nazgee.game.utils.scene.SceneLoader$eNewSceneHandling SCENE_SET_ACTIVE -> c
     eu.nazgee.game.utils.scene.SceneLoader$eNewSceneHandling[] ENUM$VALUES -> d
     eu.nazgee.game.utils.scene.SceneLoader$eNewSceneHandling[] values() -> values
     eu.nazgee.game.utils.scene.SceneLoader$eNewSceneHandling valueOf(java.lang.String) -> valueOf
-eu.nazgee.game.utils.scene.SceneLoader$eOldSceneHandling -> eu.nazgee.a.a.d.m:
+eu.nazgee.game.utils.scene.SceneLoader$eOldSceneHandling -> eu.nazgee.a.a.d.n:
     eu.nazgee.game.utils.scene.SceneLoader$eOldSceneHandling UNLOAD_OLD_AFTER_LOADING_NEW -> a
     eu.nazgee.game.utils.scene.SceneLoader$eOldSceneHandling UNLOAD_OLD_BEFORE_LOADING_NEW -> b
     eu.nazgee.game.utils.scene.SceneLoader$eOldSceneHandling[] ENUM$VALUES -> c
     eu.nazgee.game.utils.scene.SceneLoader$eOldSceneHandling[] values() -> values
     eu.nazgee.game.utils.scene.SceneLoader$eOldSceneHandling valueOf(java.lang.String) -> valueOf
-eu.nazgee.game.utils.scene.SceneLoading -> eu.nazgee.a.a.d.n:
+eu.nazgee.game.utils.scene.SceneLoading -> eu.nazgee.a.a.d.o:
     org.andengine.entity.text.Text mTextLoading -> a
     org.andengine.opengl.font.Font mFont -> b
     java.lang.String mLoading -> c
@@ -201,7 +208,7 @@ eu.nazgee.game.utils.scene.SceneLoading -> eu.nazgee.a.a.d.n:
     void prepareText() -> j
     void prepareAnimation(org.andengine.entity.text.Text) -> a
     void reset() -> a
-eu.nazgee.game.utils.scene.SceneSplash -> eu.nazgee.a.a.d.o:
+eu.nazgee.game.utils.scene.SceneSplash -> eu.nazgee.a.a.d.p:
     java.util.LinkedList mSprites -> a
     org.andengine.entity.text.Text mTextLoading -> b
     float mTotalTime -> c
@@ -215,13 +222,13 @@ eu.nazgee.game.utils.scene.SceneSplash -> eu.nazgee.a.a.d.o:
     void setComplete(boolean) -> a
     boolean onSceneTouchEvent(org.andengine.entity.scene.Scene,org.andengine.input.touch.TouchEvent) -> a
     boolean onAreaTouched(org.andengine.input.touch.TouchEvent,org.andengine.entity.scene.ITouchArea,float,float) -> a
-eu.nazgee.game.utils.scene.SceneSplash$1 -> eu.nazgee.a.a.d.p:
+eu.nazgee.game.utils.scene.SceneSplash$1 -> eu.nazgee.a.a.d.q:
     eu.nazgee.game.utils.scene.SceneSplash this$0 -> a
     void onModifierStarted(org.andengine.util.modifier.IModifier,org.andengine.entity.IEntity) -> a
     void onModifierFinished(org.andengine.util.modifier.IModifier,org.andengine.entity.IEntity) -> b
     void onModifierFinished(org.andengine.util.modifier.IModifier,java.lang.Object) -> a
     void onModifierStarted(org.andengine.util.modifier.IModifier,java.lang.Object) -> b
-eu.nazgee.game.utils.scene.SceneSplash$LogoAttacher -> eu.nazgee.a.a.d.q:
+eu.nazgee.game.utils.scene.SceneSplash$LogoAttacher -> eu.nazgee.a.a.d.r:
     org.andengine.entity.IEntity mEntity -> b
     org.andengine.entity.scene.Scene mScene -> c
     eu.nazgee.game.utils.scene.SceneSplash this$0 -> a
@@ -246,58 +253,78 @@ eu.nazgee.prank.solar.ActivityMain -> eu.nazgee.prank.solar.ActivityMain:
     eu.nazgee.game.utils.scene.SceneLoader mLoader -> e
     eu.nazgee.prank.solar.LightConverter mLightConverter -> f
     eu.nazgee.prank.solar.HUD mHud -> g
+    eu.nazgee.prank.solar.ActivityMain$UpdateTimerHandler mUpdateTimerHandler -> h
     org.andengine.engine.options.EngineOptions onCreateEngineOptions() -> a
     void onCreateResources() -> b
     org.andengine.entity.scene.Scene onCreateScene() -> c
-    void onCreate(android.os.Bundle) -> onCreate
-    void onPause() -> onPause
+    void onResumeGame() -> d
+    void onPauseGame() -> e
     boolean enableSensor(int) -> a
     boolean disableSensor(int) -> b
-    boolean enableLightSensor() -> d
-    boolean disableLightSensor() -> e
+    boolean enableLightSensor() -> f
+    boolean disableLightSensor() -> g
     boolean isSensorSupported(android.hardware.SensorManager,int) -> a
     void registerSelfAsSensorListener(android.hardware.SensorManager,int,int) -> a
     void unregisterSelfAsSensorListener(android.hardware.SensorManager,int) -> b
+    void updateMiliAmps(float) -> a
     eu.nazgee.prank.solar.HUD access$0(eu.nazgee.prank.solar.ActivityMain) -> a
     eu.nazgee.prank.solar.SceneMain access$1(eu.nazgee.prank.solar.ActivityMain) -> b
     eu.nazgee.prank.solar.LightConverter access$2(eu.nazgee.prank.solar.ActivityMain) -> c
 eu.nazgee.prank.solar.ActivityMain$1 -> eu.nazgee.prank.solar.a:
     eu.nazgee.prank.solar.ActivityMain$MainSceneLoadedListener this$1 -> a
     void run() -> run
-eu.nazgee.prank.solar.ActivityMain$2 -> eu.nazgee.prank.solar.b:
-    int skipper -> b
-    eu.nazgee.prank.solar.ActivityMain this$0 -> a
-    void onTimePassed(org.andengine.engine.handler.timer.TimerHandler) -> a
-eu.nazgee.prank.solar.ActivityMain$MainSceneLoadedListener -> eu.nazgee.prank.solar.c:
+eu.nazgee.prank.solar.ActivityMain$MainSceneLoadedListener -> eu.nazgee.prank.solar.b:
     eu.nazgee.prank.solar.ActivityMain this$0 -> a
     void onSceneLoaded(org.andengine.entity.scene.Scene) -> a
     eu.nazgee.prank.solar.ActivityMain access$0(eu.nazgee.prank.solar.ActivityMain$MainSceneLoadedListener) -> a
-eu.nazgee.prank.solar.HUD -> eu.nazgee.prank.solar.d:
+eu.nazgee.prank.solar.ActivityMain$UpdateTimerCallback -> eu.nazgee.prank.solar.c:
+    eu.nazgee.prank.solar.ActivityMain this$0 -> a
+    void onTimePassed(org.andengine.engine.handler.timer.TimerHandler) -> a
+eu.nazgee.prank.solar.ActivityMain$UpdateTimerHandler -> eu.nazgee.prank.solar.d:
+    eu.nazgee.prank.solar.ActivityMain this$0 -> a
+eu.nazgee.prank.solar.Cell -> eu.nazgee.prank.solar.e:
+    org.andengine.entity.sprite.Sprite mCellSprite -> G
+    org.andengine.entity.sprite.Sprite getCellSprite() -> b
+eu.nazgee.prank.solar.HUD -> eu.nazgee.prank.solar.f:
     eu.nazgee.prank.solar.HUD$MyResources mResources -> c
     org.andengine.entity.text.Text mTextStatus -> F
     org.andengine.entity.text.Text mTextPercent -> G
     org.andengine.entity.text.Text mTextBar -> H
-    boolean mCalibrationFinished -> I
+    eu.nazgee.prank.solar.HUD$eChargeStatus mChargeStatus -> I
+    float mMiliAmps -> J
     void onLoadResources(org.andengine.engine.Engine,android.content.Context) -> d
     void onLoad(org.andengine.engine.Engine,android.content.Context) -> c
     void onUnload() -> d
     void setProgressBar(float) -> b
-    void finishCalibration() -> i
-    boolean isFinishCalibration() -> j
+    void setChargeStatus(eu.nazgee.prank.solar.HUD$eChargeStatus) -> a
+    void incMiliAmps(float) -> c
     void setStatus(java.lang.String) -> a
-    boolean access$0(eu.nazgee.prank.solar.HUD) -> a
-eu.nazgee.prank.solar.HUD$1 -> eu.nazgee.prank.solar.e:
-    int i -> d
-    java.lang.String[] txt -> a
-    java.lang.String[] txt_cal -> b
-    eu.nazgee.prank.solar.HUD this$0 -> c
+    eu.nazgee.prank.solar.HUD$eChargeStatus access$0(eu.nazgee.prank.solar.HUD) -> a
+    org.andengine.entity.text.Text access$1(eu.nazgee.prank.solar.HUD) -> b
+    float access$2(eu.nazgee.prank.solar.HUD) -> c
+eu.nazgee.prank.solar.HUD$1 -> eu.nazgee.prank.solar.g:
+    int i -> e
+    java.lang.String[] txt_cal -> a
+    java.lang.String[] txt_sus -> b
+    java.lang.String[] txt_chg -> c
+    eu.nazgee.prank.solar.HUD this$0 -> d
+    int[] $SWITCH_TABLE$eu$nazgee$prank$solar$HUD$eChargeStatus -> f
     void onTimePassed(org.andengine.engine.handler.timer.TimerHandler) -> a
-eu.nazgee.prank.solar.HUD$MyResources -> eu.nazgee.prank.solar.f:
+    void setNextText(java.lang.String[]) -> a
+    int[] $SWITCH_TABLE$eu$nazgee$prank$solar$HUD$eChargeStatus() -> a
+eu.nazgee.prank.solar.HUD$MyResources -> eu.nazgee.prank.solar.h:
     org.andengine.opengl.font.Font FONT -> a
     void onLoadResources(org.andengine.engine.Engine,android.content.Context) -> d
     void onLoad(org.andengine.engine.Engine,android.content.Context) -> c
     void onUnload() -> d
-eu.nazgee.prank.solar.LightConverter -> eu.nazgee.prank.solar.g:
+eu.nazgee.prank.solar.HUD$eChargeStatus -> eu.nazgee.prank.solar.i:
+    eu.nazgee.prank.solar.HUD$eChargeStatus CALIBRATION -> a
+    eu.nazgee.prank.solar.HUD$eChargeStatus SUSPEND -> b
+    eu.nazgee.prank.solar.HUD$eChargeStatus CHARGE -> c
+    eu.nazgee.prank.solar.HUD$eChargeStatus[] ENUM$VALUES -> d
+    eu.nazgee.prank.solar.HUD$eChargeStatus[] values() -> values
+    eu.nazgee.prank.solar.HUD$eChargeStatus valueOf(java.lang.String) -> valueOf
+eu.nazgee.prank.solar.LightConverter -> eu.nazgee.prank.solar.j:
     eu.nazgee.prank.solar.LightConverter$LightFeedback mLightFeedback -> a
     float mAdvertisedSensorMax -> b
     eu.nazgee.prank.solar.LightConverter$Statistics mStats -> c
@@ -306,15 +333,15 @@ eu.nazgee.prank.solar.LightConverter -> eu.nazgee.prank.solar.g:
     float getLightValue(float) -> a
     float getLightValueMax() -> a
     float getLightValueMin() -> b
-eu.nazgee.prank.solar.LightConverter$LightFeedback -> eu.nazgee.prank.solar.h:
-eu.nazgee.prank.solar.LightConverter$StatEntry -> eu.nazgee.prank.solar.i:
+eu.nazgee.prank.solar.LightConverter$LightFeedback -> eu.nazgee.prank.solar.k:
+eu.nazgee.prank.solar.LightConverter$StatEntry -> eu.nazgee.prank.solar.l:
     float mValue -> b
     java.lang.Long mTimestamp -> c
     eu.nazgee.prank.solar.LightConverter this$0 -> a
     float getAge(java.lang.Long) -> a
     float getAge(eu.nazgee.prank.solar.LightConverter$StatEntry) -> a
     float getValue() -> a
-eu.nazgee.prank.solar.LightConverter$Statistics -> eu.nazgee.prank.solar.j:
+eu.nazgee.prank.solar.LightConverter$Statistics -> eu.nazgee.prank.solar.m:
     float mMax -> c
     float mMin -> d
     org.andengine.util.adt.queue.CircularQueue mSamples -> a
@@ -323,15 +350,17 @@ eu.nazgee.prank.solar.LightConverter$Statistics -> eu.nazgee.prank.solar.j:
     float getMax() -> a
     float getMin() -> b
     float getAverage(float) -> b
-eu.nazgee.prank.solar.SceneMain -> eu.nazgee.prank.solar.k:
+eu.nazgee.prank.solar.SceneMain -> eu.nazgee.prank.solar.n:
     eu.nazgee.prank.solar.SceneMain$MyResources mResources -> a
     org.andengine.entity.sprite.Sprite[] mPanels -> b
+    eu.nazgee.prank.solar.Cell[] mCells -> c
+    float mTimePassed -> B
+    float mTimePassedLong -> F
     void onLoadResources(org.andengine.engine.Engine,android.content.Context) -> d
     void onLoad(org.andengine.engine.Engine,android.content.Context) -> c
     void onUnload() -> d
-    void setLightPanels(float,float) -> d
-    void setLightLevel(float) -> b
-eu.nazgee.prank.solar.SceneMain$MyResources -> eu.nazgee.prank.solar.l:
+    void setLightLevel(eu.nazgee.prank.solar.LightConverter,float) -> a
+eu.nazgee.prank.solar.SceneMain$MyResources -> eu.nazgee.prank.solar.o:
     org.andengine.opengl.texture.region.ITiledTextureRegion TEXS_PANELS -> a
     org.andengine.opengl.texture.atlas.bitmap.BuildableBitmapTextureAtlas[] mAtlases -> b
     void onLoadResources(org.andengine.engine.Engine,android.content.Context) -> d
@@ -430,6 +459,7 @@ org.andengine.engine.Engine -> org.andengine.b.a:
     org.andengine.audio.sound.SoundManager getSoundManager() -> j
     org.andengine.audio.music.MusicManager getMusicManager() -> k
     void registerUpdateHandler(org.andengine.engine.handler.IUpdateHandler) -> a
+    void unregisterUpdateHandler(org.andengine.engine.handler.IUpdateHandler) -> b
     void onAccuracyChanged(android.hardware.Sensor,int) -> onAccuracyChanged
     void onSensorChanged(android.hardware.SensorEvent) -> onSensorChanged
     void onLocationChanged(android.location.Location) -> onLocationChanged
@@ -536,13 +566,14 @@ org.andengine.engine.handler.runnable.RunnableHandler -> org.andengine.b.b.a.a:
     java.util.ArrayList mRunnables -> a
     void onUpdate(float) -> a
     void reset() -> a
+    void postRunnable(java.lang.Runnable) -> a
 org.andengine.engine.handler.timer.ITimerCallback -> org.andengine.b.b.b.a:
     void onTimePassed(org.andengine.engine.handler.timer.TimerHandler) -> a
 org.andengine.engine.handler.timer.TimerHandler -> org.andengine.b.b.b.b:
-    float mTimerSeconds -> b
+    float mTimerSeconds -> a
     float mTimerSecondsElapsed -> c
     boolean mTimerCallbackTriggered -> d
-    org.andengine.engine.handler.timer.ITimerCallback mTimerCallback -> a
+    org.andengine.engine.handler.timer.ITimerCallback mTimerCallback -> b
     boolean mAutoReset -> e
     void setTimerSeconds(float) -> b
     void onUpdate(float) -> a
@@ -663,33 +694,33 @@ org.andengine.entity.Entity -> org.andengine.c.a:
     org.andengine.entity.IEntity getParent() -> o
     void setParent(org.andengine.entity.IEntity) -> a
     int getZIndex() -> p
-    void setX(float) -> c
+    void setX(float) -> d
     void setPosition(float,float) -> a_
-    float getAlpha() -> q
-    org.andengine.util.color.Color getColor() -> r
-    void setAlpha(float) -> d
-    void detachChildren() -> s
+    org.andengine.util.color.Color getColor() -> q
+    void setAlpha(float) -> e
+    void setColor(float,float,float) -> a
+    void detachChildren() -> r
     void attachChild(org.andengine.entity.IEntity) -> b
     boolean detachChild(org.andengine.entity.IEntity) -> c
     void registerUpdateHandler(org.andengine.engine.handler.IUpdateHandler) -> a
-    void clearUpdateHandlers() -> t
+    void clearUpdateHandlers() -> s
     void registerEntityModifier(org.andengine.entity.modifier.IEntityModifier) -> a
-    void clearEntityModifiers() -> u
-    float[] getSceneCenterCoordinates() -> v
-    org.andengine.util.adt.transformation.Transformation getLocalToParentTransformation() -> w
-    org.andengine.util.adt.transformation.Transformation getParentToLocalTransformation() -> x
-    org.andengine.util.adt.transformation.Transformation getLocalToSceneTransformation() -> y
-    org.andengine.util.adt.transformation.Transformation getSceneToLocalTransformation() -> z
+    void clearEntityModifiers() -> t
+    float[] getSceneCenterCoordinates() -> u
+    org.andengine.util.adt.transformation.Transformation getLocalToParentTransformation() -> v
+    org.andengine.util.adt.transformation.Transformation getParentToLocalTransformation() -> w
+    org.andengine.util.adt.transformation.Transformation getLocalToSceneTransformation() -> x
+    org.andengine.util.adt.transformation.Transformation getSceneToLocalTransformation() -> y
     float[] convertLocalToSceneCoordinates(float,float) -> b
     float[] convertLocalToSceneCoordinates(float,float,float[]) -> a
     float[] convertSceneToLocalCoordinates(float,float) -> c
     float[] convertSceneToLocalCoordinates(float,float,float[]) -> b
-    void onAttached() -> A
-    void onDetached() -> B
+    void onAttached() -> z
+    void onDetached() -> A
     void onDraw(org.andengine.opengl.util.GLState,org.andengine.engine.camera.Camera) -> a
     void onUpdate(float) -> a
     void reset() -> a
-    void dispose() -> C
+    void dispose() -> B
     void finalize() -> finalize
     java.lang.String toString() -> toString
     void toString(java.lang.StringBuilder) -> a
@@ -705,7 +736,7 @@ org.andengine.entity.Entity -> org.andengine.c.a:
     void applySkew(org.andengine.opengl.util.GLState) -> d
     void applyScale(org.andengine.opengl.util.GLState) -> e
     void onManagedDraw(org.andengine.opengl.util.GLState,org.andengine.engine.camera.Camera) -> e
-    void onManagedUpdate(float) -> e
+    void onManagedUpdate(float) -> f
     void assertEntityHasNoParent(org.andengine.entity.IEntity) -> d
 org.andengine.entity.Entity$1 -> org.andengine.c.b:
     void call(org.andengine.entity.IEntity) -> a
@@ -715,13 +746,15 @@ org.andengine.entity.IEntity -> org.andengine.c.c:
     boolean hasParent() -> n
     org.andengine.entity.IEntity getParent() -> o
     void setParent(org.andengine.entity.IEntity) -> a
-    void setX(float) -> c
-    void setAlpha(float) -> d
-    float[] getSceneCenterCoordinates() -> v
-    org.andengine.util.adt.transformation.Transformation getLocalToSceneTransformation() -> y
-    org.andengine.util.adt.transformation.Transformation getSceneToLocalTransformation() -> z
-    void onAttached() -> A
-    void onDetached() -> B
+    void setX(float) -> d
+    void setPosition(float,float) -> a_
+    void setAlpha(float) -> e
+    void setColor(float,float,float) -> a
+    float[] getSceneCenterCoordinates() -> u
+    org.andengine.util.adt.transformation.Transformation getLocalToSceneTransformation() -> x
+    org.andengine.util.adt.transformation.Transformation getSceneToLocalTransformation() -> y
+    void onAttached() -> z
+    void onDetached() -> A
     void toString(java.lang.StringBuilder) -> a
 org.andengine.entity.ZIndexSorter -> org.andengine.c.d:
     org.andengine.entity.ZIndexSorter INSTANCE -> a
@@ -737,37 +770,59 @@ org.andengine.entity.modifier.AlphaModifier -> org.andengine.c.a.a:
     void onSetValue(org.andengine.entity.IEntity,float,float) -> a
     void onSetValue(java.lang.Object,float,float) -> a
     void onSetInitialValue(java.lang.Object,float) -> a
-org.andengine.entity.modifier.DelayModifier -> org.andengine.c.a.b:
+org.andengine.entity.modifier.ColorModifier -> org.andengine.c.a.b:
+    void onSetInitialValues(org.andengine.entity.IEntity,float,float,float) -> a
+    void onSetValues(org.andengine.entity.IEntity,float,float,float,float) -> a
+    void onSetValues(java.lang.Object,float,float,float,float) -> a
+    void onSetInitialValues(java.lang.Object,float,float,float) -> a
+org.andengine.entity.modifier.DelayModifier -> org.andengine.c.a.c:
     void onManagedInitialize(org.andengine.entity.IEntity) -> a
     void onManagedUpdate(float,org.andengine.entity.IEntity) -> a
     void onManagedInitialize(java.lang.Object) -> a
     void onManagedUpdate(float,java.lang.Object) -> a
-org.andengine.entity.modifier.DurationEntityModifier -> org.andengine.c.a.c:
-org.andengine.entity.modifier.EntityModifierList -> org.andengine.c.a.d:
-org.andengine.entity.modifier.IEntityModifier -> org.andengine.c.a.e:
-org.andengine.entity.modifier.IEntityModifier$IEntityModifierListener -> org.andengine.c.a.f:
-org.andengine.entity.modifier.MoveXModifier -> org.andengine.c.a.g:
+org.andengine.entity.modifier.DurationEntityModifier -> org.andengine.c.a.d:
+org.andengine.entity.modifier.EntityModifierList -> org.andengine.c.a.e:
+org.andengine.entity.modifier.IEntityModifier -> org.andengine.c.a.f:
+org.andengine.entity.modifier.IEntityModifier$IEntityModifierListener -> org.andengine.c.a.g:
+org.andengine.entity.modifier.MoveXModifier -> org.andengine.c.a.h:
     void onSetInitialValue(org.andengine.entity.IEntity,float) -> a
     void onSetValue(org.andengine.entity.IEntity,float,float) -> a
     void onSetValue(java.lang.Object,float,float) -> a
     void onSetInitialValue(java.lang.Object,float) -> a
-org.andengine.entity.modifier.SequenceEntityModifier -> org.andengine.c.a.h:
-org.andengine.entity.modifier.SingleValueSpanEntityModifier -> org.andengine.c.a.i:
-org.andengine.entity.scene.CameraScene -> org.andengine.c.b.a:
+org.andengine.entity.modifier.SequenceEntityModifier -> org.andengine.c.a.i:
+org.andengine.entity.modifier.SingleValueSpanEntityModifier -> org.andengine.c.a.j:
+org.andengine.entity.modifier.TripleValueSpanEntityModifier -> org.andengine.c.a.k:
+org.andengine.entity.primitive.Rectangle -> org.andengine.c.b.a:
+    org.andengine.opengl.vbo.attribute.VertexBufferObjectAttributes VERTEXBUFFEROBJECTATTRIBUTES_DEFAULT -> a
+    org.andengine.entity.primitive.vbo.IRectangleVertexBufferObject mRectangleVertexBufferObject -> b
+    org.andengine.entity.primitive.vbo.IRectangleVertexBufferObject getVertexBufferObject() -> c
+    void preDraw(org.andengine.opengl.util.GLState,org.andengine.engine.camera.Camera) -> b
+    void draw(org.andengine.opengl.util.GLState,org.andengine.engine.camera.Camera) -> c
+    void postDraw(org.andengine.opengl.util.GLState,org.andengine.engine.camera.Camera) -> d
+    void onUpdateColor() -> l
+    void onUpdateVertices() -> d
+    org.andengine.opengl.vbo.IVertexBufferObject getVertexBufferObject() -> e
+org.andengine.entity.primitive.vbo.HighPerformanceRectangleVertexBufferObject -> org.andengine.c.b.a.a:
+    void onUpdateColor(org.andengine.entity.primitive.Rectangle) -> a
+    void onUpdateVertices(org.andengine.entity.primitive.Rectangle) -> b
+org.andengine.entity.primitive.vbo.IRectangleVertexBufferObject -> org.andengine.c.b.a.b:
+    void onUpdateColor(org.andengine.entity.primitive.Rectangle) -> a
+    void onUpdateVertices(org.andengine.entity.primitive.Rectangle) -> b
+org.andengine.entity.scene.CameraScene -> org.andengine.c.c.a:
     org.andengine.engine.camera.Camera mCamera -> B
     void setCamera(org.andengine.engine.camera.Camera) -> b
     boolean onSceneTouchEvent(org.andengine.input.touch.TouchEvent) -> a
     boolean onChildSceneTouchEvent(org.andengine.input.touch.TouchEvent) -> b
     void onApplyMatrix(org.andengine.opengl.util.GLState,org.andengine.engine.camera.Camera) -> f
-org.andengine.entity.scene.IOnAreaTouchListener -> org.andengine.c.b.b:
+org.andengine.entity.scene.IOnAreaTouchListener -> org.andengine.c.c.b:
     boolean onAreaTouched(org.andengine.input.touch.TouchEvent,org.andengine.entity.scene.ITouchArea,float,float) -> a
-org.andengine.entity.scene.IOnSceneTouchListener -> org.andengine.c.b.c:
+org.andengine.entity.scene.IOnSceneTouchListener -> org.andengine.c.c.c:
     boolean onSceneTouchEvent(org.andengine.entity.scene.Scene,org.andengine.input.touch.TouchEvent) -> a
-org.andengine.entity.scene.ITouchArea -> org.andengine.c.b.d:
+org.andengine.entity.scene.ITouchArea -> org.andengine.c.c.d:
     boolean contains(float,float) -> a
     float[] convertSceneToLocalCoordinates(float,float) -> c
     boolean onAreaTouched(org.andengine.input.touch.TouchEvent,float,float) -> a
-org.andengine.entity.scene.Scene -> org.andengine.c.b.e:
+org.andengine.entity.scene.Scene -> org.andengine.c.c.e:
     float mSecondsElapsedTotal -> a
     org.andengine.entity.scene.Scene mParentScene -> C
     org.andengine.entity.scene.Scene mChildScene -> D
@@ -791,82 +846,85 @@ org.andengine.entity.scene.Scene -> org.andengine.c.b.e:
     void setOnSceneTouchListener(org.andengine.entity.scene.IOnSceneTouchListener) -> a
     void setOnAreaTouchListener(org.andengine.entity.scene.IOnAreaTouchListener) -> a
     void setParentScene(org.andengine.entity.scene.Scene) -> a
-    org.andengine.entity.scene.Scene getChildScene() -> D
+    org.andengine.entity.scene.Scene getChildScene() -> C
     void setChildScene(org.andengine.entity.scene.Scene,boolean,boolean,boolean) -> a
-    void clearChildScene() -> E
+    void clearChildScene() -> D
     void onManagedDraw(org.andengine.opengl.util.GLState,org.andengine.engine.camera.Camera) -> e
     void onApplyMatrix(org.andengine.opengl.util.GLState,org.andengine.engine.camera.Camera) -> f
-    void onManagedUpdate(float) -> e
+    void onManagedUpdate(float) -> f
     boolean onSceneTouchEvent(org.andengine.input.touch.TouchEvent) -> a
     java.lang.Boolean onAreaTouchEvent(org.andengine.input.touch.TouchEvent,float,float,org.andengine.entity.scene.ITouchArea) -> a
     boolean onChildSceneTouchEvent(org.andengine.input.touch.TouchEvent) -> b
     void reset() -> a
     void setParent(org.andengine.entity.IEntity) -> a
-org.andengine.entity.scene.background.Background -> org.andengine.c.b.a.a:
+    void postRunnable(java.lang.Runnable) -> a
+org.andengine.entity.scene.background.Background -> org.andengine.c.c.a.a:
     org.andengine.util.modifier.ModifierList mBackgroundModifiers -> a
     org.andengine.util.color.Color mColor -> b
     boolean mColorEnabled -> c
     void onUpdate(float) -> a
     void onDraw(org.andengine.opengl.util.GLState,org.andengine.engine.camera.Camera) -> a
     void reset() -> a
-org.andengine.entity.scene.background.IBackground -> org.andengine.c.b.a.b:
-org.andengine.entity.shape.IAreaShape -> org.andengine.c.c.a:
-org.andengine.entity.shape.IShape -> org.andengine.c.c.b:
-    org.andengine.opengl.vbo.IVertexBufferObject getVertexBufferObject() -> b
-org.andengine.entity.shape.RectangularShape -> org.andengine.c.c.c:
-    float mWidth -> a
-    float mHeight -> b
-    float getWidth() -> c
-    float getHeight() -> d
+org.andengine.entity.scene.background.IBackground -> org.andengine.c.c.a.b:
+org.andengine.entity.shape.IAreaShape -> org.andengine.c.d.a:
+    float getWidth() -> f
+    float getHeight() -> g
+org.andengine.entity.shape.IShape -> org.andengine.c.d.b:
+    org.andengine.opengl.vbo.IVertexBufferObject getVertexBufferObject() -> e
+org.andengine.entity.shape.RectangularShape -> org.andengine.c.d.c:
+    float mWidth -> c
+    float mHeight -> B
+    float getWidth() -> f
+    float getHeight() -> g
     boolean isCulled(org.andengine.engine.camera.Camera) -> a
     void reset() -> a
     boolean contains(float,float) -> a
-    float[] getSceneCenterCoordinates() -> v
-    void resetRotationCenter() -> e
-    void resetScaleCenter() -> f
-    void resetSkewCenter() -> g
-org.andengine.entity.shape.Shape -> org.andengine.c.c.d:
-    int mSourceBlendFunction -> c
-    int mDestinationBlendFunction -> B
-    boolean mBlendingEnabled -> C
-    org.andengine.opengl.shader.ShaderProgram mShaderProgram -> D
+    float[] getSceneCenterCoordinates() -> u
+    void resetRotationCenter() -> h
+    void resetScaleCenter() -> i
+    void resetSkewCenter() -> j
+org.andengine.entity.shape.Shape -> org.andengine.c.d.d:
+    int mSourceBlendFunction -> C
+    int mDestinationBlendFunction -> D
+    boolean mBlendingEnabled -> E
+    org.andengine.opengl.shader.ShaderProgram mShaderProgram -> F
     void setBlendingEnabled(boolean) -> a
     void setBlendFunction(int,int) -> a
     void preDraw(org.andengine.opengl.util.GLState,org.andengine.engine.camera.Camera) -> b
     void postDraw(org.andengine.opengl.util.GLState,org.andengine.engine.camera.Camera) -> d
     boolean onAreaTouched(org.andengine.input.touch.TouchEvent,float,float) -> a
     void reset() -> a
-    void dispose() -> C
+    void dispose() -> B
     void initBlendFunction(org.andengine.opengl.texture.region.ITextureRegion) -> a
     void initBlendFunction(org.andengine.opengl.texture.ITexture) -> a
     void initBlendFunction(org.andengine.opengl.texture.TextureOptions) -> a
-org.andengine.entity.sprite.Sprite -> org.andengine.c.d.a:
-    org.andengine.opengl.vbo.attribute.VertexBufferObjectAttributes VERTEXBUFFEROBJECTATTRIBUTES_DEFAULT -> E
-    org.andengine.opengl.texture.region.ITextureRegion mTextureRegion -> F
+org.andengine.entity.sprite.Sprite -> org.andengine.c.e.a:
+    org.andengine.opengl.vbo.attribute.VertexBufferObjectAttributes VERTEXBUFFEROBJECTATTRIBUTES_DEFAULT -> a
+    org.andengine.opengl.texture.region.ITextureRegion mTextureRegion -> b
     org.andengine.entity.sprite.vbo.ISpriteVertexBufferObject mSpriteVertexBufferObject -> G
     boolean mFlippedVertical -> H
     boolean mFlippedHorizontal -> I
-    org.andengine.opengl.texture.region.ITextureRegion getTextureRegion() -> h
-    boolean isFlippedHorizontal() -> i
-    boolean isFlippedVertical() -> j
+    org.andengine.opengl.texture.region.ITextureRegion getTextureRegion() -> b
+    boolean isFlippedHorizontal() -> c
+    boolean isFlippedVertical() -> d
     org.andengine.entity.sprite.vbo.ISpriteVertexBufferObject getVertexBufferObject() -> k
     void reset() -> a
     void preDraw(org.andengine.opengl.util.GLState,org.andengine.engine.camera.Camera) -> b
     void draw(org.andengine.opengl.util.GLState,org.andengine.engine.camera.Camera) -> c
     void postDraw(org.andengine.opengl.util.GLState,org.andengine.engine.camera.Camera) -> d
-    void onUpdateVertices() -> D
+    void onUpdateVertices() -> C
     void onUpdateColor() -> l
-    void onUpdateTextureCoordinates() -> E
-    org.andengine.opengl.vbo.IVertexBufferObject getVertexBufferObject() -> b
-org.andengine.entity.sprite.vbo.HighPerformanceSpriteVertexBufferObject -> org.andengine.c.d.a.a:
+    void onUpdateTextureCoordinates() -> D
+    org.andengine.opengl.vbo.IVertexBufferObject getVertexBufferObject() -> e
+org.andengine.entity.sprite.vbo.HighPerformanceSpriteVertexBufferObject -> org.andengine.c.e.a.a:
     void onUpdateColor(org.andengine.entity.sprite.Sprite) -> a
     void onUpdateVertices(org.andengine.entity.sprite.Sprite) -> b
     void onUpdateTextureCoordinates(org.andengine.entity.sprite.Sprite) -> c
-org.andengine.entity.sprite.vbo.ISpriteVertexBufferObject -> org.andengine.c.d.a.b:
+org.andengine.entity.sprite.vbo.ISpriteVertexBufferObject -> org.andengine.c.e.a.b:
     void onUpdateColor(org.andengine.entity.sprite.Sprite) -> a
     void onUpdateVertices(org.andengine.entity.sprite.Sprite) -> b
     void onUpdateTextureCoordinates(org.andengine.entity.sprite.Sprite) -> c
-org.andengine.entity.text.AutoWrap -> org.andengine.c.e.a:
+org.andengine.entity.text.AutoWrap -> org.andengine.c.f.a:
     org.andengine.entity.text.AutoWrap NONE -> a
     org.andengine.entity.text.AutoWrap WORDS -> b
     org.andengine.entity.text.AutoWrap LETTERS -> c
@@ -874,9 +932,9 @@ org.andengine.entity.text.AutoWrap -> org.andengine.c.e.a:
     org.andengine.entity.text.AutoWrap[] ENUM$VALUES -> e
     org.andengine.entity.text.AutoWrap[] values() -> values
     org.andengine.entity.text.AutoWrap valueOf(java.lang.String) -> valueOf
-org.andengine.entity.text.Text -> org.andengine.c.e.b:
-    org.andengine.opengl.vbo.attribute.VertexBufferObjectAttributes VERTEXBUFFEROBJECTATTRIBUTES_DEFAULT -> E
-    org.andengine.opengl.font.IFont mFont -> F
+org.andengine.entity.text.Text -> org.andengine.c.f.b:
+    org.andengine.opengl.vbo.attribute.VertexBufferObjectAttributes VERTEXBUFFEROBJECTATTRIBUTES_DEFAULT -> a
+    org.andengine.opengl.font.IFont mFont -> b
     float mLineWidthMaximum -> G
     float mLineAlignmentWidth -> H
     org.andengine.entity.text.TextOptions mTextOptions -> I
@@ -888,11 +946,12 @@ org.andengine.entity.text.Text -> org.andengine.c.e.b:
     java.lang.CharSequence mText -> O
     java.util.ArrayList mLines -> P
     org.andengine.util.adt.list.IFloatList mLineWidths -> Q
-    org.andengine.opengl.font.IFont getFont() -> h
-    int getCharactersMaximum() -> i
+    org.andengine.opengl.font.IFont getFont() -> b
+    int getCharactersMaximum() -> c
+    java.lang.CharSequence getText() -> d
     void setText(java.lang.CharSequence) -> a
-    java.util.ArrayList getLines() -> j
-    org.andengine.util.adt.list.IFloatList getLineWidths() -> k
+    java.util.ArrayList getLines() -> k
+    org.andengine.util.adt.list.IFloatList getLineWidths() -> C
     float getLineAlignmentWidth() -> D
     float getLeading() -> E
     org.andengine.util.HorizontalAlign getHorizontalAlign() -> F
@@ -904,33 +963,33 @@ org.andengine.entity.text.Text -> org.andengine.c.e.b:
     void postDraw(org.andengine.opengl.util.GLState,org.andengine.engine.camera.Camera) -> d
     void onUpdateColor() -> l
     void onUpdateVertices() -> I
-    org.andengine.opengl.vbo.IVertexBufferObject getVertexBufferObject() -> b
-org.andengine.entity.text.TextOptions -> org.andengine.c.e.c:
+    org.andengine.opengl.vbo.IVertexBufferObject getVertexBufferObject() -> e
+org.andengine.entity.text.TextOptions -> org.andengine.c.f.c:
     org.andengine.entity.text.AutoWrap mAutoWrap -> a
     float mAutoWrapWidth -> b
     float mLeading -> c
     org.andengine.util.HorizontalAlign mHorizontalAlign -> d
-org.andengine.entity.text.exception.OutOfCharactersException -> org.andengine.c.e.a.a:
-org.andengine.entity.text.exception.TextException -> org.andengine.c.e.a.b:
-org.andengine.entity.text.vbo.HighPerformanceTextVertexBufferObject -> org.andengine.c.e.b.a:
+org.andengine.entity.text.exception.OutOfCharactersException -> org.andengine.c.f.a.a:
+org.andengine.entity.text.exception.TextException -> org.andengine.c.f.a.b:
+org.andengine.entity.text.vbo.HighPerformanceTextVertexBufferObject -> org.andengine.c.f.b.a:
     int[] $SWITCH_TABLE$org$andengine$util$HorizontalAlign -> l
     void onUpdateColor(org.andengine.entity.text.Text) -> a
     void onUpdateVertices(org.andengine.entity.text.Text) -> b
     int[] $SWITCH_TABLE$org$andengine$util$HorizontalAlign() -> a
-org.andengine.entity.text.vbo.ITextVertexBufferObject -> org.andengine.c.e.b.b:
+org.andengine.entity.text.vbo.ITextVertexBufferObject -> org.andengine.c.f.b.b:
     void onUpdateColor(org.andengine.entity.text.Text) -> a
     void onUpdateVertices(org.andengine.entity.text.Text) -> b
-org.andengine.entity.util.AverageFPSCounter -> org.andengine.c.f.a:
+org.andengine.entity.util.AverageFPSCounter -> org.andengine.c.g.a:
     float mAverageDuration -> a
     void onHandleAverageDurationElapsed(float) -> b
     void onUpdate(float) -> a
-org.andengine.entity.util.FPSCounter -> org.andengine.c.f.b:
+org.andengine.entity.util.FPSCounter -> org.andengine.c.g.b:
     float mSecondsElapsed -> b
     int mFrames -> c
     float getFPS() -> b
     void onUpdate(float) -> a
     void reset() -> a
-org.andengine.entity.util.FPSLogger -> org.andengine.c.f.c:
+org.andengine.entity.util.FPSLogger -> org.andengine.c.g.c:
     float mShortestFrame -> d
     float mLongestFrame -> e
     void onHandleAverageDurationElapsed(float) -> b
@@ -1919,7 +1978,7 @@ org.andengine.opengl.vbo.VertexBufferObject -> org.andengine.opengl.d.d:
     void unbind(org.andengine.opengl.util.GLState,org.andengine.opengl.shader.ShaderProgram) -> b
     void unloadFromHardware(org.andengine.opengl.util.GLState) -> a
     void draw(int,int) -> a
-    void dispose() -> C
+    void dispose() -> B
     void finalize() -> finalize
     void loadToHardware(org.andengine.opengl.util.GLState) -> c
 org.andengine.opengl.vbo.VertexBufferObjectManager -> org.andengine.opengl.d.e:
@@ -2039,14 +2098,14 @@ org.andengine.ui.activity.BaseGameActivity -> org.andengine.ui.activity.BaseGame
     org.andengine.engine.Engine onCreateEngine(org.andengine.engine.options.EngineOptions) -> a
     void onSurfaceCreated(org.andengine.opengl.util.GLState) -> a
     void onSurfaceChanged(org.andengine.opengl.util.GLState,int,int) -> a
-    void onCreateGame() -> f
-    void onGameCreated() -> g
+    void onCreateGame() -> h
+    void onGameCreated() -> i
     void onResume() -> onResume
-    void onResumeGame() -> h
+    void onResumeGame() -> d
     void onWindowFocusChanged(boolean) -> onWindowFocusChanged
-    void onReloadResources() -> i
+    void onReloadResources() -> j
     void onPause() -> onPause
-    void onPauseGame() -> j
+    void onPauseGame() -> e
     void onDestroy() -> onDestroy
     void onDestroyResources() -> k
     void onGameDestroyed() -> l
@@ -2060,8 +2119,8 @@ org.andengine.ui.activity.BaseGameActivity -> org.andengine.ui.activity.BaseGame
     void onSetContentView() -> s
     void acquireWakeLock() -> c
     void acquireWakeLock(org.andengine.engine.options.WakeLockOptions) -> a
-    void releaseWakeLock() -> d
-    void applyEngineOptions() -> e
+    void releaseWakeLock() -> f
+    void applyEngineOptions() -> g
     android.widget.FrameLayout$LayoutParams createSurfaceViewLayoutParams() -> t
     void access$0(org.andengine.ui.activity.BaseGameActivity) -> a
     int[] $SWITCH_TABLE$org$andengine$engine$options$ScreenOrientation() -> u
@@ -2101,7 +2160,7 @@ org.andengine.util.HorizontalAlign -> org.andengine.e.b:
     org.andengine.util.HorizontalAlign valueOf(java.lang.String) -> valueOf
 org.andengine.util.IDisposable -> org.andengine.e.c:
     boolean isDisposed() -> m
-    void dispose() -> C
+    void dispose() -> B
 org.andengine.util.IDisposable$AlreadyDisposedException -> org.andengine.e.d:
 org.andengine.util.TextUtils -> org.andengine.e.e:
     java.util.regex.Pattern SPLITPATTERN_SPACE -> a
@@ -2298,6 +2357,7 @@ org.andengine.util.color.Color -> org.andengine.e.d.a:
     float getAlpha() -> d
     boolean setAlphaChecking(float) -> a
     void set(float,float,float) -> a
+    boolean setChecking(float,float,float) -> b
     void set(float,float,float,float) -> a
     void set(org.andengine.util.color.Color) -> a
     int getABGRPackedInt() -> e
@@ -2351,7 +2411,14 @@ org.andengine.util.math.MathUtils -> org.andengine.e.g.a:
     boolean isPowerOfTwo(int) -> a
     float[] rotateAroundCenter(float[],float,float,float) -> a
     float[] revertRotateAroundCenter(float[],float,float,float) -> b
-org.andengine.util.modifier.BaseDurationModifier -> org.andengine.e.h.a:
+org.andengine.util.modifier.BaseDoubleValueSpanModifier -> org.andengine.e.h.a:
+    float mFromValueB -> e
+    float mValueSpanB -> f
+    void onSetInitialValues(java.lang.Object,float,float) -> b
+    void onSetValues(java.lang.Object,float,float,float) -> b
+    void onSetInitialValue(java.lang.Object,float) -> a
+    void onSetValue(java.lang.Object,float,float) -> a
+org.andengine.util.modifier.BaseDurationModifier -> org.andengine.e.h.b:
     float mSecondsElapsed -> c
     float mDuration -> a
     float getSecondsElapsed() -> a
@@ -2360,7 +2427,7 @@ org.andengine.util.modifier.BaseDurationModifier -> org.andengine.e.h.a:
     void onManagedInitialize(java.lang.Object) -> a
     float onUpdate(float,java.lang.Object) -> b
     void reset() -> c
-org.andengine.util.modifier.BaseModifier -> org.andengine.e.h.b:
+org.andengine.util.modifier.BaseModifier -> org.andengine.e.h.c:
     boolean mFinished -> b
     boolean mAutoUnregisterWhenFinished -> a
     org.andengine.util.adt.list.SmartList mModifierListeners -> c
@@ -2371,7 +2438,7 @@ org.andengine.util.modifier.BaseModifier -> org.andengine.e.h.b:
     void onModifierStarted(java.lang.Object) -> b
     void onModifierFinished(java.lang.Object) -> c
     void assertNoNullModifier(org.andengine.util.modifier.IModifier[]) -> a
-org.andengine.util.modifier.BaseSingleValueSpanModifier -> org.andengine.e.h.c:
+org.andengine.util.modifier.BaseSingleValueSpanModifier -> org.andengine.e.h.d:
     float mFromValue -> e
     float mValueSpan -> f
     org.andengine.util.modifier.ease.IEaseFunction mEaseFunction -> c
@@ -2379,7 +2446,14 @@ org.andengine.util.modifier.BaseSingleValueSpanModifier -> org.andengine.e.h.c:
     void onSetValue(java.lang.Object,float,float) -> a
     void onManagedInitialize(java.lang.Object) -> a
     void onManagedUpdate(float,java.lang.Object) -> a
-org.andengine.util.modifier.IModifier -> org.andengine.e.h.d:
+org.andengine.util.modifier.BaseTripleValueSpanModifier -> org.andengine.e.h.e:
+    float mFromValueC -> e
+    float mValueSpanC -> f
+    void onSetInitialValues(java.lang.Object,float,float,float) -> a
+    void onSetValues(java.lang.Object,float,float,float,float) -> a
+    void onSetInitialValues(java.lang.Object,float,float) -> b
+    void onSetValues(java.lang.Object,float,float,float) -> b
+org.andengine.util.modifier.IModifier -> org.andengine.e.h.f:
     java.util.Comparator MODIFIER_COMPARATOR_DURATION_DESCENDING -> d
     void reset() -> c
     boolean isFinished() -> d
@@ -2388,19 +2462,19 @@ org.andengine.util.modifier.IModifier -> org.andengine.e.h.d:
     float onUpdate(float,java.lang.Object) -> b
     void addModifierListener(org.andengine.util.modifier.IModifier$IModifierListener) -> a
     boolean removeModifierListener(org.andengine.util.modifier.IModifier$IModifierListener) -> b
-org.andengine.util.modifier.IModifier$1 -> org.andengine.e.h.e:
+org.andengine.util.modifier.IModifier$1 -> org.andengine.e.h.g:
     int compare(org.andengine.util.modifier.IModifier,org.andengine.util.modifier.IModifier) -> a
     int compare(java.lang.Object,java.lang.Object) -> compare
-org.andengine.util.modifier.IModifier$IModifierListener -> org.andengine.e.h.f:
+org.andengine.util.modifier.IModifier$IModifierListener -> org.andengine.e.h.h:
     void onModifierStarted(org.andengine.util.modifier.IModifier,java.lang.Object) -> b
     void onModifierFinished(org.andengine.util.modifier.IModifier,java.lang.Object) -> a
-org.andengine.util.modifier.ModifierList -> org.andengine.e.h.g:
+org.andengine.util.modifier.ModifierList -> org.andengine.e.h.i:
     java.lang.Object mTarget -> a
     boolean add(org.andengine.util.modifier.IModifier) -> a
     void onUpdate(float) -> a
     void reset() -> a
     boolean add(java.lang.Object) -> add
-org.andengine.util.modifier.SequenceModifier -> org.andengine.e.h.h:
+org.andengine.util.modifier.SequenceModifier -> org.andengine.e.h.j:
     org.andengine.util.modifier.SequenceModifier$ISubSequenceModifierListener mSubSequenceModifierListener -> a
     org.andengine.util.modifier.IModifier[] mSubSequenceModifiers -> c
     int mCurrentSubSequenceModifierIndex -> e
@@ -2412,7 +2486,7 @@ org.andengine.util.modifier.SequenceModifier -> org.andengine.e.h.h:
     void reset() -> c
     void onModifierStarted(org.andengine.util.modifier.IModifier,java.lang.Object) -> b
     void onModifierFinished(org.andengine.util.modifier.IModifier,java.lang.Object) -> a
-org.andengine.util.modifier.SequenceModifier$ISubSequenceModifierListener -> org.andengine.e.h.i:
+org.andengine.util.modifier.SequenceModifier$ISubSequenceModifierListener -> org.andengine.e.h.k:
     void onSubSequenceStarted(org.andengine.util.modifier.IModifier,java.lang.Object,int) -> a
     void onSubSequenceFinished(org.andengine.util.modifier.IModifier,java.lang.Object,int) -> b
 org.andengine.util.modifier.ease.EaseExponentialIn -> org.andengine.e.h.a.a:

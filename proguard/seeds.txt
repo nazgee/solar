@@ -224,6 +224,8 @@ eu.nazgee.game.utils.scene.SceneLoader$eNewSceneHandling: eu.nazgee.game.utils.s
 eu.nazgee.game.utils.scene.SceneLoader$eOldSceneHandling: eu.nazgee.game.utils.scene.SceneLoader$eOldSceneHandling[] values()
 eu.nazgee.game.utils.scene.SceneLoader$eOldSceneHandling: eu.nazgee.game.utils.scene.SceneLoader$eOldSceneHandling valueOf(java.lang.String)
 eu.nazgee.prank.solar.ActivityMain
+eu.nazgee.prank.solar.HUD$eChargeStatus: eu.nazgee.prank.solar.HUD$eChargeStatus[] values()
+eu.nazgee.prank.solar.HUD$eChargeStatus: eu.nazgee.prank.solar.HUD$eChargeStatus valueOf(java.lang.String)
 eu.nazgee.prank.solar.R$drawable: int ic_launcher
 eu.nazgee.prank.solar.R$layout: int main
 eu.nazgee.prank.solar.R$string: int app_name

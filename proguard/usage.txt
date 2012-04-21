@@ -86,7 +86,20 @@ eu.nazgee.game.utils.engine.camera.ISmoother
 eu.nazgee.game.utils.engine.camera.SmoothTrackingCamera
 eu.nazgee.game.utils.engine.camera.SmootherLinear
 eu.nazgee.game.utils.engine.camera.TrackingCamera
-eu.nazgee.game.utils.helpers.Positioner
+eu.nazgee.game.utils.helpers.Positioner:
+    5:5:public Positioner()
+    8:9:public static synchronized float getCenteredY(org.andengine.entity.shape.IAreaShape)
+    13:14:public static synchronized float getCenteredX(org.andengine.entity.shape.IAreaShape)
+    18:20:public static synchronized float[] getCenter(org.andengine.entity.shape.IAreaShape)
+    27:28:public static synchronized void setCenteredX(org.andengine.entity.shape.IAreaShape,float)
+    30:31:public static synchronized void setCenteredY(org.andengine.entity.shape.IAreaShape,float)
+    34:36:public static synchronized void setCentered(org.andengine.entity.shape.IAreaShape,org.andengine.entity.shape.IAreaShape)
+    38:40:public static synchronized void setCenteredBottom(org.andengine.entity.shape.IAreaShape,org.andengine.entity.shape.IAreaShape)
+    42:44:public static synchronized void setCenteredTop(org.andengine.entity.shape.IAreaShape,org.andengine.entity.shape.IAreaShape)
+    46:48:public static synchronized void setCenteredX(org.andengine.entity.shape.IAreaShape,org.andengine.entity.shape.IAreaShape)
+    50:52:public static synchronized void setCenteredY(org.andengine.entity.shape.IAreaShape,org.andengine.entity.shape.IAreaShape)
+    55:56:public static void applyOffsetBy(org.andengine.entity.shape.IAreaShape,float,float)
+    59:60:public static void unapplyOffsetBy(org.andengine.entity.shape.IAreaShape,float,float)
 eu.nazgee.game.utils.helpers.SoundLoader
 eu.nazgee.game.utils.helpers.TiledTextureRegionFactory
 eu.nazgee.game.utils.loadable.ILoadableResource:
@@ -159,23 +172,26 @@ eu.nazgee.game.utils.track.TrackVector
 eu.nazgee.game.utils.track.physics.TrackAngle
 eu.nazgee.game.utils.track.physics.TrackGravity
 eu.nazgee.game.utils.track.physics.TrackVelocity
-eu.nazgee.prank.solar.ActivityMain:
-    public static final java.lang.String PREFS_KEY_TOTAL_BUBBLES_POPPED
 eu.nazgee.prank.solar.BuildConfig
 eu.nazgee.prank.solar.Consts
+eu.nazgee.prank.solar.HUD:
+    121:122:public void setMiliAmps(float)
+    129:129:public float getMiliAmps()
 eu.nazgee.prank.solar.LightConverter:
     private static final float MACHEPS
+    54:54:public float getAdvertisedSensorMax()
 eu.nazgee.prank.solar.LightConverter$LightFeedback:
-    public abstract void setLightLevel(float)
+    public abstract void setLightLevel(eu.nazgee.prank.solar.LightConverter,float)
 eu.nazgee.prank.solar.LightConverter$StatEntry:
-    75:75:public final float getAge()
+    77:77:public final float getAge()
 eu.nazgee.prank.solar.R
 eu.nazgee.prank.solar.R$attr
 eu.nazgee.prank.solar.R$drawable
 eu.nazgee.prank.solar.R$layout
 eu.nazgee.prank.solar.R$string
 eu.nazgee.prank.solar.SceneMain:
-    27:29:private SceneMain(org.andengine.opengl.vbo.VertexBufferObjectManager)
+    35:37:private SceneMain(org.andengine.opengl.vbo.VertexBufferObjectManager)
+    116:126:private void setLightCells(float,float)
 org.andengine.AndEngine
 org.andengine.R
 org.andengine.R$attr
@@ -285,7 +301,6 @@ org.andengine.engine.Engine:
     256:256:public org.andengine.input.sensor.acceleration.AccelerationData getAccelerationData()
     260:260:public org.andengine.input.sensor.orientation.OrientationData getOrientationData()
     276:276:public org.andengine.opengl.shader.ShaderProgramManager getShaderProgramManager()
-    300:301:public void unregisterUpdateHandler(org.andengine.engine.handler.IUpdateHandler)
     304:305:public void clearUpdateHandlers()
     308:309:public void registerDrawHandler(org.andengine.engine.handler.IDrawHandler)
     312:313:public void unregisterDrawHandler(org.andengine.engine.handler.IDrawHandler)
@@ -381,8 +396,6 @@ org.andengine.engine.handler.UpdateHandlerList:
 org.andengine.engine.handler.collision.CollisionHandler
 org.andengine.engine.handler.collision.ICollisionCallback
 org.andengine.engine.handler.physics.PhysicsHandler
-org.andengine.engine.handler.runnable.RunnableHandler:
-    57:58:public synchronized void postRunnable(java.lang.Runnable)
 org.andengine.engine.handler.timer.TimerHandler:
     50:50:public boolean isAutoReset()
     54:55:public void setAutoReset(boolean)
@@ -475,11 +488,11 @@ org.andengine.entity.Entity:
     490:490:public float getRed()
     495:495:public float getGreen()
     500:500:public float getBlue()
+    505:505:public float getAlpha()
     515:518:public void setColor(org.andengine.util.color.Color)
     525:528:public void setRed(float)
     535:538:public void setGreen(float)
     545:548:public void setBlue(float)
-    567:570:public void setColor(float,float,float)
     580:583:public void setColor(float,float,float,float)
     587:590:public int getChildCount()
     595:604:public org.andengine.entity.IEntity getChild(int)
@@ -526,7 +539,6 @@ org.andengine.entity.IEntity:
     public abstract float getY()
     public abstract void setY(float)
     public abstract void setPosition(org.andengine.entity.IEntity)
-    public abstract void setPosition(float,float)
     public abstract boolean isRotated()
     public abstract float getRotation()
     public abstract void setRotation(float)
@@ -569,7 +581,6 @@ org.andengine.entity.IEntity:
     public abstract void setGreen(float)
     public abstract void setBlue(float)
     public abstract void setColor(org.andengine.util.color.Color)
-    public abstract void setColor(float,float,float)
     public abstract void setColor(float,float,float,float)
     public abstract float[] convertLocalToSceneCoordinates(float,float)
     public abstract float[] convertLocalToSceneCoordinates(float,float,float[])
@@ -636,7 +647,17 @@ org.andengine.entity.modifier.CardinalSplineMoveModifier
 org.andengine.entity.modifier.CardinalSplineMoveModifier$CardinalSplineMoveModifierConfig
 org.andengine.entity.modifier.CatmullRomSplineMoveModifier
 org.andengine.entity.modifier.CatmullRomSplineMoveModifier$CatmullRomMoveModifierConfig
-org.andengine.entity.modifier.ColorModifier
+org.andengine.entity.modifier.ColorModifier:
+    33:34:public ColorModifier(float,float,float,float,float,float,float)
+    37:38:public ColorModifier(float,org.andengine.util.color.Color,org.andengine.util.color.Color,org.andengine.util.modifier.ease.IEaseFunction)
+    41:42:public ColorModifier(float,float,float,float,float,float,float,org.andengine.util.modifier.ease.IEaseFunction)
+    45:46:public ColorModifier(float,org.andengine.util.color.Color,org.andengine.util.color.Color,org.andengine.entity.modifier.IEntityModifier$IEntityModifierListener)
+    49:50:public ColorModifier(float,float,float,float,float,float,float,org.andengine.entity.modifier.IEntityModifier$IEntityModifierListener)
+    53:54:public ColorModifier(float,org.andengine.util.color.Color,org.andengine.util.color.Color,org.andengine.entity.modifier.IEntityModifier$IEntityModifierListener,org.andengine.util.modifier.ease.IEaseFunction)
+    61:62:protected ColorModifier(org.andengine.entity.modifier.ColorModifier)
+    66:66:public org.andengine.entity.modifier.ColorModifier deepCopy()
+    1:1:public bridge synthetic org.andengine.entity.modifier.IEntityModifier deepCopy()
+    1:1:public bridge synthetic org.andengine.util.modifier.IModifier deepCopy()
 org.andengine.entity.modifier.CubicBezierCurveMoveModifier
 org.andengine.entity.modifier.DelayModifier:
     26:27:public DelayModifier(float,org.andengine.entity.modifier.IEntityModifier$IEntityModifierListener)
@@ -701,7 +722,9 @@ org.andengine.entity.modifier.SingleValueSpanEntityModifier:
 org.andengine.entity.modifier.SkewModifier
 org.andengine.entity.modifier.SkewXModifier
 org.andengine.entity.modifier.SkewYModifier
-org.andengine.entity.modifier.TripleValueSpanEntityModifier
+org.andengine.entity.modifier.TripleValueSpanEntityModifier:
+    28:29:public TripleValueSpanEntityModifier(float,float,float,float,float,float,float,org.andengine.util.modifier.ease.IEaseFunction)
+    36:37:protected TripleValueSpanEntityModifier(org.andengine.entity.modifier.TripleValueSpanEntityModifier)
 org.andengine.entity.particle.Particle
 org.andengine.entity.particle.ParticleSystem
 org.andengine.entity.particle.SpriteParticleSystem
@@ -739,14 +762,18 @@ org.andengine.entity.particle.modifier.RotationParticleModifier
 org.andengine.entity.particle.modifier.ScaleParticleModifier
 org.andengine.entity.primitive.Line
 org.andengine.entity.primitive.Mesh
-org.andengine.entity.primitive.Rectangle
+org.andengine.entity.primitive.Rectangle:
+    public static final int VERTEX_INDEX_X
+    public static final int VERTEX_INDEX_Y
+    public static final int COLOR_INDEX
+    public static final int VERTEX_SIZE
+    public static final int VERTICES_PER_RECTANGLE
+    public static final int RECTANGLE_SIZE
 org.andengine.entity.primitive.vbo.DrawMode
 org.andengine.entity.primitive.vbo.HighPerformanceLineVertexBufferObject
 org.andengine.entity.primitive.vbo.HighPerformanceMeshVertexBufferObject
-org.andengine.entity.primitive.vbo.HighPerformanceRectangleVertexBufferObject
 org.andengine.entity.primitive.vbo.ILineVertexBufferObject
 org.andengine.entity.primitive.vbo.IMeshVertexBufferObject
-org.andengine.entity.primitive.vbo.IRectangleVertexBufferObject
 org.andengine.entity.primitive.vbo.LowMemoryLineVertexBufferObject
 org.andengine.entity.primitive.vbo.LowMemoryRectangleVertexBufferObject
 org.andengine.entity.scene.CameraScene:
@@ -778,7 +805,6 @@ org.andengine.entity.scene.Scene:
     206:210:public void setTouchAreaBindingOnActionMoveEnabled(boolean)
     213:213:public boolean isOnSceneTouchListenerBindingOnActionDownEnabled()
     228:232:public void setOnSceneTouchListenerBindingOnActionDownEnabled(boolean)
-    440:441:public void postRunnable(java.lang.Runnable)
     444:445:public void registerTouchArea(org.andengine.entity.scene.ITouchArea)
     448:448:public boolean unregisterTouchArea(org.andengine.entity.scene.ITouchArea)
     452:452:public boolean unregisterTouchAreas(org.andengine.entity.scene.ITouchArea$ITouchAreaMatcher)
@@ -835,8 +861,6 @@ org.andengine.entity.scene.menu.item.decorator.BaseMenuItemDecorator
 org.andengine.entity.scene.menu.item.decorator.ColorMenuItemDecorator
 org.andengine.entity.scene.menu.item.decorator.ScaleMenuItemDecorator
 org.andengine.entity.shape.IAreaShape:
-    public abstract float getWidth()
-    public abstract float getHeight()
     public abstract float getWidthScaled()
     public abstract float getHeightScaled()
     public abstract void setHeight(float)
@@ -939,7 +963,6 @@ org.andengine.entity.text.Text:
     126:127:public Text(float,float,org.andengine.opengl.font.IFont,java.lang.CharSequence,int,org.andengine.opengl.vbo.VertexBufferObjectManager,org.andengine.opengl.vbo.DrawType)
     130:131:public Text(float,float,org.andengine.opengl.font.IFont,java.lang.CharSequence,int,org.andengine.opengl.vbo.VertexBufferObjectManager,org.andengine.opengl.vbo.DrawType,org.andengine.opengl.shader.ShaderProgram)
     142:143:public Text(float,float,org.andengine.opengl.font.IFont,java.lang.CharSequence,int,org.andengine.entity.text.TextOptions,org.andengine.opengl.vbo.VertexBufferObjectManager,org.andengine.opengl.vbo.DrawType,org.andengine.opengl.shader.ShaderProgram)
-    178:178:public java.lang.CharSequence getText()
     239:239:public float getLineWidthMaximum()
     247:250:public void setLeading(float)
     257:260:public void setHorizontalAlign(org.andengine.util.HorizontalAlign)
@@ -2190,7 +2213,6 @@ org.andengine.util.color.Color:
     155:158:public final void setBlue(float)
     161:167:public final boolean setBlueChecking(float)
     171:174:public final void setAlpha(float)
-    195:203:public final boolean setChecking(float,float,float)
     216:225:public final boolean setChecking(float,float,float,float)
     239:249:public final boolean setChecking(org.andengine.util.color.Color)
     317:319:private final void packABGRRed()
@@ -2320,7 +2342,19 @@ org.andengine.util.math.MathUtils:
     282:282:public static float cross(float,float,float,float)
 org.andengine.util.mime.MIMEType
 org.andengine.util.modifier.BaseDoubleValueChangeModifier
-org.andengine.util.modifier.BaseDoubleValueSpanModifier
+org.andengine.util.modifier.BaseDoubleValueSpanModifier:
+    31:32:public BaseDoubleValueSpanModifier(float,float,float,float,float)
+    35:36:public BaseDoubleValueSpanModifier(float,float,float,float,float,org.andengine.util.modifier.ease.IEaseFunction)
+    39:40:public BaseDoubleValueSpanModifier(float,float,float,float,float,org.andengine.util.modifier.IModifier$IModifierListener)
+    50:54:protected BaseDoubleValueSpanModifier(org.andengine.util.modifier.BaseDoubleValueSpanModifier)
+    62:62:public float getFromValue()
+    67:67:public float getToValue()
+    71:71:public float getFromValueA()
+    75:75:public float getToValueA()
+    79:79:public float getFromValueB()
+    83:83:public float getToValueB()
+    106:107:public void reset(float,float,float)
+    114:118:public void reset(float,float,float,float,float)
 org.andengine.util.modifier.BaseDurationModifier:
     38:39:protected BaseDurationModifier(org.andengine.util.modifier.BaseDurationModifier)
 org.andengine.util.modifier.BaseModifier:
@@ -2337,7 +2371,13 @@ org.andengine.util.modifier.BaseSingleValueSpanModifier:
     64:64:public float getFromValue()
     68:68:public float getToValue()
     95:100:public void reset(float,float,float)
-org.andengine.util.modifier.BaseTripleValueSpanModifier
+org.andengine.util.modifier.BaseTripleValueSpanModifier:
+    30:31:public BaseTripleValueSpanModifier(float,float,float,float,float,float,float,org.andengine.util.modifier.ease.IEaseFunction)
+    41:45:protected BaseTripleValueSpanModifier(org.andengine.util.modifier.BaseTripleValueSpanModifier)
+    52:52:public float getFromValueC()
+    56:56:public float getToValueC()
+    79:80:public void reset(float,float,float,float,float)
+    87:91:public void reset(float,float,float,float,float,float,float)
 org.andengine.util.modifier.IModifier:
     public abstract void setAutoUnregisterWhenFinished(boolean)
     public abstract org.andengine.util.modifier.IModifier deepCopy()
