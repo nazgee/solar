@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+            android:title="@string/inline_preferences">
+        <ListPreference
+                android:key="@string/wallpaper_settings_read_rate_key"
+                android:title="@string/title_sensor_read_rate"
+                android:summary="@string/summary_sensor_read_rate"
+                android:defaultValue="2"
+                android:entries="@array/entries_sensor_read_rate_preference"
+                android:entryValues="@array/entryvalues_sensor_read_rate_preference"
+                android:dialogTitle="@string/dialog_title_sensor_read_rate_preference" />
+    </PreferenceCategory>
+</PreferenceScreen>

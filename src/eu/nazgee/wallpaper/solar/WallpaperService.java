@@ -1,5 +1,6 @@
-package eu.nazgee.prank.solar;
+package eu.nazgee.wallpaper.solar;
 
+import org.andengine.engine.LimitedFPSEngine;
 import org.andengine.engine.camera.Camera;
 import org.andengine.engine.handler.timer.ITimerCallback;
 import org.andengine.engine.handler.timer.TimerHandler;
@@ -9,6 +10,7 @@ import org.andengine.engine.options.resolutionpolicy.RatioResolutionPolicy;
 import org.andengine.entity.scene.Scene;
 import org.andengine.entity.util.FPSLogger;
 import org.andengine.extension.svg.opengl.texture.atlas.bitmap.SVGBitmapTextureAtlasTextureRegionFactory;
+import org.andengine.extension.ui.livewallpaper.BaseLiveWallpaperService;
 import org.andengine.opengl.font.Font;
 import org.andengine.opengl.font.FontFactory;
 import org.andengine.opengl.font.FontManager;
@@ -17,7 +19,6 @@ import org.andengine.opengl.texture.TextureManager;
 import org.andengine.opengl.texture.TextureOptions;
 import org.andengine.opengl.texture.atlas.bitmap.BitmapTextureAtlas;
 import org.andengine.opengl.texture.atlas.bitmap.BitmapTextureAtlasTextureRegionFactory;
-import org.andengine.ui.activity.SimpleBaseGameActivity;
 import org.andengine.util.color.Color;
 
 import android.content.Context;
@@ -26,15 +27,16 @@ import android.content.SharedPreferences.Editor;
 import android.graphics.drawable.Drawable;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
-import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.service.wallpaper.WallpaperService.Engine;
 import android.util.Log;
 import eu.nazgee.game.utils.misc.AppRater;
 import eu.nazgee.game.utils.scene.SceneLoader;
 import eu.nazgee.game.utils.scene.SceneLoader.eLoadingSceneHandling;
 import eu.nazgee.game.utils.scene.SceneLoading;
-import eu.nazgee.prank.solar.HUD.eChargeStatus;
+import eu.nazgee.wallpaper.solar.HUD.eChargeStatus;
 
-public class ActivityMain extends SimpleBaseGameActivity{
+public class WallpaperService extends BaseLiveWallpaperService{
 	// ===========================================================
 	// Constants
 	// ===========================================================
@@ -67,8 +69,16 @@ public class ActivityMain extends SimpleBaseGameActivity{
 	public EngineOptions onCreateEngineOptions() {
 		final Camera camera = new Camera(0, 0, Consts.CAMERA_WIDTH, Consts.CAMERA_HEIGHT);
 
-		return new EngineOptions(true, ScreenOrientation.PORTRAIT_FIXED, new RatioResolutionPolicy(Consts.CAMERA_WIDTH, Consts.CAMERA_HEIGHT), camera);
+		EngineOptions opts = new EngineOptions(true, ScreenOrientation.PORTRAIT_FIXED, new RatioResolutionPolicy(Consts.CAMERA_WIDTH, Consts.CAMERA_HEIGHT), camera);
+		return opts;
 	}
+
+	@Override
+	public org.andengine.engine.Engine onCreateEngine(
+			EngineOptions pEngineOptions) {
+		return new LimitedFPSEngine(pEngineOptions, 20);
+	}
+
 
 	@Override
 	protected void onCreateResources() {
@@ -87,28 +97,22 @@ public class ActivityMain extends SimpleBaseGameActivity{
 	protected Scene onCreateScene() {
 		this.mEngine.registerUpdateHandler(new FPSLogger());
 
-		// Create "Loading..." scene that will be used for all loading-related activities
-		SceneLoading loadingScene = new SceneLoading(Consts.CAMERA_WIDTH, Consts.CAMERA_HEIGHT, mFont, "BOOTING...", getVertexBufferObjectManager());
-
-		// Prepare loader, that will be used for all loading-related activities (besides splash-screen)
-		mLoader = new SceneLoader(loadingScene, getEngine(), this);
-		mLoader.setLoadingSceneHandling(eLoadingSceneHandling.SCENE_SET_ACTIVE).setLoadingSceneUnload(false);
-		
 		mSceneMain = new SceneMain(Consts.CAMERA_WIDTH, Consts.CAMERA_HEIGHT, getVertexBufferObjectManager());
-
-		// Start loading the first scene
-		mLoader.loadScene(mSceneMain, getEngine(), this, new MainSceneLoadedListener());
 
 		mHud = new HUD(mSceneMain.getW(), mSceneMain.getH(), getVertexBufferObjectManager());
 		mSceneMain.getLoader().install(mHud);
 		
+		mSceneMain.getLoader().loadResources(getEngine(), this);
+		mSceneMain.getLoader().load(getEngine(), this);
+
+		getEngine().getCamera().setHUD(mHud);
+
 		// Show splash screen
-		return loadingScene;
+		return mSceneMain;
 	}
 
 	@Override
 	public synchronized void onResumeGame() {
-//	protected synchronized void onResume() {
 		super.onResumeGame();
 		if (!enableLightSensor()) {
 			Log.e(getClass().getSimpleName(), "light sensor is NOT supported!");
@@ -119,7 +123,6 @@ public class ActivityMain extends SimpleBaseGameActivity{
 
 	@Override
 	public void onPauseGame() {
-//	protected void onPause() {
 		super.onPauseGame();
 		disableLightSensor();
 	}
@@ -130,7 +133,13 @@ public class ActivityMain extends SimpleBaseGameActivity{
 	public boolean enableSensor(int pSensor) {
 		final SensorManager sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
 		if(this.isSensorSupported(sensorManager, pSensor)) {
-			this.registerSelfAsSensorListener(sensorManager, pSensor, SensorManager.SENSOR_DELAY_FASTEST);
+			SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+			String rateString = prefs.getString(getResources().getString(R.string.wallpaper_settings_read_rate_key), "0");
+	
+			
+			int rate = Integer.parseInt(rateString);
+			Log.w(getClass().getSimpleName(), "sensor read rate=" + rateString + "/" + rate);
+			this.registerSelfAsSensorListener(sensorManager, pSensor, rate);
 			return true;
 		} else {
 			return false;
@@ -176,6 +185,8 @@ public class ActivityMain extends SimpleBaseGameActivity{
 	}
 
 	private void registerSelfAsSensorListener(final SensorManager pSensorManager, final int pType, final int pSensorDelay) {
+		Log.w(getClass().getSimpleName(), "registerSelfAsSensorListener");
+
 		final Sensor sensor = pSensorManager.getSensorList(pType).get(0);
 		
 		if (mLightConverter == null) {
@@ -187,11 +198,14 @@ public class ActivityMain extends SimpleBaseGameActivity{
 		
 		pSensorManager.registerListener(mLightConverter, sensor, pSensorDelay);
 
+		getEngine().unregisterUpdateHandler(mUpdateTimerHandler);
 		mUpdateTimerHandler = new UpdateTimerHandler(0.1f);
 		getEngine().registerUpdateHandler(mUpdateTimerHandler);
 	}
 
 	private void unregisterSelfAsSensorListener(final SensorManager pSensorManager, final int pType) {
+		Log.w(getClass().getSimpleName(), "unregisterSelfAsSensorListener");
+		
 		getEngine().unregisterUpdateHandler(mUpdateTimerHandler);
 		final Sensor sensor = pSensorManager.getSensorList(pType).get(0);
 		pSensorManager.unregisterListener(mLightConverter, sensor);
@@ -210,25 +224,6 @@ public class ActivityMain extends SimpleBaseGameActivity{
 	// ===========================================================
 	// Inner and Anonymous Classes
 	// ===========================================================
-	
-	class MainSceneLoadedListener implements SceneLoader.ISceneLoaderListener {
-		@Override
-		public void onSceneLoaded(Scene pScene) {
-			// HUD should be also loaded by now
-			getEngine().getCamera().setHUD(mHud);
-			runOnUiThread(new Runnable() {
-				@Override
-				public void run() {
-					Drawable icon = getResources().getDrawable(
-							R.drawable.ic_launcher);
-					AppRater.app_launched(
-							ActivityMain.this,
-							"I hope you love \"charging\" your phone by this app. Can you rate it, please?",
-							getPackageName(), icon, 3, 5);
-				}
-			});
-		}
-	}
 
 	class UpdateTimerHandler extends TimerHandler {
 		public UpdateTimerHandler(float pTimerSeconds) {
@@ -242,7 +237,6 @@ public class ActivityMain extends SimpleBaseGameActivity{
 			
 			if (mSceneMain.isLoaded()) {
 				mSceneMain.setLightLevel(mLightConverter, 0.1f);
-				updateMiliAmps(0.1f);
 				
 				final float avg = mLightConverter.getLightValue(5);
 				if (avg < 0) {
@@ -252,6 +246,7 @@ public class ActivityMain extends SimpleBaseGameActivity{
 					if (avg < Consts.CHARGE_THRESHOLD) {
 						mHud.setChargeStatus(eChargeStatus.SUSPEND);
 					} else {
+						updateMiliAmps(0.1f);
 						mHud.setChargeStatus(eChargeStatus.CHARGE);
 					}
 				}
@@ -259,5 +254,24 @@ public class ActivityMain extends SimpleBaseGameActivity{
 			}
 			pTimerHandler.reset();
 		}
+	}
+
+	@Override
+	public final void onCreateResources(final OnCreateResourcesCallback pOnCreateResourcesCallback) throws Exception {
+		this.onCreateResources();
+
+		pOnCreateResourcesCallback.onCreateResourcesFinished();
+	}
+
+	@Override
+	public final void onCreateScene(final OnCreateSceneCallback pOnCreateSceneCallback) throws Exception {
+		final Scene scene = this.onCreateScene();
+
+		pOnCreateSceneCallback.onCreateSceneFinished(scene);
+	}
+
+	@Override
+	public final void onPopulateScene(final Scene pScene, final OnPopulateSceneCallback pOnPopulateSceneCallback) throws Exception {
+		pOnPopulateSceneCallback.onPopulateSceneFinished();
 	}
 }

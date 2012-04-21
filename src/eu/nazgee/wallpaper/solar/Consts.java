@@ -1,4 +1,4 @@
-package eu.nazgee.prank.solar;
+package eu.nazgee.wallpaper.solar;
 
 import org.andengine.util.color.Color;
 
@@ -6,11 +6,14 @@ public class Consts {
 	public static final int CAMERA_WIDTH = 480;
 	public static final int CAMERA_HEIGHT = 720;
 	public static final int PANEL_SIZE_WIDTH = CAMERA_WIDTH;
-	public static final int PANEL_SIZE_HEIGHT = 600;
+	public static final int PANEL_SIZE_HEIGHT = 500;
 
 	public static final String PREFS_NAME = "myprefs";
 	public static final String PREFS_KEY_LIGHTMIN = "lightmin";
 	public static final String PREFS_KEY_LIGHTMAX = "lightmax";
+	
+	public static final String CFG_PREFS_NAME = "myprefscfg";
+	public static final String CFG_PREFS_I = "myi";
 
 	public static final String FONT = "ELEKTRA.ttf";
 	public static final int PANEL_COLS = 4;

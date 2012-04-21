@@ -1,4 +1,4 @@
-package eu.nazgee.prank.solar;
+package eu.nazgee.wallpaper.solar;
 
 import org.andengine.util.adt.queue.CircularQueue;
 
