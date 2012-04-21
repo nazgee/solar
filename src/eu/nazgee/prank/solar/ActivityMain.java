@@ -186,6 +186,7 @@ public class ActivityMain extends SimpleBaseGameActivity{
 		
 		pSensorManager.registerListener(mLightConverter, sensor, pSensorDelay);
 
+		getEngine().unregisterUpdateHandler(mUpdateTimerHandler);
 		mUpdateTimerHandler = new UpdateTimerHandler(0.1f);
 		getEngine().registerUpdateHandler(mUpdateTimerHandler);
 	}
