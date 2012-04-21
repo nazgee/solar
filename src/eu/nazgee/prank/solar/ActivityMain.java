@@ -91,7 +91,7 @@ public class ActivityMain extends SimpleBaseGameActivity{
 		SceneLoading loadingScene = new SceneLoading(Consts.CAMERA_WIDTH, Consts.CAMERA_HEIGHT, mFont, "BOOTING...", getVertexBufferObjectManager());
 
 		// Prepare loader, that will be used for all loading-related activities (besides splash-screen)
-		mLoader = new SceneLoader(loadingScene, getEngine(), this);
+		mLoader = new SceneLoader(loadingScene);
 		mLoader.setLoadingSceneHandling(eLoadingSceneHandling.SCENE_SET_ACTIVE).setLoadingSceneUnload(false);
 		
 		mSceneMain = new SceneMain(Consts.CAMERA_WIDTH, Consts.CAMERA_HEIGHT, getVertexBufferObjectManager());
