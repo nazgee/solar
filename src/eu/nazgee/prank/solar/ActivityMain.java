@@ -242,7 +242,6 @@ public class ActivityMain extends SimpleBaseGameActivity{
 			
 			if (mSceneMain.isLoaded()) {
 				mSceneMain.setLightLevel(mLightConverter, 0.1f);
-				updateMiliAmps(0.1f);
 				
 				final float avg = mLightConverter.getLightValue(5);
 				if (avg < 0) {
@@ -253,6 +252,7 @@ public class ActivityMain extends SimpleBaseGameActivity{
 						mHud.setChargeStatus(eChargeStatus.SUSPEND);
 					} else {
 						mHud.setChargeStatus(eChargeStatus.CHARGE);
+						updateMiliAmps(0.1f);
 					}
 				}
 				

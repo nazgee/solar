@@ -12,7 +12,7 @@ import eu.nazgee.game.utils.helpers.Positioner;
 public class Cell extends Rectangle {
 
 	private final Sprite mCellSprite;
-	private boolean mIsActive;
+	private boolean mIsActive = true;
 	private IEntityModifier mActiveMod;
 
 	public Cell(float pX, float pY, float pWidth, float pHeight,
