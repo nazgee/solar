@@ -96,13 +96,12 @@ public class ActivityMain extends SimpleBaseGameActivity{
 		
 		mSceneMain = new SceneMain(Consts.CAMERA_WIDTH, Consts.CAMERA_HEIGHT, getVertexBufferObjectManager());
 
-		// Start loading the first scene
-		mLoader.loadScene(mSceneMain, getEngine(), this, new MainSceneLoadedListener());
 
 		mHud = new HUD(mSceneMain.getW(), mSceneMain.getH(), getVertexBufferObjectManager());
 		mSceneMain.getLoader().install(mHud);
 		
-		// Show splash screen
+		// Start loading the first scene
+		mLoader.loadScene(mSceneMain, getEngine(), this, new MainSceneLoadedListener());
 		return loadingScene;
 	}
 
