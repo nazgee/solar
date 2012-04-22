@@ -1,6 +1,7 @@
 package eu.nazgee.wallpaper.solar;
 
 import org.andengine.engine.Engine;
+import org.andengine.entity.IEntity;
 import org.andengine.entity.modifier.AlphaModifier;
 import org.andengine.entity.modifier.ColorModifier;
 import org.andengine.entity.modifier.DelayModifier;
@@ -15,6 +16,8 @@ import org.andengine.opengl.texture.atlas.bitmap.BuildableBitmapTextureAtlas;
 import org.andengine.opengl.texture.region.ITiledTextureRegion;
 import org.andengine.opengl.vbo.VertexBufferObjectManager;
 import org.andengine.util.color.Color;
+import org.andengine.util.modifier.IModifier;
+import org.andengine.util.modifier.IModifier.IModifierListener;
 
 import android.content.Context;
 import eu.nazgee.game.utils.helpers.AtlasLoader;
@@ -28,7 +31,6 @@ public class SceneMain extends SceneLoadable implements LightFeedback {
 	MyResources mResources = new MyResources();
 	private Sprite mPanels[];
 	private Cell mCells[];
-	private IEntityModifier mTubeMods[];
 
 	private SceneMain(VertexBufferObjectManager pVertexBufferObjectManager) {
 		super(pVertexBufferObjectManager);
@@ -52,7 +54,6 @@ public class SceneMain extends SceneLoadable implements LightFeedback {
 		int rows = Consts.PANEL_ROWS;
 		mPanels = new Sprite[cols * rows];
 		mCells = new Cell[cols * rows];
-		mTubeMods = new IEntityModifier[cols * rows];
 		for (int i = 0; i < mPanels.length; i++) {
 			mPanels[i] = new Sprite(0, 0, Consts.CELL_SIZE_W, Consts.CELL_SIZE_H, mResources.TEXS_PANELS.getTextureRegion(i % mResources.TEXS_PANELS.getTileCount()), getVertexBufferObjectManager());
 			mCells[i] = new Cell(0, 0, Consts.CELL_SIZE_W*0.9f, Consts.CELL_SIZE_H*0.5f, mPanels[i], getVertexBufferObjectManager());
@@ -68,7 +69,7 @@ public class SceneMain extends SceneLoadable implements LightFeedback {
 		// attach panels
 		for (Cell cell : mCells) {
 			attachChild(cell);
-			this.registerTouchArea(cell);
+			this.registerTouchArea(cell.getCellSprite());
 		}
 
 		this.setOnAreaTouchListener(new IOnAreaTouchListener() {
@@ -78,7 +79,7 @@ public class SceneMain extends SceneLoadable implements LightFeedback {
 					ITouchArea pTouchArea, float pTouchAreaLocalX,
 					float pTouchAreaLocalY) {
 				for (Cell cell : mCells) {
-					if (pTouchArea == cell && cell != lastCell) {
+					if (pTouchArea == cell.getCellSprite() && cell != lastCell) {
 						lastCell = cell;
 						postRunnable(new ColorizeRunnable(cell));
 						return true;
@@ -107,10 +108,18 @@ public class SceneMain extends SceneLoadable implements LightFeedback {
 			final float time = 1;
 			Color col = mCell.getColor();
 			IEntityModifier mod = new SequenceEntityModifier(
-					new ColorModifier(time, col, Color.RED),
-					new ColorModifier(time, mCell.getColor(), col)
+					new ColorModifier(time, col, Color.RED)
 					);
 			mod.setAutoUnregisterWhenFinished(true);
+			mod.addModifierListener(new IModifierListener<IEntity>() {
+				@Override
+				public void onModifierStarted(IModifier<IEntity> pModifier, IEntity pItem) {
+				}
+				@Override
+				public void onModifierFinished(IModifier<IEntity> pModifier, IEntity pItem) {
+					mCell.forceRefresh();
+				}
+			});
 			mCell.registerEntityModifier(mod);
 		}
 	}
@@ -163,18 +172,11 @@ public class SceneMain extends SceneLoadable implements LightFeedback {
 			
 			for (int i = 0; i < mCells.length; i++) {
 				Cell cell = mCells[i];
-				cell.unregisterEntityModifier(mTubeMods[i]);
 	
 				if (((float)i)/(float)mCells.length < avg) {
-					if (!cell.equals(Color.WHITE)) {
-						mTubeMods[i] = new ColorModifier(0.8f, cell.getColor(), Color.WHITE);
-						cell.registerEntityModifier(mTubeMods[i]);
-					}
+					cell.setIsActive(true);
 				} else {
-					if (!cell.equals(Color.BLACK)) {
-						mTubeMods[i] = new ColorModifier(0.8f, cell.getColor(), Color.BLACK);
-						cell.registerEntityModifier(mTubeMods[i]);
-					}
+					cell.setIsActive(false);
 				}
 			}
 		}

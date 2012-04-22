@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">Solar Fusion 2000 Charger wallpaper</string>
     <string name="title_sensor_read_rate">Light sensor sampling</string>
     <string name="summary_sensor_read_rate">Higher sampling rate uses more energy, but gives faster reaction to ambient light changes</string>
     <string name="dialog_title_sensor_read_rate_preference">Select sampling rate of light sensor</string>
