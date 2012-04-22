@@ -1,11 +1,15 @@
 package eu.nazgee.prank.solar;
 
+import java.util.Random;
+
 import org.andengine.engine.Engine;
 import org.andengine.entity.IEntity;
 import org.andengine.entity.modifier.AlphaModifier;
 import org.andengine.entity.modifier.ColorModifier;
 import org.andengine.entity.modifier.DelayModifier;
 import org.andengine.entity.modifier.IEntityModifier;
+import org.andengine.entity.modifier.ParallelEntityModifier;
+import org.andengine.entity.modifier.ScaleModifier;
 import org.andengine.entity.modifier.SequenceEntityModifier;
 import org.andengine.entity.scene.IOnAreaTouchListener;
 import org.andengine.entity.scene.ITouchArea;
@@ -54,8 +58,9 @@ public class SceneMain extends SceneLoadable implements LightFeedback {
 		int rows = Consts.PANEL_ROWS;
 		mPanels = new Sprite[cols * rows];
 		mCells = new Cell[cols * rows];
+		Random rand = new Random();
 		for (int i = 0; i < mPanels.length; i++) {
-			mPanels[i] = new Sprite(0, 0, Consts.CELL_SIZE_W, Consts.CELL_SIZE_H, mResources.TEXS_PANELS.getTextureRegion(i % mResources.TEXS_PANELS.getTileCount()), getVertexBufferObjectManager());
+			mPanels[i] = new Sprite(0, 0, Consts.CELL_SIZE_W, Consts.CELL_SIZE_H, mResources.TEXS_PANELS.getTextureRegion(rand.nextInt(mResources.TEXS_PANELS.getTileCount())), getVertexBufferObjectManager());
 			mCells[i] = new Cell(0, 0, Consts.CELL_SIZE_W*0.9f, Consts.CELL_SIZE_H*0.5f, mPanels[i], getVertexBufferObjectManager());
 		}
 
@@ -187,13 +192,17 @@ public class SceneMain extends SceneLoadable implements LightFeedback {
 				
 				final float timeOffset = (float)i/(float)mCells.length * mTimePassedLong/6 + 0.1f;
 				final float timeShiverFactor = 0.2f;
-				IEntityModifier mod = new SequenceEntityModifier(
-						new DelayModifier(timeOffset),
-//						new ScaleModifier(mTimePassedLong/3 * timeShiverFactor, 1f, 1.1f, 1, 1),
-//						new ScaleModifier(mTimePassedLong/3 * timeShiverFactor, 1.1f, 1f, 1, 1)
-						new AlphaModifier(mTimePassedLong/3 * timeShiverFactor, 1, 0.75f),
-						new AlphaModifier(mTimePassedLong/3 * timeShiverFactor, 0.75f, 1)
-						);
+				IEntityModifier mod = new ParallelEntityModifier(
+						new SequenceEntityModifier(
+								new DelayModifier(timeOffset),
+								new ScaleModifier(mTimePassedLong/3 * timeShiverFactor/2, 1f, 1.1f, 1, 1),
+								new ScaleModifier(mTimePassedLong/3 * timeShiverFactor/2, 1.1f, 1f, 1, 1)
+							),
+						new SequenceEntityModifier(
+							new DelayModifier(timeOffset),
+							new AlphaModifier(mTimePassedLong/3 * timeShiverFactor, 1, 0.75f),
+							new AlphaModifier(mTimePassedLong/3 * timeShiverFactor, 0.75f, 1)
+						));
 				mod.setAutoUnregisterWhenFinished(true);
 				cell.getCellSprite().registerEntityModifier(mod);
 			}
