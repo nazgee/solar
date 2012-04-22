@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Solar Fusion 2000 Charger wallpaper</string>
-    <string name="title_sensor_read_rate">Light sensor sampling</string>
-    <string name="summary_sensor_read_rate">Higher sampling rate uses more energy, but gives faster reaction to ambient light changes</string>
+    <string name="title_sensor_read_rate">Sensor sampling rate</string>
+    <string name="summary_sensor_read_rate">Lower sampling rate preserves energy, while higher sampling rate uses more energy, but gives faster reaction to ambient light changes</string>
     <string name="dialog_title_sensor_read_rate_preference">Select sampling rate of light sensor</string>
     <string name="wallpaper_settings">Configure solar charger wallpaper</string>
-    <string name="wallpaper_description">Solar charger mock-up wallpaper</string>
+    <string name="wallpaper_description">Shows a mock-up of a solar charger panel</string>
     <string name="inline_preferences">Basic settings</string>
     <string name="wallpaper_settings_read_rate_key">wallpaper_settings_read_rate_key</string>
     <string name="wallpaper_name">Solar Fusion 2000 wallpaper</string>

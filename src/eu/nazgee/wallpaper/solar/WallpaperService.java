@@ -76,7 +76,7 @@ public class WallpaperService extends BaseLiveWallpaperService{
 	@Override
 	public org.andengine.engine.Engine onCreateEngine(
 			EngineOptions pEngineOptions) {
-		return new LimitedFPSEngine(pEngineOptions, 20);
+		return new LimitedFPSEngine(pEngineOptions, 15);
 	}
 
 
@@ -134,7 +134,7 @@ public class WallpaperService extends BaseLiveWallpaperService{
 		final SensorManager sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
 		if(this.isSensorSupported(sensorManager, pSensor)) {
 			SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-			String rateString = prefs.getString(getResources().getString(R.string.wallpaper_settings_read_rate_key), "0");
+			String rateString = prefs.getString(getResources().getString(R.string.wallpaper_settings_read_rate_key), "2");
 	
 			
 			int rate = Integer.parseInt(rateString);
