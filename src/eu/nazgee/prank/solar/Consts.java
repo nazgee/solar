@@ -13,8 +13,8 @@ public class Consts {
 	public static final String PREFS_KEY_LIGHTMAX = "lightmax";
 
 	public static final String FONT = "ELEKTRA.ttf";
-	public static final int PANEL_COLS = 4;
-	public static final int PANEL_ROWS = 12;
+	public static final int PANEL_COLS = 10;
+	public static final int PANEL_ROWS = 20;
 	public static final int CELL_SIZE_W = PANEL_SIZE_WIDTH/PANEL_COLS;
 	public static final int CELL_SIZE_H = PANEL_SIZE_HEIGHT/PANEL_ROWS;
 	

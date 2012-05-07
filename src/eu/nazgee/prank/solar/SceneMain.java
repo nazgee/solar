@@ -14,6 +14,7 @@ import org.andengine.entity.modifier.SequenceEntityModifier;
 import org.andengine.entity.scene.IOnAreaTouchListener;
 import org.andengine.entity.scene.ITouchArea;
 import org.andengine.entity.sprite.Sprite;
+import org.andengine.entity.sprite.batch.SpriteGroup;
 import org.andengine.extension.svg.opengl.texture.atlas.bitmap.SVGBitmapTextureAtlasTextureRegionFactory;
 import org.andengine.input.touch.TouchEvent;
 import org.andengine.opengl.texture.atlas.bitmap.BuildableBitmapTextureAtlas;
@@ -58,10 +59,13 @@ public class SceneMain extends SceneLoadable implements LightFeedback {
 		int rows = Consts.PANEL_ROWS;
 		mPanels = new Sprite[cols * rows];
 		mCells = new Cell[cols * rows];
+
+		SpriteGroup group = new SpriteGroup(mResources.TEXS_PANELS.getTexture(), cols * rows, getVertexBufferObjectManager());
 		Random rand = new Random();
 		for (int i = 0; i < mPanels.length; i++) {
-			mPanels[i] = new Sprite(0, 0, Consts.CELL_SIZE_W, Consts.CELL_SIZE_H, mResources.TEXS_PANELS.getTextureRegion(rand.nextInt(mResources.TEXS_PANELS.getTileCount())), getVertexBufferObjectManager());
-			mCells[i] = new Cell(0, 0, Consts.CELL_SIZE_W*0.9f, Consts.CELL_SIZE_H*0.5f, mPanels[i], getVertexBufferObjectManager());
+//			mPanels[i] = new Sprite(0, 0, Consts.CELL_SIZE_W, Consts.CELL_SIZE_H, mResources.TEXS_PANELS.getTextureRegion(rand.nextInt(mResources.TEXS_PANELS.getTileCount())), getVertexBufferObjectManager());
+			mCells[i] = new Cell(0, 0, Consts.CELL_SIZE_W, Consts.CELL_SIZE_H, mResources.TEXS_PANELS.getTextureRegion(rand.nextInt(mResources.TEXS_PANELS.getTileCount())), Consts.CELL_SIZE_W*0.9f, Consts.CELL_SIZE_H*0.5f, mPanels[i], getVertexBufferObjectManager());
+			group.attachChild(mCells[i]);
 		}
 
 		final float offsetH = Consts.CAMERA_HEIGHT - Consts.PANEL_SIZE_HEIGHT;
@@ -73,9 +77,10 @@ public class SceneMain extends SceneLoadable implements LightFeedback {
 		
 		// attach panels
 		for (Cell cell : mCells) {
-			attachChild(cell);
-			this.registerTouchArea(cell.getCellSprite());
+//			attachChild(cell);
+			this.registerTouchArea(cell);
 		}
+		attachChild(group);
 
 		this.setOnAreaTouchListener(new IOnAreaTouchListener() {
 			Cell lastCell;
@@ -84,7 +89,7 @@ public class SceneMain extends SceneLoadable implements LightFeedback {
 					ITouchArea pTouchArea, float pTouchAreaLocalX,
 					float pTouchAreaLocalY) {
 				for (Cell cell : mCells) {
-					if (pTouchArea == cell.getCellSprite() && cell != lastCell) {
+					if (pTouchArea == cell && cell != lastCell) {
 						lastCell = cell;
 						postRunnable(new ColorizeRunnable(cell));
 						return true;
@@ -204,7 +209,7 @@ public class SceneMain extends SceneLoadable implements LightFeedback {
 							new AlphaModifier(mTimePassedLong/3 * timeShiverFactor, 0.75f, 1)
 						));
 				mod.setAutoUnregisterWhenFinished(true);
-				cell.getCellSprite().registerEntityModifier(mod);
+				cell.registerEntityModifier(mod);
 			}
 			mTimePassedLong = 0;
 		}
