@@ -46,15 +46,15 @@ public class HUD extends HUDLoadable {
 		final float alpha = 0.8f;
 
 		float offsetY = 0;
-		mTextStatus = new Text(0, offsetY, mResources.FONT, "CALIBRATING...", 50, new TextOptions(AutoWrap.NONE, getW(), Text.LEADING_DEFAULT, HorizontalAlign.CENTER), getVertexBufferObjectManager());
+		mTextStatus = new Text(0, offsetY, mResources.FONT, "CALIBRATING...", 50, new TextOptions(AutoWrap.NONE, getW(), HorizontalAlign.CENTER, Text.LEADING_DEFAULT), getVertexBufferObjectManager());
 		mTextStatus.setAlpha(alpha);
 		attachChild(mTextStatus);
 
-		mTextPercent = new Text(0, offsetY + mTextStatus.getHeight(), mResources.FONT, "100%", 50, new TextOptions(AutoWrap.NONE, getW(), Text.LEADING_DEFAULT, HorizontalAlign.CENTER), getVertexBufferObjectManager());
+		mTextPercent = new Text(0, offsetY + mTextStatus.getHeight(), mResources.FONT, "100%", 50, new TextOptions(AutoWrap.NONE, getW(), HorizontalAlign.CENTER, Text.LEADING_DEFAULT), getVertexBufferObjectManager());
 		mTextPercent.setAlpha(alpha);
 		attachChild(mTextPercent);
 
-		mTextBar = new Text(mTextPercent.getWidth(), offsetY + mTextStatus.getHeight(), mResources.FONT, "", 50, new TextOptions(AutoWrap.NONE, getW() - mTextPercent.getWidth(), Text.LEADING_DEFAULT, HorizontalAlign.LEFT), getVertexBufferObjectManager());
+		mTextBar = new Text(mTextPercent.getWidth(), offsetY + mTextStatus.getHeight(), mResources.FONT, "", 50, new TextOptions(AutoWrap.NONE, getW() - mTextPercent.getWidth(), HorizontalAlign.LEFT, Text.LEADING_DEFAULT), getVertexBufferObjectManager());
 		mTextBar.setAlpha(alpha);
 		attachChild(mTextBar);
 	}
